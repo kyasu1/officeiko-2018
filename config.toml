@@ -1,6 +1,7 @@
 baseURL = "https://www.officeiko.co.jp/"
 languageCode = "ja-JP"
 title = "質イコー - 埼玉県越谷市の質屋 高価買取 ブランド品 金プラチナ ロレックス"
+theme = "officeiko-theme"
 [menu]
   [[menu.main]]
     name = "お知らせ"
