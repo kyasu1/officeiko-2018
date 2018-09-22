@@ -1,0 +1,122 @@
+{{ define "header"}}
+<div class=" flex flex-col md:flex-row text-green-darkest items-center border-b border-green-lighter mb-3">
+    <h2 class="w-full md:w-1/2 bg-green-lighter py-2 px-2">
+        <span class="border-l-8 border-white px-2">
+            {{ .jp }} - {{ .en }}
+        </span>
+    </h2>
+    <p class="w-full md:w-1/2 text-right px-1">
+        {{ if isset . "a" }}
+        <a href="{{ .a }}" class="appearance-none">
+            Show All
+        </a>
+        {{ end }}
+    </p>
+</div>
+{{ end }}
+
+{{ define "main" }}
+
+{{ template "header" (dict "jp" "お知らせ" "en" "News" "a" "/news") }}
+
+<div class="mb-3 px-2 md:px-0">
+    <ul class="list-reset">
+        {{ range where .Pages "Section" "news" }}
+        {{ partial "li-news" . }}
+        {{ end }}
+    </ul>
+</div>
+
+{{ template "header" (dict "jp" "新着商品" "en" "New Arrivals" "a" "/item") }}
+
+<div class="mb-3">
+    <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
+        {{ range where .Pages "Section" "item"}}
+        {{ partial "li-item" . }}
+        {{ end }}
+    </ul>
+</div>
+
+{{ template "header" (dict "jp" "ブログ" "en" "Blog" "a" "/post") }}
+
+<div>
+    <ul class="list-reset">
+        {{ range where .Pages "Section" "blog" }}
+        {{ partial "li-blog" . }}
+        {{ end }}
+    </ul>
+</div>
+
+{{ template "header" (dict "jp" "アクセス" "en" "Access") }}
+
+<div id="access">
+    <div class="leading-loose text-lg px-2 md:px-12">
+        <h4>お車でお越しの場合</h4>
+        <p>国道4号バイパス沿い 駐車場完備</p>
+        <p>東京外環自動車道 草加ICより約2Km北上</p>
+        <h4>電車でお越しの場合</h4>
+        <p>東武スカイツリーライン蒲生駅下車徒歩15分</p>
+        <p>東武スカイツリーライン新越谷駅下車徒歩20分</p>
+        <p>JR武蔵野線南越谷駅下車徒歩25分</p>
+        <p>※新越谷-蒲生駅間を走る グローバル交通 のバスにて、若草ふれあい公園前停留所から徒歩1分です。</p>
+    </div>
+    <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCE_50Di0FMOTtZYL19KuwCFq-SD8OF2bU&q=質イコー"
+        allowfullscreen>
+    </iframe>
+    <div class="flex items-center justify-center my-3">
+        <a href="https://www.google.co.jp/maps/place/%E8%B3%AA%E3%82%A4%E3%82%B3%E3%83%BC/@35.8664325,139.7775507,17z/data=!4m12!1m6!3m5!1s0x60189684c5a656c5:0xce45f80ac0cce0dc!2z6LOq44Kk44Kz44O8!8m2!3d35.8664325!4d139.7797394!3m4!1s0x60189684c5a656c5:0xce45f80ac0cce0dc!8m2!3d35.8664325!4d139.7797394?hl=en&authuser=0"
+            class="no-underline block bg-green hover:bg-green-light" target="_blank">
+            <p class="p-4 text-white font-bold">大きな地図で開く</p>
+        </a>
+    </div>
+</div>
+
+{{ template "header" (dict "jp" "会社概要" "en" "About") }}
+
+{{ $left := "w-32 mr-2" }}
+{{ $right := ""}}
+<div id="about" class="px-2 md:px-12 leading-loose text-lg">
+    <ul class=" list-reset">
+        <li class="flex">
+            <p class="{{ $left }}">社名</p>
+            <p class="{{ $right }}">株式会社オフィスイコー</p>
+        </li>
+        <li class="flex">
+            <p class="{{ $left }}">店名</p>
+            <p class="{{ $right }}">質イコー</p>
+        </li>
+        <li class="flex">
+            <p class="{{ $left }}">英文社名</p>
+            <p class="{{ $right }}">Office IKO Co.</p>
+        </li>
+        <li class="flex">
+            <p class="{{ $left }}">郵便番号</p>
+            <p class="{{ $right }}">343-0851</p>
+        </li>
+        <li class="flex">
+            <p class="{{ $left }}">住所</p>
+            <p class="{{ $right }}">埼玉県越谷市七左町1-299-1</p>
+        </li>
+        <li class="flex">
+            <p class="{{ $left }}">電話番号</p>
+            <p class="{{ $right }}">048-987-1020</p>
+        </li>
+        <li class="flex">
+            <p class="{{ $left }}">営業時間</p>
+            <p class="{{ $right }}">10:00 am - 7:00 pm</p>
+        </li>
+        <li class="flex">
+            <p class="{{ $left }}">定休日</p>
+            <p class="{{ $right }}">毎週水曜日・第1と3火曜日</p>
+        </li>
+    </ul>
+    <hr class="border border-solid border-grey">
+    <p>埼玉県質屋組合連合会加盟店</p>
+    <p>全国質屋組合連合会加盟店</p>
+    <p><strong>質屋許可</strong></p>
+    <p class="ml-4">埼玉県公安委員会 第431270002100号</p>
+    <p><strong>古物商許可</strong></p>
+    <p class="ml-4">埼玉県公安委員会 第43127A113900号</p>
+    <hr class="border border-solid border-grey">
+</div>
+{{ end }}

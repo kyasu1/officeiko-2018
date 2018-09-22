@@ -1,0 +1,49 @@
+{{ define "gold" }}
+<li class="flex mb-2">
+    <p class="w-2/5 py-2 text-center border border-solid border-yellow-dark bg-yellow">
+        {{ .name }}
+    </p>
+    <p class="w-3/5 py-2 text-center border border-yellow-dark bg-white border-l-0">
+        {{ .price }}
+    </p>
+</li>
+{{ end }}
+{{ define "pt" }}
+<li class="flex mb-2">
+    <p class="w-2/5 py-2 text-center border border-solid border-grey bg-grey-lighter">
+        {{ .name }}
+    </p>
+    <p class="w-3/5 py-2 text-center border border-grey bg-white border-l-0">
+        {{ .price }}
+    </p>
+</li>
+{{ end }}
+
+<div class="h-full md:mr-2 pb-2">
+    <div class="bg-white h-full border-0 md:border border-orange border-solid">
+        <div class="p-2 border-b border-orange border-solid">
+            <h4 class="text-center text-black pb-2">本日の地金買取相場</h4>
+            <h5 class="text-center text-black pb-2">2018年9月19日</h5>
+            <ul class="list-reset">
+                {{ block "gold" (dict "name" "18金" "price" "3,340円")}}{{ end }}
+                {{ block "gold" (dict "name" "純金" "price" "4,440円")}}{{ end }}
+                {{ block "pt" (dict "name" "Pt900" "price" "2,500円")}}{{ end }}
+                {{ block "pt" (dict "name" "Pt850" "price" "2,300円")}}{{ end }}
+            </ul>
+             <p class="text-center leading-loose">
+                <a href="/metals/" class="text-white no-underline">
+                    <span class="inline-block w-48 h-8 text-center border-2 border-blue-dark rounded-lg bg-blue hover:bg-blue-light">
+                        全ての価格表を見る
+                    </span>
+                </a>
+            </p>
+        </div>
+        <div class="p-2">
+                <h4 class="text-center">営業カレンダー</h4>
+                <div id="calendar"></div>
+                <p class="text-center py-1"><span class="text-white bg-green inline-box p-1 border border-green">緑</span>の部分が定休日です</p>
+                <p class="text-center py-1 text-sm font-semibold">営業時間 10:00am - 7:00pm</p>
+        
+        </div>
+    </div>
+</div>

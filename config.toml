@@ -1,0 +1,22 @@
+baseURL = "https://www.officeiko.co.jp/"
+languageCode = "ja-JP"
+title = "質イコー - 埼玉県越谷市の質屋 高価買取 ブランド品 金プラチナ ロレックス"
+[menu]
+  [[menu.main]]
+    name = "お知らせ"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/news/"
+    weight = -100
+  [[menu.main]]
+    name = "質融資"
+    url = "/pawn/"
+  [[menu.main]]  
+    name = "ご売却"
+    url = "/selling/"
+  [[menu.main]]  
+    name = "地金買取"
+    url = "/metals/"
+
+[params]
+  dateFormat = "2006年01月02日"

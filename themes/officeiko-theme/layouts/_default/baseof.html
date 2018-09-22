@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+{{- partial "head.html" . -}}
+
+<body>
+    {{- partial "header.html" . -}}
+    <div class="container w-full max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row">
+        <aside class="md:w-64">
+            {{- partial "aside" . }}
+        </aside>
+        <main class="flex-1">
+            {{- block "main" . }}{{- end }}
+        </main>
+    </div>
+    {{- partial "footer.html" . -}}
+</body>
+
+</html>
