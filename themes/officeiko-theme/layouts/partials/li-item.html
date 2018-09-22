@@ -1,5 +1,5 @@
 <li class="flex flex-col md:w-p32 border-black hover:border hover:shadow-lg leading-normal mb-5">
-    {{ $link := .Permalink }}
+    {{ $link := .URL }}
     {{ range first 1 .Params.images }}
     <a href="{{ $link }}">
         <img src="{{ . }}" alt="">
