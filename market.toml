@@ -1,0 +1,8 @@
+
+[params]
+  [params.market]
+    date = "2018-03-03"
+    gd = 5000
+    gd_ratio = 30
+    pt = 3000
+    pt_ratio = 100
