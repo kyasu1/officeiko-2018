@@ -17,7 +17,69 @@ theme = "officeiko-theme"
     url = "/selling/"
   [[menu.main]]  
     name = "地金買取"
-    url = "/metals/"
+    url = "/stocks/"
 
 [params]
+  btnClass = "leading-loose block border-4 border-solid border-black text-black font-black no-underline text-center my-3 hover:bg-grey"
   dateFormat = "2006年01月02日"
+  [[params.gd]]
+    name = "K24"
+    ratio = 24
+    sell_diff = 350
+    pawn_diff = 800
+  [[params.gd]]
+    name = "K22"
+    ratio = 22
+    sell_diff = 250    
+    pawn_diff = 700
+  [[params.gd]]
+    name = "K21.6"
+    ratio = 21.6
+    sell_diff = 250
+    pawn_diff = 700
+  [[params.gd]]
+    name = "K20"
+    ratio = 20
+    sell_diff = 250
+    pawn_diff = 700
+  [[params.gd]]
+    name = "K18"
+    ratio = 18
+    sell_diff = 100
+    pawn_diff = 450
+  [[params.gd]]
+    name = "K14"
+    ratio = 14
+    sell_diff = 350
+    pawn_diff = 600
+  [[params.gd]]
+    name = "K10"
+    ratio = 10
+    sell_diff = 500
+    pawn_diff = 700
+  [[params.gd]]
+    name = "K9"
+    ratio = 9
+    sell_diff = 500
+    pawn_diff = 700
+
+  [[params.pt]]
+    name = "Pt1000"
+    ratio = 1000
+    sell_diff = 250
+    pawn_diff = 650
+  [[params.pt]]
+    name = "Pt950"
+    ratio = 950
+    sell_diff = 250
+    pawn_diff = 650
+  [[params.pt]]
+    name = "Pt900"
+    ratio = 900
+    sell_diff = 250
+    pawn_diff = 650
+  [[params.pt]]
+    name = "Pt850"
+    ratio = 850
+    sell_diff = 250        
+    pawn_diff = 650
