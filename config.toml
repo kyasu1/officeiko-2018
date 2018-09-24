@@ -2,6 +2,7 @@ baseURL = "https://www.officeiko.co.jp/"
 languageCode = "ja-JP"
 title = "質イコー - 埼玉県越谷市の質屋 高価買取 ブランド品 金プラチナ ロレックス"
 theme = "officeiko-theme"
+googleAnalytics = "UA-77785756-3"
 [menu]
   [[menu.main]]
     name = "お知らせ"
@@ -18,7 +19,6 @@ theme = "officeiko-theme"
   [[menu.main]]  
     name = "地金買取"
     url = "/stocks/"
-
 [params]
   btnClass = "leading-loose inline-block w-full md:max-w-xs border-4 border-solid border-black text-black font-black no-underline text-center my-3 hover:bg-grey"
   dateFormat = "2006年01月02日"
