@@ -16,7 +16,7 @@
                 <p class="text-right py-1">{{ partial "taxed-price" .Params.price }}円(税込)</p>
             </li>
             <li class="text-center">
-                <a class="{{ $btnClass }}">
+                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}">
                     お問い合わせ
                 </a>
             </li>
