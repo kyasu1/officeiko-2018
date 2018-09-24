@@ -20,7 +20,7 @@ theme = "officeiko-theme"
     url = "/stocks/"
 
 [params]
-  btnClass = "leading-loose block border-4 border-solid border-black text-black font-black no-underline text-center my-3 hover:bg-grey"
+  btnClass = "leading-loose inline-block w-full md:max-w-xs border-4 border-solid border-black text-black font-black no-underline text-center my-3 hover:bg-grey"
   dateFormat = "2006年01月02日"
   [[params.gd]]
     name = "K24"

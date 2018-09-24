@@ -1,15 +1,14 @@
-{{ $price := div .market 1000 | mul .pt.ratio | sub .pt.sell_diff | mul -0.1 | math.Ceil | mul 10}}
 <div class="flex">
     <p class="w-2/5 py-2 text-center border border-solid border-grey bg-grey-lighter">
         {{ .pt.name }}
     </p>
     <p class="w-3/5 py-2 text-center border border-grey bg-white border-l-0">
-        {{ $price := div .market 1000 | mul .pt.ratio | sub .pt.sell_diff | mul -0.1 | math.Ceil | mul 10}}
+        {{ $price := div .market 1000.0 | mul .pt.ratio | sub .pt.sell_diff | mul -0.1 | math.Ceil | mul 10}}
         {{ lang.NumFmt 0 $price }}円
     </p>
     {{ if .pawn }}
     <p class="w-3/5 py-2 text-center border border-grey bg-white border-l-0">
-        {{ $price := div .market 1000 | mul .pt.ratio | sub .pt.pawn_diff | mul -0.1 | math.Ceil | mul 10}}
+        {{ $price := div .market 1000.0 | mul .pt.ratio | sub .pt.pawn_diff | mul -0.1 | math.Ceil | mul 10}}
         {{ lang.NumFmt 0 $price }}円
     </p>
     {{ end }}

@@ -1,4 +1,10 @@
 {{ define "main" }}
-    <h1>This is the single template</h1>
-    {{ .Content }}
+<div class="content">
+<h3>{{ .Title }}</h3>    
+<p class="px-2 md:px-0 text-grey-darker py-1 border-t border-b border-solid border-grey">
+<span><i class="far fa-clock"></i>{{ .Date.Format (.Site.Params.dateFormat) }}</span>
+<i class="far fa-user"></i>{{ $.Param "author" }}
+</p>
+{{ .Content }}
+</div>
 {{ end }}
