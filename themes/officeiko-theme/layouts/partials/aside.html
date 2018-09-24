@@ -1,8 +1,8 @@
-<div class="h-full md:mr-2 pb-2">
+<div class="h-full md:mr-2">
     <div class="bg-white h-full border-0 md:border border-orange border-solid">
         <div class="p-2 border-b border-orange border-solid">
             <h4 class="text-center text-black pb-2">本日の地金買取相場</h4>
-            <h5 class="text-center text-black pb-2">{{ .Site.Params.market.date }}</h5>
+            <h5 class="text-center text-black pb-2">{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}</h5>
             {{ $gd := .Site.Params.market.gd }}
             <div class="mb-2">
                 {{ range where .Site.Params.gd "name" "K24" }}
@@ -26,7 +26,7 @@
                 {{ end }}
             </div>
             <p class="text-center">
-                <a href="/metals/" class="{{ .Site.Params.btnClass }} ">
+                <a href="/stocks/" class="{{ .Site.Params.btnClass }} ">
                     全ての価格表をみる
                 </a>
             </p>

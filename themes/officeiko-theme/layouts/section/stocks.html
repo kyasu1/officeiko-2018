@@ -1,20 +1,30 @@
 {{ define "main" }}
 <div class="px-2 md:px-12">
-
-    <div class="text-right">
-        公表　{{ .Site.Params.market.date }}
+    <h4 class="text-center font-black border-solid border-2 text-2xl px-2 py-2">
+        地金の買取と質融資金額
+    </h4>
+    <div class="text-right py-2">
+        {{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}
     </div>
 
     <div>
-        <p>金 {{ lang.NumFmt 0 .Site.Params.market.gd }}円（前日比 {{ .Site.Params.market.gd_ratio }}円)</p>
-        <p>プラチナ {{ lang.NumFmt 0 .Site.Params.market.pt }}円（前日比 {{ .Site.Params.market.pt_ratio }}円)</p>
+        <p class="text-center text-xl py-2">公表価格</p>
+        <div class="flex justify-center py-2">
+            <div class="w-24">金</div>
+            <div class="w-24">{{ lang.NumFmt 0 .Site.Params.market.gd }}円</div>
+            <div class="w-48">（前日比 {{ .Site.Params.market.gd_ratio }}円)</div>
+        </div>
+        <div class="flex justify-center py-2">
+            <div class="w-24">プラチナ</div>
+            <div class="w-24">{{ lang.NumFmt 0 .Site.Params.market.pt }}円</div>
+            <div class="w-48">（前日比 {{ .Site.Params.market.pt_ratio }}円)</div>
+        </div>
+        <p class="py-2 text-right">公表価格は市場営業日の9:30に発表される基準となる価格、当社の買取価格ではございません。</p>
     </div>
-    <h4 class="text-center font-black text-xl px-2 py-2">
-        当社の買取および質融資の金額
-    </h4>
-    <p class="text-right py-2">(1gあたり・税込み)</p>
-    <div class="my-8">
-        <div class="text-center border border-solid border-yellow-dark bg-yellow py-2">
+
+    <div class="my-8 md:px-8 lg:px-12">
+        <p class="text-right py-2">(1gあたり・税込み)</p>
+        <div class="text-center border border-solid border-yellow-dark bg-yellow py-2 text-2xl font-bold">
             金製品
         </div>
         <div class="flex">
@@ -36,8 +46,8 @@
         {{ end }}
     </div>
 
-    <div class="my-8">
-        <div class="text-center border border-solid border-grey bg-grey-lighter py-2">
+    <div class="my-8 md:px-8 lg:px-12">
+        <div class="text-center border border-solid border-grey bg-grey-lighter py-2 text-2xl font-bold">
             プラチナ製品
         </div>
         <div class="flex">
@@ -59,7 +69,6 @@
         {{ end }}
     </div>
 
-    {{ .Content }}
 </div>
 
 {{ end }}

@@ -1,13 +1,8 @@
 {{ define "main" }}
 
-<div class="text-center">
-    {{ if .Params.image }}
-    <img src="{{ .Params.image }}" class="md:w-5/6 ">
-    {{ else }}
-    <img src="/images/thumb-news.png" class="md:w-5/6">
-    {{ end }}
-
-</div>
+<h1 class="px-2 md:px-12 py-4 bg-blue text-white">
+    イコーからのお知らせ
+</h1>
 <div class="px-2 md:px-12">
     <h1 class="pt-5 pb-2 text-black border-b-8 border-solid border-grey">{{ .Title }}</h1>
     <p class="text-right text-grey-darker py-3">{{ .Date.Format (.Site.Params.dateFormat) }}</p>
@@ -17,5 +12,14 @@
         {{ .Content }}
     </div>
     <p class="text-right text-black py-4">株式会社オフィスイコー</p>
+</div>
+
+<div class="text-center">
+    {{ if .Params.image }}
+    <img src="{{ .Params.image }}" class="md:w-5/6 ">
+    {{ else }}
+    <img src="/images/thumb-news.png" class="md:w-5/6">
+    {{ end }}
+
 </div>
 {{ end }}

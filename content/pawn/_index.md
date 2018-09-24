@@ -17,9 +17,9 @@ layout: "pawn"
 
 運転免許証・健康保険証・住基カード・パスポート・在留カードなど。
 
-**For customers who are first time, we need one of your ID shown below.**
+**For customers who are first timer, we need to ask you one of your ID shown below.**
 
-Driver License Card, Insurance Card, Juki Card or Residence Card.
+Driver's license card, Insurance card, Juki card or Residence card.
 
 <hr>
 

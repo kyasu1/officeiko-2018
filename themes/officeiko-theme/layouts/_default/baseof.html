@@ -5,10 +5,10 @@
 <body>
     {{- partial "header.html" . -}}
     <div class="container w-full max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row">
-        <aside class="md:w-64">
+        <aside class="md:w-64 mb-4">
             {{- partial "aside" . }}
         </aside>
-        <main class="flex-1">
+        <main class="flex-1 shadow mb-4">
             {{- block "main" . }}{{- end }}
         </main>
     </div>
