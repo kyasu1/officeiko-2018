@@ -7,8 +7,8 @@
                 <p class="font-black text-black">リソース</p>
                 <hr class="bg-white h-px">
                 <ul class="list-reset leading-normal">
-                    <li>商品一覧</li>
-                    <li>ブログ</li>
+                    <li><a href="/item/" class="{{ $linkClass }}">商品一覧</a></li>
+                    <li><a href="/post/" class="{{ $linkClass }}">ブログ</a></li>
                     <li>取扱品目</li>
                 </ul>
             </li>
@@ -34,6 +34,11 @@
                 <hr class="bg-white h-px">
                 <ul class="list-reset leading-normal">
                     <li><a href="/news" class="text-white no-underline">お知らせ</a></li>
+                    <li>
+                        <a href="https://www.instagram.com/pawnshopiko/" class="{{ $linkClass }}" title="Instagram"><i class="fab fa-instagram text-3xl"></i></a>
+                        <a href="https://www.facebook.com/pawnshopiko/" class="{{ $linkClass }}" title="Facebook"><i class="fab fa-facebook-square text-3xl"></i></a>
+                        <a href="https://twitter.com/pawnshopiko" class="{{ $linkClass }}" title="Twitter"><i class="fab fa-twitter-square text-3xl"></i></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -51,7 +56,7 @@
 <script type="text/javascript" src="/js/bundle.js"></script>
 <script type="text/javascript" src="/js/calendar.js"></script>
 <script>
-    var fakeUTC = Date.now() - (-9 * 60 ) * 60000;
+    var fakeUTC = Date.now() - (-9 * 60) * 60000;
     var app = Elm.Main.init({
         node: document.getElementById('calendar'),
         flags: {
@@ -69,10 +74,10 @@
     }    
 </script>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.1&appId=361836030508004&autoLogAppEvents=1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.1&appId=361836030508004&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>

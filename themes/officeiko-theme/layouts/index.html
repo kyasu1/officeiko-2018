@@ -30,11 +30,7 @@
 {{ template "header" (dict "jp" "新着商品" "en" "New Arrivals" "a" "/item") }}
 
 <div class="mb-3">
-    <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
-        {{ range where .Pages "Section" "item"}}
-        {{ partial "li-item" . }}
-        {{ end }}
-    </ul>
+{{ partial "li-item" . }}
 </div>
 
 {{ template "header" (dict "jp" "ブログ" "en" "Blog" "a" "/post") }}

@@ -2,16 +2,15 @@
     {{ if .IsHome }}
     <div class="bg-cover-image-top bg-center bg-no-repeat bg-cover relative w-full h-screen flex justify-center items-center flex-col">
         <div class="p-4 border-4 border-solid border-white">
-                <h1 class="text-white text-4xl sm:text-5xl text-center py-2">やさしい質屋さん</h1>
-                <h2 class="text-white text-center py-2">質・買取・販売</h2>
+            <h1 class="text-white text-4xl sm:text-5xl text-center py-2">やさしい質屋さん</h1>
+            <h2 class="text-white text-center py-2 ">質・買取・販売</h2>
         </div>
-
     </div>
     {{ end }}
-    <nav class="px-6 flex items-center justify-center md:justify-between flex-wrap text-2xl py-3 bg-black mb-3 relative">
+    <nav id="main-header" class="px-6 flex items-center justify-center md:justify-between flex-wrap text-2xl py-3 bg-black mb-3 relative">
         <div class="block md:hidden absolute" style="left: 1rem; top: 1rem;">
             <button class="flex items-center px-3 py-2 border rounded text-teal border-teal-light hover:text-white hover:border-white"
-            onClick="openNav()">
+                onClick="openNav()">
                 <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <title>Menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -44,3 +43,26 @@
         </div>
     </nav>
 </head>
+
+{{ if .IsHome }}
+<style>
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+    window.onscroll = function () { stickyHeader() };
+    const mainHeader = document.getElementById("main-header");
+    const sticky = document.documentElement.clientHeight;
+
+    function stickyHeader() {
+        if (window.pageYOffset > sticky) {
+            mainHeader.classList.add('sticky');
+        } else {
+            mainHeader.classList.remove('sticky');
+        }
+    }
+</script>
+{{ end }}

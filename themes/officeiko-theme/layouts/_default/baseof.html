@@ -4,11 +4,11 @@
 
 <body>
     {{- partial "header.html" . -}}
-    <div class="container w-full max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row">
-        <aside class="md:w-64 mb-4">
+    <div class="container w-full max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row py-4">
+        <aside class="md:w-64 ">
             {{- partial "aside" . }}
         </aside>
-        <main class="flex-1 sm:shadow mb-4">
+        <main class="flex-1 sm:shadow ">
             {{- block "main" . }}{{- end }}
         </main>
     </div>
