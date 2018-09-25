@@ -2,10 +2,10 @@
 <html>
 {{- partial "head.html" . -}}
 
-<body>
+<body class="print:bg-white print:text-black">
     {{- partial "header.html" . -}}
     <div class="container w-full max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row py-4">
-        <aside class="md:w-64 ">
+        <aside class="md:w-64 print:hidden ">
             {{- partial "aside" . }}
         </aside>
         <main class="flex-1 sm:shadow ">
