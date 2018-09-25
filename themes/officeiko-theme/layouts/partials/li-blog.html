@@ -1,7 +1,7 @@
 
 <li class="w-full lg:w-1/2 p-2">
     <div class="leading-loose flex mb-2 p-2 border border-solid border-blue">
-        {{ $class := "w-24 h-24 md:w-32 md:h-32" }}
+        {{ $class := "w-24 h-24 md:w-32 md:h-32 flex-no-shrink" }}
         {{ $img := .Resources.GetMatch "image-1.jpg" }}
         {{ if $img }}
         <img src="{{ $img.RelPermalink }}" class="{{ $class }}">
