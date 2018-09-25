@@ -3,6 +3,7 @@ title: 商品紹介 ウブロ クラシック フュージョン チタニウム
 date: 2018-09-24T13:38:33+09:00
 draft: false
 author: Yasu
+category: Watch
 tags: []
 resources:
 - src: image-1.jpg

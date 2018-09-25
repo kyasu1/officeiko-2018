@@ -16,17 +16,17 @@
                 <p class="text-right py-1">{{ partial "taxed-price" .Params.price }}円(税込)</p>
             </li>
             <li class="text-center">
-                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}">
+                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}" title="Ask abou this item">
                     お問い合わせ
                 </a>
             </li>
             <li class="text-center">
-                <a href="{{ .Params.link_auction }}" target="_blank" class="{{ $btnClass }}">
+                <a href="{{ .Params.link_auction }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Auction">
                     ヤフオク
                 </a>
             </li>
             <li class="text-center">
-                <a href="{{ .Params.link_shopping }}" target="_blank" class="{{ $btnClass }}">
+                <a href="{{ .Params.link_shopping }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Shopping">
                     ヤフーショッピング
                 </a>
             </li>
@@ -34,6 +34,7 @@
                 <div class="fb-like" data-href="{{ .Permalink }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
             </li>
         </ul>
+        <p class="py-2">一品物になります為、売り切れの際はご容赦ください。</p>
     </div>
 </div>
 <hr>
