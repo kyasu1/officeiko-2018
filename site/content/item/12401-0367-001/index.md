@@ -2,15 +2,15 @@
 title: "[セイコー] SEIKO 腕時計 グランドセイコー SBGE215 クロノグラフ GMT スプリングドライブ チタン メンズ 極美品"
 date: 2018-09-24T11:35:03+09:00
 draft: false
-images:
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001_1.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001_2.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001_3.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001_4.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001_5.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001_6.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-001_7.jpg"
+resources:
+- src: 12401-0367-001.jpg
+- src: 12401-0367-001_1.jpg
+- src: 12401-0367-001_2.jpg
+- src: 12401-0367-001_3.jpg
+- src: 12401-0367-001_4.jpg
+- src: 12401-0367-001_5.jpg
+- src: 12401-0367-001_6.jpg
+- src: 12401-0367-001_7.jpg
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/t596244617"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0367-001.html"
 price: 560000

@@ -1,3 +1,0 @@
-{{ $org := .Page.Resources.GetMatch (.Get 0) }}
-{{ $x1 := $org.Resize "600x600" }}
-<img src="{{ $x1 }}" srcset="{{ $x1 }} 1x, {{  $org.RelPermalink }} 2x">

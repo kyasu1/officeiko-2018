@@ -2,15 +2,15 @@
 title: "[ロレックス] ROLEX 腕時計 デイトナ ブルー 116509 ランダム メンズ 自動巻 極美品 2018年国内正規品"
 date: 2018-09-17T12:25:03+09:00
 draft: false
-images:
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001_1.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001_2.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001_3.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001_4.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001_5.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001_6.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0172-001_7.jpg"
+resources:
+- src: 12401-0172-001.jpg
+- src: 12401-0172-001_1.jpg
+- src: 12401-0172-001_2.jpg
+- src: 12401-0172-001_3.jpg
+- src: 12401-0172-001_4.jpg
+- src: 12401-0172-001_5.jpg
+- src: 12401-0172-001_6.jpg
+- src: 12401-0172-001_7.jpg
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/b325151044"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0172-001.html?sc_i=shp_pc_search_itemlist_shsr_title"
 price: 3100000

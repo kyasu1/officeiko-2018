@@ -3,14 +3,14 @@ title: "[セイコー] SEIKO 腕時計 グランドセイコー SBGJ219 GMT ハ�
 date: 2018-09-24T11:42:07+09:00
 draft: false
 images:
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002_1.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002_2.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002_3.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002_4.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002_5.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002_6.jpg"
--  "https://s3-ap-northeast-1.amazonaws.com/pawnshopiko-auction-images/12401-0367-002_7.jpg"
+- src: 12401-0367-002.jpg
+- src: 12401-0367-002_1.jpg
+- src: 12401-0367-002_2.jpg
+- src: 12401-0367-002_3.jpg
+- src: 12401-0367-002_4.jpg
+- src: 12401-0367-002_5.jpg
+- src: 12401-0367-002_6.jpg
+- src: 12401-0367-002_7.jpg
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/w257726674"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0367-002.html"
 price: 525000
