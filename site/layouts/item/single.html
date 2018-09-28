@@ -1,0 +1,47 @@
+{{ define "main" }}
+<h1 class="px-2 md:px-0 text-xl lg:text-2xl">{{ .Title }}</h1>
+<p class="px-2 md:px-0 text-right py-1 my-3 border-t border-b border-solid border-grey">
+    {{ .Date.Format (.Site.Params.dateFormat) }}登録
+</p>
+
+{{ $btnClass := .Site.Params.btnClass }}
+<div class="flex justify-center flex-col lg:flex-row">
+    <div class="flex-1 mb-2">
+        <div id="slider"></div>
+    </div>
+    <div class="flex-no-shrink w-full px-2 lg:px-0 lg:w-64 ml-0 lg:ml-2">
+        <ul class="list-reset text-lg">
+            <li>
+                <p class="text-right py-1"><b>販売価格</b></p>
+                <p class="text-right py-1">{{ partial "taxed-price" .Params.price }}円(税込)</p>
+            </li>
+            <li class="text-center">
+                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}" title="Ask abou this item">
+                    お問い合わせ
+                </a>
+            </li>
+            <li class="text-center">
+                <a href="{{ .Params.link_auction }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Auction">
+                    ヤフオク
+                </a>
+            </li>
+            <li class="text-center">
+                <a href="{{ .Params.link_shopping }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Shopping">
+                    ヤフーショッピング
+                </a>
+            </li>
+            <li>
+                <div class="fb-like" data-href="{{ .Permalink }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            </li>
+        </ul>
+        <p class="py-2 text-sm">一品物になります為、売り切れの際はご容赦ください。</p>
+    </div>
+</div>
+<hr>
+<div class="content">
+    {{ .Content }}
+</div>
+
+{{ partial "slider" .Params.images }}
+
+{{ end }}

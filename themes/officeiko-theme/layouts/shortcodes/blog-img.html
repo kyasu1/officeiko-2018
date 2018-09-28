@@ -1,5 +1,0 @@
-{{ $img := $.Page.Resources.GetMatch (.Get 0) }}
-<figure class="text-center">
-    <img src="{{ $img.RelPermalink }}" alt="{{ $img.Title }}" class="max-w-lg w-full"/>
-    <figcaption class="font-bold">{{ $img.Title }}</figcaption>
-</figure>

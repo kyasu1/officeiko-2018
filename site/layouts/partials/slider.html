@@ -1,0 +1,15 @@
+<script type="text/javascript" src="/slider.js"></script>
+<script>
+    var node = document.getElementById('slider');
+
+    if (node) {
+        var app = Elm.Slider.init({
+            node: node,
+            flags: {
+                width: "1200px",
+                images: [{{ range . }} {{ . }}, {{ end }} ]
+            }
+        });
+    }
+
+</script>

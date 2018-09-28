@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="content">
+<h3>{{ .Title }}</h3>    
+<p class="px-2 md:px-0 text-grey-darker py-1 border-t border-b border-solid border-grey">
+<span><i class="far fa-clock"></i>{{ .Date.Format (.Site.Params.dateFormat) }}</span>
+<i class="far fa-user"></i>{{ $.Param "author" }}
+</p>
+{{ .Content }}
+</div>
+<div class="flex">
+    <div>
+        <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="blank_">
+            Twitterでシェアする
+        </a>
+    </div>
+    <div class="fb-like" data-href="{{ .Permalink }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+</div>
+{{ end }}
