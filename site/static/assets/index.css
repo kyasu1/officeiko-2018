@@ -6342,6 +6342,10 @@ body {
   background-image: url("top-tenpo-4-3.a68ef482.jpg");
 }
 
+.bg-twitter-blue {
+  background-color: #4aa0ec;
+}
+
 /* .bg-cover-image-top:before {
     content: '';
     background-color: rgba(0,0,0,0.3);
@@ -6355,6 +6359,20 @@ body {
 .content {
   color: #22292f;
   line-height: 1.5;
+  font-size: 1.25rem;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content p,
+.content div,
+.content ul {
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .content h1 {
@@ -6372,13 +6390,52 @@ body {
 }
 
 .content p {
-  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .content ul {
-  margin: 1rem;
   list-style: none;
   padding: 0;
+  font-weight: 800;
+  border-width: 2px;
+  border-color: #3490dc;
+  border-style: solid;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.content ol {
+  font-weight: 800;
+  border-width: 2px;
+  border-color: #3490dc;
+  border-style: solid;
+  margin: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.content hr {
+  border-width: 0 0 8px;
+  border-style: solid;
+  -o-border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 65%, 1.0)" cx="1" cy="0.5" r="0.5"/></svg>') 0 0 100% repeat;
+     border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 65%, 1.0)" cx="1" cy="0.5" r="0.5"/></svg>') 0 0 100% repeat;
+  width: 216px;
+}
+
+@media (min-width: 768px) {
+  .content h1,
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5,
+  .content h6,
+  .content p,
+  .content div,
+  .content ul {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 .page {

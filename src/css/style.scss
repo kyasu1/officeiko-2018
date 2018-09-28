@@ -69,6 +69,9 @@ body {
     background-image: url('../images/top-tenpo-4-3.jpg');
 }
 
+.bg-twitter-blue {
+    background-color: #4AA0EC;
+}
 /* .bg-cover-image-top:before {
     content: '';
     background-color: rgba(0,0,0,0.3);
@@ -80,7 +83,11 @@ body {
 } */
 
 .content {
-    @apply text-black leading-normal;
+    @apply text-black leading-normal text-xl;
+
+    h1,h2,h3,h4,h5,h6,p,div,ul {
+        @apply px-2;
+    }   
 
     h1 {
         @apply bg-blue font-bold;
@@ -89,10 +96,27 @@ body {
         @apply bg-blue-lighter text-black p-3 border-l-4 border-solid border-blue-dark;
     }
     p {
-        @apply m-4;
+        @apply my-4;
     }
     ul {
-        @apply m-4 list-reset;
+        @apply list-reset font-extrabold border-2 border-blue border-solid m-4 p-4;
+    }
+
+    ol {
+        @apply font-extrabold border-2 border-blue border-solid m-4 py-4;
+    }
+
+    hr {
+        border-width: 0 0 8px;
+        border-style: solid;
+        border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 65%, 1.0)" cx="1" cy="0.5" r="0.5"/></svg>') 0 0 100% repeat;
+         width: 216px;
+    }
+
+    @screen md {
+        h1,h2,h3,h4,h5,h6,p,div,ul {
+            @apply px-8;
+        }    
     }
 }
 

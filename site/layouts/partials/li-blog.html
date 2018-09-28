@@ -12,9 +12,9 @@
         <img src="/images/thumb-news.png" class="{{ $class }}">
         {{ end }}
         </a>
-        <div class="flex flex-col ml-2 leading-normal">
+        <div class="flex flex-col ml-2 leading-normal" title="{{ .Title }}">
             <span class="text-sm text-grey-dark">{{ dateFormat .Site.Params.dateFormat .Date }}</span>
-            <a href="{{ .URL }}" class="no-underline text-black font-bold">{{ .Title }}</a>
+            <a href="{{ .URL }}" class="block h-6 overflow-hidden no-underline text-black font-bold">{{ .Title }}</a>
             <p>{{ .Content | truncate 30}}</p>
         </div>
     </div>

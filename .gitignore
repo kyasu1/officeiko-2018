@@ -1,7 +1,10 @@
 /site/public
+/site/resources/_gen/
 
 node_modules
 elm_stuff
 
 .DS_Store
+.cache
+
 
