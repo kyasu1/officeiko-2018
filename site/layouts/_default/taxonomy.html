@@ -1,0 +1,12 @@
+{{ define "main" }}
+<ul>
+    {{ range .Pages }}
+        <li>
+            {{ range first 1 (.Resources.ByType "image") }}
+            <img src="{{ .Permalink }}">
+            {{ end }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+    {{ end }}
+</ul>
+{{ end }}

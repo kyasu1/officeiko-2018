@@ -15,7 +15,6 @@ link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/b325151044"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0172-001.html?sc_i=shp_pc_search_itemlist_shsr_title"
 price: 3100000
 stock: true
-brand: "ロレックス ROLEX"
 categories:
 - watch
 tags:
@@ -23,6 +22,7 @@ tags:
 - ロレックス
 - 高級時計
 - デイトナ
+- "20180924"
 ---
 極短期間の試用で僅かな薄傷がございますが目立つものではございません。オリジナルの状態を優先して敢えて研磨仕上げ等は施しておりません。機能的には正常に動作しております。
 

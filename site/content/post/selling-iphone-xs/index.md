@@ -3,7 +3,7 @@ title: "Apple iPhone XsとiPhone Xs Maxの買取をさせていただきまし�
 date: 2018-09-28T11:20:16+09:00
 draft: false
 author: Yasu
-category: 買取
+category: Sell
 tags:
 - iPhone
 - Apple
@@ -23,6 +23,8 @@ resources:
 - iPhone Xs 256Gは99,000円（税込み）
 
 とそれぞれなりました。
+
+昨年発売されたiPhone Xの後継のs付きiPhone Xsと、さらに大画面になったiPhone Xs Max、そのネーミングやMacBookが買えるぐらいの値段設定で話題のAppleの最新スマートフォンです。
 
 どちらも購入したばかりのためキャリアサイトでの判定は△ですが、当店では上記の金額で満額現金買取です。上記の金額より高い査定のショップもありますが、判定△の場合は、買取金額の2割程度を現金で支払い、残金は後日の完済確認後に振込というケースが多いです。
 

@@ -3,7 +3,7 @@ title: "About Rebuilding This Site"
 date: 2018-09-26T08:05:36+09:00
 draft: true
 author: Yasu
-category: テクニカル
+category: Development
 tags:
 - Hugo
 - Elm

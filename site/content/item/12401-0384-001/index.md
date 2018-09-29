@@ -15,13 +15,14 @@ link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/d309274307"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0384-001.html"
 price: 645000
 stock: true
-brand: "セイコー SEIKO"
 categories:
 - Watch
 tags:
-- Mens
-- Luxury
-- SEIKO
+- 販売
+- セイコー
+- 高級時計
+- グランドセイコー
+- "20180924"
 ---
 2018年9月に正規店で購入されたお品物で、極僅かな薄傷がございますが着用時はほとんど気にならいない程度です。機能的には正常に動作しております。
 

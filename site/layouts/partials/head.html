@@ -12,7 +12,8 @@
 <meta property="og:description" content="{{ .Summary | truncate 30 }}" />
 
 {{ with $.Page.Resources.GetMatch "*.jpg" }}
-<meta property="og:image" content="{{ .Permalink }}" />
+{{ $image := .Fill "1200x628 Center"}}
+<meta property="og:image" content="{{ $image.RelPermalink }}" />
 {{ else }}
 <meta property="og:image" content="{{ .Site.BaseURL }}images/top-tenpo-4-3.jpg" />
 {{ end }}
