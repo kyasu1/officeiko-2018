@@ -3,19 +3,19 @@
 <h1 class="px-2 md:px-12 py-4 bg-blue text-white">
     イコーからのお知らせ
 </h1>
-<div class="px-2 md:px-12 text-lg">
+<div class="px-2 md:px-12">
     <h1 class="pt-5 pb-2 text-black border-b-8 border-solid border-grey">{{ .Title }}</h1>
     <p class="text-right text-grey-darker py-3">{{ .Date.Format (.Site.Params.dateFormat) }}</p>
 
     <hr>
-    <div class="text-black leading-loose">
+    <div class="text-black leading-loose text-lg">
         {{ .Content }}
     </div>
     <p class="text-right text-black py-4">株式会社オフィスイコー</p>
 </div>
 
 <div class="px-2 md:px-12">
-    {{ partial "sns-buttons" }}
+    {{ partial "sns-buttons" . }}
 </div>
 
 <div class="text-center">
