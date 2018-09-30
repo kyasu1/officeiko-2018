@@ -24,7 +24,7 @@
         <div class="hidden block flex-grow md:flex md:items-center w-auto">
             {{ $currentPage := .}}
             {{ range .Site.Menus.main }}
-            <a href="{{ $.Site.BaseURL }}{{ .URL }}" class="px-2 inline-block mt-0 text-teal hover:text-white mr-4 no-underline">
+            <a href="{{ .URL }}" class="px-2 inline-block mt-0 text-teal hover:text-white mr-4 no-underline">
                 <span>{{ .Name }}</span>
             </a>
             {{ end }}
@@ -35,7 +35,7 @@
                 >&times;</a>
             {{ $currentPage := .}}
             {{ range .Site.Menus.main }}
-            <a href="{{ $.Site.BaseURL }}{{ .URL }}" class="px-2 block mt-4 md:inline-block md:mt-0 text-teal hover:text-white mr-4 no-underline">
+            <a href="{{ .URL }}" class="px-2 block mt-4 md:inline-block md:mt-0 text-teal hover:text-white mr-4 no-underline">
                 <span>{{ .Name }}</span>
             </a>
             {{ end }}

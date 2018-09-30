@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h1 class="px-2 md:px-0 text-xl lg:text-2xl">{{ .Title }}</h1>
+<h1 class="p-2 text-xl lg:text-2xl">{{ .Title }}</h1>
 <p class="px-2 md:px-0 text-right py-1 my-3 border-t border-b border-solid border-grey">
     {{ .Date.Format (.Site.Params.dateFormat) }}登録
 </p>
@@ -34,7 +34,9 @@
                 {{ partial "sns-buttons" . }}
             </li>
         </ul>
-        <p class="py-2 text-sm">一品物になります為、売り切れの際はご容赦ください。</p>
+        <p class="m-2 text-sm">
+            <div class="border border-red p-2 text-red">一品物になります為、売り切れの際はご容赦ください。</div>
+        </p>
     </div>
 </div>
 <hr>
