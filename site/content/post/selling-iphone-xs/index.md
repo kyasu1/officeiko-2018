@@ -3,7 +3,7 @@ title: "Apple iPhone XsとiPhone Xs Maxの買取をさせていただきまし�
 date: 2018-09-28T11:20:16+09:00
 draft: false
 author: Yasu
-category: Sell
+category: 買取
 tags:
 - iPhone
 - Apple
