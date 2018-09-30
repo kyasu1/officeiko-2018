@@ -1,6 +1,6 @@
 ---
 title: "ホンダの発電機EU9IGB エネポの買取をさせていただきました "
-date: 2018-09-28T11:20:16+09:00
+date: 2018-09-30T11:20:16+09:00
 draft: false
 author: Yasu
 category: 買取
