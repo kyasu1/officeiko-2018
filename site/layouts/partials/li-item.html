@@ -11,7 +11,7 @@
             {{ $x1 := $img.Resize "300x300" }}
             {{ $x2 := $img.Resize "600x600" }}
             <a href="{{ $link }}">
-                <img src="{{ $x1.Permalink }}"
+                <img class="w-full" src="{{ $x1.Permalink }}"
                 srcset="{{ $x1.Permalink }} 1x, {{ $x2.Permalink }} 2x" alt="">
             </a>
 

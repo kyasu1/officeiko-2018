@@ -81,6 +81,9 @@ body {
     background-color: #17B832;
 }
 
+a[href^="tel:"] {
+    pointer-events: none;
+}
 /* .bg-cover-image-top:before {
     content: '';
     background-color: rgba(0,0,0,0.3);

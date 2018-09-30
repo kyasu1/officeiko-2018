@@ -13,10 +13,16 @@ if (node) {
     });
 }
 
-function openNav() {
-    document.getElementById("side-nav").style.width = "100%";
+const btnOpenNav = document.getElementById('btnOpenNav');
+if (btnOpenNav) {
+    btnOpenNav.addEventListener('click', () => {
+        document.getElementById("side-nav").style.width = "100%";
+    })
 }
 
-function closeNav() {
-    document.getElementById("side-nav").style.width = "0";
-}    
+const btnCloseNav = document.getElementById('btnCloseNav');
+if (btnCloseNav) {
+    btnCloseNav.addEventListener('click', () => {
+        document.getElementById("side-nav").style.width = "0";
+    });
+}

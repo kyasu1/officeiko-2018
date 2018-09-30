@@ -3,7 +3,7 @@
 <h1>イコーからのお知らせ</h1>
 
 <div class="mb-3">
-    <ul class="list-reset flex flex-col md:flex-row md:flex-wrap justify-around">
+    <ul class="list-reset flex flex-col md:flex-row md:flex-wrap">
         {{ range where .Pages "Section" "news" }}
         {{ partial "li-news" . }}
         {{ end }}

@@ -6354,6 +6354,10 @@ body {
   background-color: #17b832;
 }
 
+a[href^="tel:"] {
+  pointer-events: none;
+}
+
 /* .bg-cover-image-top:before {
     content: '';
     background-color: rgba(0,0,0,0.3);
