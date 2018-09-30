@@ -7,21 +7,6 @@
 </p>
 {{ .Content }}
 </div>
-<div class="flex">
-    <div class="px-1 md:px-4">
-        <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="blank_" class="inline-block w-24 h-8 bg-twitter-blue text-center rounded">
-            <img src="/images/Twitter_Logo_WhiteOnBlue.png" class="w-8 h-8">
-        </a>
-    </div>
-    <div class="px-1 md:px-4">
-        <a href="http://www.facebook.com/share.php?u={{ .Permalink }}" target="blank_" class="inline-block w-24 h-8 bg-facebook-blue text-center rounded">
-            <img src="/images/flogo_RGB_HEX-72.svg" class="w-8 h-8">
-        </a>
-    </div>
-    <div class="px-1 md:px-4">
-        <a href="https://social-plugins.line.me/lineit/share?url={{ .Permalink }}" target="blank_" class="inline-block w-24 h-8 bg-line-green text-center rounded">
-            <img src="/images/line_buttons_ja/share-d.png" class="w-8 h-8">
-        </a>
-    </div>    
-</div>
+
+{{ partial "sns-buttons" }}
 {{ end }}
