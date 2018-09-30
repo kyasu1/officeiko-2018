@@ -6350,6 +6350,10 @@ body {
   background-color: #4267b2;
 }
 
+.bg-line-green {
+  background-color: #17b832;
+}
+
 /* .bg-cover-image-top:before {
     content: '';
     background-color: rgba(0,0,0,0.3);
