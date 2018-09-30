@@ -6343,7 +6343,11 @@ body {
 }
 
 .bg-twitter-blue {
-  background-color: #4aa0ec;
+  background-color: #1da1f3;
+}
+
+.bg-facebook-blue {
+  background-color: #4267b2;
 }
 
 /* .bg-cover-image-top:before {

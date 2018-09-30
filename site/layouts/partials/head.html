@@ -13,9 +13,9 @@
 
 {{ with $.Page.Resources.GetMatch "*.jpg" }}
 {{ $image := .Fill "1200x628 Center"}}
-<meta property="og:image" content="{{ $image.RelPermalink }}" />
+<meta property="og:image" content="{{ $.Site.BaseURL }}{{ $image.RelPermalink }}" />
 {{ else }}
-<meta property="og:image" content="{{ .Site.BaseURL }}images/top-tenpo-4-3.jpg" />
+<meta property="og:image" content="{{ $.Site.BaseURL }}images/top-tenpo-4-3.jpg" />
 {{ end }}
 
 <meta name="twitter:card" content="summary_large_image" />
