@@ -6730,12 +6730,20 @@ if (node) {
   });
 }
 
-function openNav() {
-  document.getElementById("side-nav").style.width = "100%";
+var btnOpenNav = document.getElementById('btnOpenNav');
+
+if (btnOpenNav) {
+  btnOpenNav.addEventListener('click', function () {
+    document.getElementById("side-nav").style.width = "100%";
+  });
 }
 
-function closeNav() {
-  document.getElementById("side-nav").style.width = "0";
+var btnCloseNav = document.getElementById('btnCloseNav');
+
+if (btnCloseNav) {
+  btnCloseNav.addEventListener('click', function () {
+    document.getElementById("side-nav").style.width = "0";
+  });
 }
 },{"../css/style.scss":"../css/style.scss","./calendar.js":"calendar.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -6764,7 +6772,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59771" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53199" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
