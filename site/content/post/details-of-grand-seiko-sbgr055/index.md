@@ -1,7 +1,7 @@
 ---
 title: "グランドセイコーSBGR055の状態に関する補足情報"
 date: 2018-10-05T10:34:16+09:00
-draft: false
+draft: true
 author: Yasu
 category: ブログ
 tags:
