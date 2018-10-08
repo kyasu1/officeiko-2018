@@ -2,8 +2,20 @@
 {{ if .IsHome }}
 {{ .Scratch.Set "count" 6 }}
 {{ end }}
+
+{{ $paginator := .Paginate (where .Pages "Type" "item") (.Scratch.Get "count") }}
+
+{{ if .IsHome }}
+{{ else }}
+<div class="text-center">
+    {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}
+
+
 <ul class="list-reset flex flex-col md:flex-row flex-wrap md:-mx-3">
-    {{ range first ( .Scratch.Get "count" ) (where $.Pages "Section" "item") }}
+    {{/* range first ( .Scratch.Get "count" ) (where $.Pages "Section" "item") */}}
+    {{ range $paginator.Pages }}
     <li class=" md:w-1/2 lg:w-1/3 md:px-3 leading-normal mb-5">
         <div class="flex flex-col border-black hover:border hover:shadow-lg">
             {{ $link := .URL }}

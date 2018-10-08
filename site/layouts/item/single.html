@@ -20,16 +20,20 @@
                     お問い合わせ
                 </a>
             </li>
+            {{ with .Params.link_auction }}
             <li class="text-center">
-                <a href="{{ .Params.link_auction }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Auction">
+                <a href="{{ . }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Auction">
                     ヤフオク
                 </a>
             </li>
+            {{ end }}
+            {{ with .Params.link_shopping }}
             <li class="text-center">
-                <a href="{{ .Params.link_shopping }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Shopping">
+                <a href="{{ . }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Shopping">
                     ヤフーショッピング
                 </a>
             </li>
+            {{ end }}
             <li>
                 {{ partial "sns-buttons" . }}
             </li>
