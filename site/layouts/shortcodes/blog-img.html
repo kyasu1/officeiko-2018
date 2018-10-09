@@ -1,6 +1,6 @@
 {{ $img := $.Page.Resources.GetMatch (.Get 0) }}
 {{ $x1 := $img.Resize "600x600" }}
 <figure class="text-center">
-    <img src="{{ $x1 }}" 
-    srcset="{{ $x1 }} 1x, {{ $img.RelPermalink }} 2x" alt="{{ $img.Title }}" class="max-w-lg w-full"/>
+    <img src="{{ $x1.Permalink }}" 
+    srcset="{{ $x1.Permalink }} 1x, {{ $img.RelPermalink }} 2x" alt="{{ $img.Title }}" class="max-w-lg w-full"/>
 </figure>
