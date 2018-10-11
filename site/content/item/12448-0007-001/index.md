@@ -12,6 +12,8 @@ images:
 -  "12448-0007-001_6.jpg"
 -  "12448-0007-001_7.jpg"
 -  "12448-0007-001_8.jpg"
+link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/t600636938"
+link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12448-0007-001.html"
 price: 420000
 stock: true
 categories:
@@ -49,15 +51,13 @@ tags:
 231.10.39.21.55.002
 
 **サイズ等**
-
-- ケース縦幅：約mm
-- ベゼル直径：約mm
-- ケース厚さ：約mm
-- ベルト内周：約cm（腕周り19cm位まで）
-- 重さ：約g
+- ケース縦幅：約45mm
+- ベゼル直径：約37mm
+- ケース厚さ：約38.5mm
+- ベルト内周：腕周り19cm位まで
+- 重さ：約143g
 
 **仕様等**
-
 - ケース：ステンレス
 - ベルト：ステンレス
 - 文字盤：シェル・ダイヤ11P
@@ -65,7 +65,6 @@ tags:
 - 防水性能：150m防水
 
 **付属品等**
-
 - 内箱
 - 外箱
 - 取説
