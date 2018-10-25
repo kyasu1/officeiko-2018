@@ -1,53 +1,67 @@
 <div class="h-full md:mr-2">
-    <div class="bg-white h-full border-0 md:border border-orange border-solid">
-        <div class="m-2 p-px bg-green">
-            <div>
-                <p class="bg-white p-2 text-center font-black">お電話でのお問い合わせ</p>
-                <p class="p-2 text-white text-center font-black">
-                    <a href="tel:0120411578" class="no-underline text-white">
-                        0120-41-1578
-                    </a>
-                </p>
-            </div>
+  <div class="bg-white h-full border-0 md:border border-orange border-solid">
+    <div class="m-2 p-px bg-green">
+      <div>
+        <p class="bg-white p-2 text-center font-black">お電話でのお問い合わせ</p>
+        <p class="p-2 text-white text-center font-black">
+          <a href="tel:0120411578" class="no-underline text-white">
+            0120-41-1578
+          </a>
+        </p>
+      </div>
 
-        </div>
-        <div class="p-2 border-b border-orange border-solid">
-            <h4 class="text-center text-black pb-2">本日の地金買取相場</h4>
-            <h5 class="text-center text-black pb-2">{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}</h5>
-            {{ $gd := .Site.Params.market.gd }}
-            <div class="mb-2">
-                {{ range where .Site.Params.gd "name" "K24" }}
-                {{ partial "price_gd" (dict "market" $gd "gd" . ) }}
-                {{ end }}
-            </div>
-            <div class="mb-2">
-                {{ range where .Site.Params.gd "name" "K18" }}
-                {{ partial "price_gd" (dict "market" $gd "gd" . ) }}
-                {{ end }}
-            </div>
-            {{ $pt := .Site.Params.market.pt }}
-            <div class="mb-2">
-                {{ range where .Site.Params.pt "name" "Pt900" }}
-                {{ partial "price_pt" (dict "market" $pt "pt" .) }}
-                {{ end }}
-            </div>
-            <div class="mb-2">
-                {{ range where .Site.Params.pt "name" "Pt850" }}
-                {{ partial "price_pt" (dict "market" $pt "pt" .) }}
-                {{ end }}
-            </div>
-            <p class="text-center">
-                <a href="/stocks/" class="{{ .Site.Params.btnClass }} ">
-                    全ての価格表をみる
-                </a>
-            </p>
-        </div>
-        <div class="p-2">
-            <h4 class="text-center">営業カレンダー</h4>
-            <div id="calendar"></div>
-            <p class="text-center py-1"><span class="text-white bg-green inline-box p-1 border border-green">緑</span>の部分が定休日です</p>
-            <p class="text-center py-1 text-sm font-semibold">営業時間 10:00am - 7:00pm</p>
-
-        </div>
     </div>
+    <div class="p-2 border-b border-orange border-solid">
+      <h4 class="text-center text-black pb-2">本日の地金買取相場</h4>
+      <h5 class="text-center text-black pb-2">{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}</h5>
+      {{ $gd := .Site.Params.market.gd }}
+      <div class="mb-2">
+        {{ range where .Site.Params.gd "name" "K24" }}
+        {{ partial "price_gd" (dict "market" $gd "gd" . ) }}
+        {{ end }}
+      </div>
+      <div class="mb-2">
+        {{ range where .Site.Params.gd "name" "K18" }}
+        {{ partial "price_gd" (dict "market" $gd "gd" . ) }}
+        {{ end }}
+      </div>
+      {{ $pt := .Site.Params.market.pt }}
+      <div class="mb-2">
+        {{ range where .Site.Params.pt "name" "Pt900" }}
+        {{ partial "price_pt" (dict "market" $pt "pt" .) }}
+        {{ end }}
+      </div>
+      <div class="mb-2">
+        {{ range where .Site.Params.pt "name" "Pt850" }}
+        {{ partial "price_pt" (dict "market" $pt "pt" .) }}
+        {{ end }}
+      </div>
+      <p class="text-center">
+        <a href="/stocks/" class="{{ .Site.Params.btnClass }} ">
+          全ての価格表をみる
+        </a>
+      </p>
+    </div>
+    <div class="p-2 border-b border-orange">
+      <h4 class="text-center">営業カレンダー</h4>
+      <div id="calendar">Elmで書かれたカレンダーが埋め込まれます</div>
+      <p class="text-center pb-2"><span class="text-white bg-green inline-box p-1 border border-green">緑</span>の部分が定休日です</p>
+      <p class="text-center py-2 text-sm font-semibold">営業時間 10:00am - 7:00pm</p>
+    </div>
+    <div class="p-2 border-b border-orange">
+      <a href="https://shopping.geocities.jp/pawnshopiko/#/?_k=fpusp3" class="no-underline">
+        <img src="https://s.yimg.jp/c/logo/f/2.0/shopping_r_34_2x.png">
+      </a>
+
+    </div>
+    <div class="p-2 border-b border-orange">
+      <a href="https://auctions.yahoo.co.jp/seller/pawnshopiko" class="no-underline">
+        <img src="https://s.yimg.jp/images/auc/pc/top/image/2.0.0/logo_yahuoku_01.png">
+      </a>
+    </div>
+    <div class="p-2">
+      <img src="/images/duty_free_logo.svg">
+    </div>
+
+  </div>
 </div>

@@ -6453,29 +6453,44 @@ a[href^="tel:"] {
 .page {
   color: #22292f;
   line-height: 1.5;
+  font-size: 1.125rem;
+}
+
+.page h1 {
+  padding: .5rem;
 }
 
 .page h2 {
-  padding: 2rem;
-  background-color: #684f1d;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  border-left-width: 8px;
+  border-color: #1f9d55;
+  background-color: #38c172;
   color: #fff;
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1.125rem;
 }
 
 .page h3 {
-  padding: .75rem;
-  border-left-width: 4px;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-left-width: 8px;
+  border-bottom-width: 1px;
   border-style: solid;
   border-color: #22292f;
 }
 
 .page h4 {
-  padding: .75rem;
+  padding: .5rem;
 }
 
 .page p {
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .page ul {
@@ -6487,6 +6502,14 @@ a[href^="tel:"] {
 .page hr {
   height: .25rem;
   background-color: #b8c2cc;
+}
+
+.page blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-width: 1px;
+  border-radius: .5rem;
+  background-color: #dae1e7;
 }
 
 .pagination {
