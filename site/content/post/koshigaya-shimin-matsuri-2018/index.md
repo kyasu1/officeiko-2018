@@ -9,6 +9,7 @@ tags:
 resources:
 - src: image-1.jpg
 - src: image-2.jpg
+- src: image-3.png
 ---
 ## 越谷市民まつりとは？
 
@@ -35,3 +36,5 @@ resources:
 越谷質屋組合のブースはこのオレンジの看板が目印です！
 
 {{< blog-img "image-1.jpg" >}}
+
+{{< blog-img "image-3.png" >}}
