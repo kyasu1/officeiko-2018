@@ -99,7 +99,7 @@ a[href^="tel:"] {
 
     h1,h2,h3,h4,h5,h6,p,div,ul {
         @apply px-2;
-    }   
+    }
 
     h1 {
         @apply bg-blue font-bold;
@@ -128,32 +128,40 @@ a[href^="tel:"] {
     @screen md {
         h1,h2,h3,h4,h5,h6,p,div,ul {
             @apply px-8;
-        }    
+        }
     }
 }
 
 .page {
-    @apply text-black leading-normal;
+    @apply text-black leading-normal text-lg;
+
+    h1 {
+      @apply p-2
+    }
 
     h2 {
-        @apply p-8 bg-yellow-darker text-white text-2xl font-black;
+        @apply py-1 px-2 my-2 border-l-8 border-green-dark bg-green text-white text-lg;
     }
 
     h3 {
-        @apply p-3 border-l-4 border-solid border-black;
+        @apply py-1 px-2 border-l-8 border-b border-solid border-black;
     }
 
     h4 {
-        @apply p-3;
+        @apply p-2;
     }
     p {
-        @apply p-4;
+        @apply p-2;
     }
     ul {
         @apply p-4 list-reset;
     }
     hr {
         @apply h-1 bg-grey;
+    }
+
+    blockquote {
+      @apply my-4 border rounded-lg bg-grey-light;
     }
 }
 

@@ -5,7 +5,11 @@
         {{ $img := .Resources.GetMatch "image-1.jpg" }}
         <a href="{{ .URL }}" class="no-underline text-black block flex-no-shrink">
         {{ if $img }}
-        <img src="{{ $img.RelPermalink }}" class="{{ $class }}">
+        {{ $x1 := $img.Resize "300x300" }}
+        {{ $x2 := $img.Resize "600x600" }}
+
+        <img class="{{ $class }}" src="{{ $x1.Permalink }}"
+            srcset="{{ $x1.Permalink }} 1x, {{ $x2.Permalink }} 2x" alt="Blog image">
         {{ else if .Params.image }}
         <img src="{{ .Params.image }}" class="{{ $class }}">
         {{ else }}
