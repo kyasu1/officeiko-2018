@@ -2,7 +2,7 @@
 [params]
   [params.market]
     date = "Invalid date"
-    gd = 4813
-    gd_ratio = -18
-    pt = 3050
-    pt_ratio = -19
+    gd = 4829
+    gd_ratio = 17
+    pt = 3053
+    pt_ratio = 2
