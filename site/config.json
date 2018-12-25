@@ -1,0 +1,119 @@
+{
+  "baseURL": "https://www.officeiko.co.jp/",
+  "languageCode": "ja-JP",
+  "title": "質イコー - 埼玉県越谷市の質屋 高価買取 ブランド品 金プラチナ ロレックス",
+  "googleAnalytics": "UA-77785756-3",
+  "menu": {
+    "main": [{
+        "name": "お知らせ",
+        "post": "<span class='alert'>New!</span>",
+        "pre": "<i class='fa fa-road'></i>",
+        "url": "/news/",
+        "weight": -100
+      },
+      {
+        "name": "質融資",
+        "url": "/pawn/"
+      },
+      {
+        "name": "ご売却",
+        "url": "/selling/"
+      },
+      {
+        "name": "ご売却",
+        "url": "/selling/"
+      },
+      {
+        "name": "地金買取",
+        "url": "/stocks/"
+      }
+    ]
+  },
+  "params": {
+    "btnClass": "leading-loose inline-block w-full md:max-w-xs border-4 border-solid border-black text-black font-black no-underline text-center my-3 hover:bg-grey",
+    "dateFormat": "2006年01月02日",
+    "gd": [{
+        "name": "K24",
+        "ratio": 24,
+        "sell_diff": 350,
+        "pawn_diff": 800
+      }, {
+        "name": "K22",
+        "ratio": 22,
+        "sell_diff": 250,
+        "pawn_diff": 700
+      },
+
+      {
+        "name": "K21.6",
+        "ratio": 21.6,
+        "sell_diff": 250,
+        "pawn_diff": 700
+      },
+
+      {
+        "name": "K20",
+        "ratio": 20,
+        "sell_diff": 250,
+        "pawn_diff": 700
+      },
+
+      {
+        "name": "K18",
+        "ratio": 18,
+        "sell_diff": 100,
+        "pawn_diff": 450
+      },
+
+      {
+        "name": "K14",
+        "ratio": 14,
+        "sell_diff": 350,
+        "pawn_diff": 600
+      },
+
+      {
+        "name": "K10",
+        "ratio": 10,
+        "sell_diff": 500,
+        "pawn_diff": 700
+      },
+
+      {
+        "name": "K9",
+        "ratio": 9,
+        "sell_diff": 500,
+        "pawn_diff": 700
+      }
+    ],
+    "pt": [{
+        "name": "Pt1000",
+        "ratio": 1000,
+        "sell_diff": 250,
+        "pawn_diff": 650
+      },
+
+      {
+        "name": "Pt950",
+        "ratio": 950,
+        "sell_diff": 250,
+        "pawn_diff": 650
+      },
+
+      {
+        "name": "Pt900",
+        "ratio": 900,
+        "sell_diff": 250,
+        "pawn_diff": 650
+      },
+
+      {
+        "name": "Pt850",
+        "ratio": 850,
+        "sell_diff": 250,
+        "pawn_diff": 650
+      }
+    ]
+
+  }
+}

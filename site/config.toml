@@ -12,10 +12,10 @@ googleAnalytics = "UA-77785756-3"
   [[menu.main]]
     name = "質融資"
     url = "/pawn/"
-  [[menu.main]]  
+  [[menu.main]]
     name = "ご売却"
     url = "/selling/"
-  [[menu.main]]  
+  [[menu.main]]
     name = "地金買取"
     url = "/stocks/"
 [params]
@@ -29,7 +29,7 @@ googleAnalytics = "UA-77785756-3"
   [[params.gd]]
     name = "K22"
     ratio = 22
-    sell_diff = 250    
+    sell_diff = 250
     pawn_diff = 700
   [[params.gd]]
     name = "K21.6"
@@ -80,5 +80,5 @@ googleAnalytics = "UA-77785756-3"
   [[params.pt]]
     name = "Pt850"
     ratio = 850
-    sell_diff = 250        
+    sell_diff = 250
     pawn_diff = 650
