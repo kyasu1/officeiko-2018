@@ -8,8 +8,8 @@
     "dev": "concurrently --prefix '{time}-{pid}' 'npm run parcel-watch' 'npm run hugo-watch' --kill-others --kill-others-on-fail",
     "parcel-watch": "rm -rf site/static/assets && parcel watch src/js/index.js -d site/static/assets",
     "parcel-build": "rm -rf site/static/assets && parcel build src/js/index.js -d site/static/assets",
-    "hugo-watch": "hugo server -w -D -s site --bind 0.0.0.0 --config config.toml,market.toml",
-    "hugo-build": "rm -rf site/public && hugo -s site --config config.toml,market.toml"
+    "hugo-watch": "hugo server -w -D -s site --bind 0.0.0.0 --configDir site --config config.toml,market.toml",
+    "hugo-build": "rm -rf site/public && hugo -s site --configDir site --config config.toml,market.toml"
   },
   "repository": {
     "type": "git",
