@@ -2,6 +2,7 @@
 title: "冬季休業のお知らせ"
 date: 2018-12-01T11:19:29+09:00
 draft: false
+image: "auctions/mybooth/vacation-notice-square.png"
 ---
 
 誠に勝手ながら下記の期間を休業させていただきます。
