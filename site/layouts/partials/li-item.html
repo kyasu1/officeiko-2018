@@ -40,3 +40,10 @@
     </li>
     {{ end }}
 </ul>
+
+{{ if .IsHome }}
+{{ else }}
+<div class="text-center">
+    {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}
