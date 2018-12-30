@@ -1,14 +1,16 @@
 <li class="w-full lg:w-1/2 p-2">
     <div class="leading-loose flex mb-2 p-2 border border-solid border-blue">
-        {{ $class := "w-24 h-24 md:w-32 md:h-32" }}
-        {{ if .Params.image }}
-        <img src='{{ .Params.image | relURL }}' class="{{ $class }}">
-        {{ else }}
-        <img src='{{ "/images/thumb-news.png" | relURL }}' class="{{ $class }}">
-        {{ end }}
+        <a href="{{ .URL }}" class="no-underline text-black w-24 h-24 md:w-32 md:h-32 flex-no-shrink">
+          {{ $class := "w-24 h-24 md:w-32 md:h-32" }}
+          {{ if .Params.image }}
+          <img src='{{ .Params.image | relURL }}' class="{{ $class }}">
+          {{ else }}
+          <img src='{{ "/images/thumb-news.png" | relURL }}' class="{{ $class }}">
+          {{ end }}
+        </a>
         <div class="flex flex-col ml-2">
             <span>{{ dateFormat .Site.Params.dateFormat .Date }}</span>
-            <a href="{{ .URL }}" class="no-underline text-black">{{ .Title }}</a>
+            <a href="{{ .URL }}" class="no-underline text-black h-16 md:h-24 overflow-hidden">{{ .Title }}</a>
         </div>
     </div>
 </li>
