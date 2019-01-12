@@ -23,14 +23,14 @@
             {{ $x1 := $img.Resize "300x300" }}
             {{ $x2 := $img.Resize "600x600" }}
             <a href="{{ $link }}">
-                <img class="w-full" src="{{ $x1.Permalink }}"
-                srcset="{{ $x1.Permalink }} 1x, {{ $x2.Permalink }} 2x" alt="">
+                <img class="w-full" src="{{ $x1.RelPermalink }}"
+                srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x" alt="">
             </a>
 
             <div class="p-2 ">
                 <p><a href="{{ $link }}" class="h-10 overflow-hidden inline-block no-underline text-sm text-black">{{ .Params.title }}</a></p>
                 {{ if eq .Params.stock false }}
-                <p class="text-right">SOLD OUT</p>
+                <p class="text-right text-red font-bold">SOLD OUT</p>
                 {{ else }}
                 <p class="text-right">販売価格　{{ partial "taxed-price" .Params.price }}円(税込)</p>
                 {{ end }}

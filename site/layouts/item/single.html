@@ -13,7 +13,11 @@
         <ul class="list-reset text-lg">
             <li>
                 <p class="text-right py-1"><b>販売価格</b></p>
+                {{ if eq .Params.stock false }}
+                <p class="text-right py-1 text-red font-bold">SOLD OUT</p>
+                {{ else }}
                 <p class="text-right py-1">{{ partial "taxed-price" .Params.price }}円(税込)</p>
+                {{ end }}
             </li>
             <li class="text-center">
                 <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}" title="Ask abou this item">

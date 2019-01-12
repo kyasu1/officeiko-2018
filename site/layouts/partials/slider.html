@@ -7,8 +7,8 @@
             node: node,
             flags: {
                 width: "1200px",
-                images: [{{ range . }} {{ .Permalink }}, {{ end }} ],
-                x1: [ {{ range . }}　{{ (.Resize "600x600").Permalink }}, {{ end }} ]
+                images: [{{ range . }} {{ .RelPermalink }}, {{ end }} ],
+                x1: [ {{ range . }}　{{ (.Resize "600x600").RelPermalink }}, {{ end }} ]
             }
         });
     }

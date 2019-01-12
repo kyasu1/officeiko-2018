@@ -1,15 +1,15 @@
 
 <li class="w-full lg:w-1/2 p-2">
     <div class="flex mb-2 p-2 border border-solid border-blue">
-        {{ $class := "w-24 h-24 md:w-32 md:h-32" }}
+        {{ $class := "w-24 h-24 md:w-32 md:h-32 object-contain" }}
         {{ $img := .Resources.GetMatch "image-1.jpg" }}
         <a href="{{ .URL }}" class="no-underline text-black block flex-no-shrink">
         {{ if $img }}
-        {{ $x1 := $img.Resize "300x300" }}
-        {{ $x2 := $img.Resize "600x600" }}
+        {{ $x1 := $img.Resize "300x" }}
+        {{ $x2 := $img.Resize "600x" }}
 
-        <img class="{{ $class }}" src="{{ $x1.Permalink }}"
-            srcset="{{ $x1.Permalink }} 1x, {{ $x2.Permalink }} 2x" alt="Blog image">
+        <img class="{{ $class }}" src="{{ $x1.RelPermalink }}"
+            srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x" alt="Blog image">
         {{ else if .Params.image }}
         <img src="{{ .Params.image }}" class="{{ $class }}">
         {{ else }}

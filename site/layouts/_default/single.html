@@ -1,12 +1,20 @@
 {{ define "main" }}
-<div class="content">
-<h3>{{ .Title }}</h3>    
-<p class="px-2 md:px-0 text-grey-darker py-1 border-t border-b border-solid border-grey">
-<span><i class="far fa-clock"></i>{{ .Date.Format (.Site.Params.dateFormat) }}</span>
-<i class="far fa-user"></i>{{ $.Param "author" }}
-</p>
-{{ .Content }}
+<div class="post">
+  <h1 class="p-1 bg-blue-light text-white text-lg md:text-2xl border-l-4 border-blue">{{ .Title }}</h1>
+  <div class="text-grey-darker py-1 border-t border-b border-solid border-grey flex flex-col lg:flex-row-reverse justify-between">
+    <div class="p-2">
+      <span><i class="far fa-clock"></i>{{ .Date.Format (.Site.Params.dateFormat) }}</span>
+      <i class="far fa-user"></i>{{ $.Param "author" }}
+    </div>
+    {{ partial "sns-buttons" . }}
+  </div>
+  {{ .Content }}
+  <div class="p-2">
+    {{ partial "sns-buttons" . }}
+    相場のお問い合わせはお電話・メール・LINEにてお気軽にどうぞ！
+    <div>tel: <a href="tel://0120411578">0120-41-1578</a></div>
+    <div>email: info@officeiko.co.jp</div>
+    <div>LINE ID: <a href="https://line.me/R/ti/p/%40oue6072d">@oue6072d</a></div>
+  </div>
 </div>
-
-{{ partial "sns-buttons" . }}
 {{ end }}

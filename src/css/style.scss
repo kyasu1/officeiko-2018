@@ -131,7 +131,31 @@ a[href^="tel:"] {
         }
     }
 }
+.post {
+  @apply text-black leading-normal;
 
+  p {
+    @apply my-4 px-2;
+  }
+
+  h2 {
+    @apply px-2 border-b-2 border-black text-lg;
+  }
+  @screen md {
+    h2 {
+      @apply text-xl;
+    }
+  }
+
+  h3 {
+    @apply px-2 my-2 border-solid border-b-2;
+    border-image: linear-gradient(
+      to left,
+      rgba(0,0,0,0),
+      red
+    ) 10;
+  }
+}
 .page {
     @apply text-black leading-normal text-lg;
 
