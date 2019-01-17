@@ -171,6 +171,7 @@ module.exports = {
     'md': '768px',
     'lg': '992px',
     'xl': '1200px',
+    'print': {'raw': 'print'}
   },
 
 
@@ -509,6 +510,7 @@ module.exports = {
     '5/6': '83.33333%',
     'full': '100%',
     'screen': '100vw',
+    'p32': '32%',
   },
 
 
