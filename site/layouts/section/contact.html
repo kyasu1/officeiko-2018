@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<div class="px-2 md:px-12 contact">
+  <h2 class="text-center">メールでのお問い合わせ</h2>
+  <div class="text-center">当社のメールアドレスは<br><span>info@officeiko.co.jp</span><br>となります。迷惑メールフィルタから除外をお願いいたします</div>
+  <div id="contact-form"></div>
+</div>
+
+{{ partial "contact-form" .Resources }}
+
+{{ end }}
