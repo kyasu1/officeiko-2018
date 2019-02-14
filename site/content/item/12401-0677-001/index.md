@@ -13,8 +13,8 @@ images:
 -  "12401-0677-001_7.jpg"
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/t624517913"
 link_shopping:  "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0677-001.html"
-price: 950400
-stock: true
+price: 880000
+stock: false
 categories:
 - Watch
 tags:

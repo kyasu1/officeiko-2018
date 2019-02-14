@@ -176,7 +176,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../images/top-tenpo-4-3.jpg":[["top-tenpo-4-3.a68ef482.jpg","../images/top-tenpo-4-3.jpg"],"../images/top-tenpo-4-3.jpg"],"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"holiday.json":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"holiday.json":[function(require,module,exports) {
 module.exports = {
   "2017-01-01": "元日",
   "2017-01-02": "元日 振替休日",
@@ -3059,7 +3059,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57682" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53877" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
