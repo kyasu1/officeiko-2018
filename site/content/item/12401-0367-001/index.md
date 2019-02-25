@@ -14,7 +14,7 @@ resources:
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/t596244617"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0367-001.html"
 price: 560000
-stock: true
+stock: false
 brand: "セイコー SEIKO"
 categories:
 - watch
