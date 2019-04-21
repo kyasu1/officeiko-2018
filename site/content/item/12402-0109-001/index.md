@@ -1,5 +1,5 @@
 ---
-title: "[ロレックス] ROLEX 腕時計 デイトジャスト41 126334 スレートローマ ランダム 国内正規 メンズ 極美品"
+title: " [ロレックス] ROLEX 腕時計 GMTマスターII 116710LN G番 メンズ 自動巻 美品"
 date: 2019-03-03T10:31:57+09:00
 draft: false
 images:
@@ -14,7 +14,7 @@ images:
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/u263869150"
 link_shopping:  "https://store.shopping.yahoo.co.jp/pawnshopiko/12402-0109-001.html"
 price: 950000
-stock: true
+stock: false
 categories:
 - Watch
 tags:
