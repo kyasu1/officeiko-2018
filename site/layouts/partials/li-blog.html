@@ -3,7 +3,7 @@
     <div class="flex mb-2 p-2 border border-solid border-blue">
         {{ $class := "w-24 h-24 md:w-32 md:h-32 object-contain" }}
         {{ $img := .Resources.GetMatch "image-1.jpg" }}
-        <a href="{{ .URL }}" class="no-underline text-black block flex-no-shrink">
+        <a href="{{ .Permalink }}" class="no-underline text-black block flex-no-shrink">
         {{ if $img }}
         {{ $x1 := $img.Resize "300x" }}
         {{ $x2 := $img.Resize "600x" }}
@@ -18,7 +18,7 @@
         </a>
         <div class="flex flex-col ml-2 leading-normal" title="{{ .Title }}">
             <span class="text-sm text-grey-dark">{{ dateFormat .Site.Params.dateFormat .Date }}</span>
-            <a href="{{ .URL }}" class="block h-6 overflow-hidden no-underline text-black font-bold">{{ .Title }}</a>
+            <a href="{{ .Permalink }}" class="block h-6 overflow-hidden no-underline text-black font-bold">{{ .Title }}</a>
             <p>{{ .Summary | truncate 30}}</p>
         </div>
     </div>

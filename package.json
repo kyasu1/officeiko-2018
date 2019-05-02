@@ -8,7 +8,7 @@
     "dev": "concurrently --prefix '{time}-{pid}' 'npm run parcel-watch' 'npm run hugo-watch' --kill-others --kill-others-on-fail",
     "parcel-watch": "rm -rf site/static/assets && parcel watch src/js/index.js -d site/static/assets",
     "parcel-build": "rm -rf site/static/assets && parcel build src/js/index.js -d site/static/assets",
-    "hugo-watch": "hugo server -w -D -s site --bind 0.0.0.0 --configDir site --config config.toml,market.toml",
+    "hugo-watch": "hugo server -w -D --verbose -s site --bind 0.0.0.0 --configDir site --config config.toml,market.toml",
     "hugo-build": "rm -rf site/public && hugo -s site --configDir site --config config.toml,market.toml"
   },
   "repository": {
@@ -22,14 +22,17 @@
   },
   "homepage": "https://github.com/kyasu1/officeiko-2018#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.4",
     "autoprefixer": "^9.4.4",
     "concurrently": "^4.1.0",
-    "cssnano": "^4.1.8",
+    "cssnano": "^4.1.10",
     "parcel-bundler": "^1.11.0",
     "postcss": "^7.0.10",
     "postcss-modules": "^1.4.1",
     "sass": "^1.16.0",
     "tailwindcss": "^0.7.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "core-js": "^2.6.5"
+  }
 }
