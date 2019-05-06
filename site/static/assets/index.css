@@ -6494,7 +6494,13 @@ body {
 }
 
 .bg-cover-image-top {
-  background-image: url("https://www.officeiko.co.jp/images/top-tenpo-4-3.jpg");
+  background-image: url("https://www.officeiko.co.jp/images/top-tenpo-mobile.jpg");
+}
+
+@media (min-width: 768px) {
+  .bg-cover-image-top {
+    background-image: url("https://www.officeiko.co.jp/images/top-tenpo-4-3.jpg");
+  }
 }
 
 .bg-twitter-blue {

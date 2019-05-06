@@ -1,11 +1,7 @@
 /site/public
 /site/resources/_gen/
 
-node_modules
-elm_stuff
-
 .DS_Store
-.cache
 
 ### https://raw.github.com/github/gitignore/2664dad61f3fda7755acc70ceb5aac4b1e956981/Global/Vim.gitignore
 
