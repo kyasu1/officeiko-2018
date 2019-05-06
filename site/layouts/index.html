@@ -17,11 +17,11 @@
 
 {{ define "main" }}
 
-{{ template "header" (dict "jp" "お知らせ" "en" "News" "a" "/news") }}
+{{ template "header" (dict "jp" "当店からのお知らせ" "en" "News" "a" "/news") }}
 
 <div class="mb-3 px-2 md:px-0">
     <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
-        {{ range where .Pages "Section" "news" }}
+        {{ range first 3 (where .Pages "Section" "news") }}
         {{ partial "li-news" . }}
         {{ end }}
     </ul>
@@ -37,7 +37,7 @@
 
 <div>
     <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
-        {{ range where .Pages "Section" "post" }}
+        {{ range first 6 (where .Pages "Section" "post") }}
         {{ partial "li-blog" . }}
         {{ end }}
     </ul>

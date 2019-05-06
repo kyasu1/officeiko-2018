@@ -1,17 +1,14 @@
 <div class="h-full md:mr-2">
-  <div class="bg-white h-full md:border border-orange border-solid">
+  <div class="bg-white h-full">
     <div class="m-2 p-px bg-green">
-      <div>
         <p class="bg-white p-2 text-center font-black">お電話でのお問い合わせ</p>
         <p class="p-2 text-white text-center font-black">
           <a href="tel:0120411578" class="no-underline text-white">
             0120-41-1578
           </a>
         </p>
-      </div>
-
     </div>
-    <div class="p-2 border-b border-orange border-solid">
+    <div class="p-2">
       <h4 class="text-center text-black pb-2">本日の地金買取相場</h4>
       <h5 class="text-center text-black pb-2">{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}</h5>
       {{ $gd := .Site.Params.market.gd }}
@@ -42,27 +39,44 @@
         </a>
       </p>
     </div>
-    <div class="p-2 border-b border-orange">
-      <h4 class="text-center">営業カレンダー</h4>
+
+    <div class="border border-grey-dark pt-4">
+      <h4 class="text-center pb-1 text-lg">営業カレンダー</h4>
       <div id="calendar">Elmで書かれたカレンダーが埋め込まれます</div>
-      <p class="hidden text-left px-2 py-1 mx-2 -mt-4 text-black font-bold bg-orange inline-box border border-orange">冬季休業</p>
-      <p class="text-left px-2 py-1 mx-2 mt-1 text-black font-bold bg-green inline-box border border-green">定休日</p>
-      <p class="text-left pl-4 py-2 text-sm font-semibold">営業時間 10:00am - 7:00pm</p>
+      <p class="text-center py-1 md:text-sm font-semibold">定休日 毎週水曜日・第1と3火曜日</p>
+      <p class="text-center py-1 md:text-sm font-semibold">営業時間 10:00am - 7:00pm</p>
     </div>
-    <div class="p-2 border-b border-orange">
-      <a href="https://shopping.geocities.jp/pawnshopiko/#/?_k=fpusp3" class="no-underline">
-        <img src="https://s.yimg.jp/c/logo/f/2.0/shopping_r_34_2x.png">
+    <br>
+
+    <div class="">
+      <a href="https://shopping.geocities.jp/pawnshopiko/#/?_k=fpusp3" class="no-underline" target="_blank">
+        <img src="/images/banner-yahoo-shopping.png" srcset="/images/banner-yahoo-shopping.png 1x,/images/banner-yahoo-shopping@2x.png 2x"
+        class="w-full h-auto border border-grey-dark">
       </a>
 
     </div>
-    <div class="p-2 border-b border-orange">
-      <a href="https://auctions.yahoo.co.jp/seller/pawnshopiko" class="no-underline">
-        <img src="https://s.yimg.jp/images/auc/pc/top/image/2.0.0/logo_yahuoku_01.png">
+    <br>
+
+    <div class="">
+      <a href="https://auctions.yahoo.co.jp/seller/pawnshopiko" class="no-underline" target="_blank">
+        <img src="/images/banner-yahoo-auction.png" srcset="/images/banner-yahoo-auction.png 1x,/images/banner-yahoo-auction@2x.png 2x" 
+        class="w-full h-auto border border-grey-dark">
       </a>
     </div>
-    <div class="p-2">
+    <br>
+
+    <div class="border border-grey-dark p-4">
       <img src="/images/duty_free_logo.svg">
+      <p class="text-center py-2 md:text-sm font-semibold">店頭販売のみ対象となります</p>
     </div>
-
+    <br>
+    
+    <div class="">
+      <a href="http://www.zenshichi.gr.jp" class="no-underline" target="_blank">
+        <img src="/images/banner-zenshichi.png" srcset="/images/banner-zenshichi.png 1x,/images/banner-zenshichi@2x.png 2x"
+        class="w-full h-auto border border-grey-dark hover:opacity-75">
+      </a>
+    </div>
+    <br>
   </div>
 </div>
