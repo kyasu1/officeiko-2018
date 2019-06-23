@@ -1,5 +1,5 @@
 ---
-title: "タイトル""
+title: "タイトル"
 date: {{ .Date }}
 draft: false
 author: Yasu
