@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run parcel-build && npm run hugo-build",
+    "build": "npm run hugo-build",
     "dev": "concurrently --prefix '{time}-{pid}' 'npm run parcel-watch' 'npm run hugo-watch' --kill-others --kill-others-on-fail",
     "parcel-watch": "rm -rf site/static/assets && parcel watch src/js/index.js -d site/static/assets",
     "parcel-build": "rm -rf site/static/assets && parcel build src/js/index.js -d site/static/assets",

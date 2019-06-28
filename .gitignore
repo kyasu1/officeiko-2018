@@ -1,6 +1,6 @@
 /site/public
 /site/resources/_gen/
-/site/static/assets/
+# /site/static/assets/
 
 .DS_Store
 
