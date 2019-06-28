@@ -17,15 +17,6 @@
 
 {{ define "main" }}
 
-{{ template "header" (dict "jp" "当店からのお知らせ" "en" "News" "a" "/news") }}
-
-<div class="mb-3 px-2 md:px-0">
-    <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
-        {{ range first 3 (where .Pages "Section" "news") }}
-        {{ partial "li-news" . }}
-        {{ end }}
-    </ul>
-</div>
 
 {{ template "header" (dict "jp" "新着商品" "en" "New Arrivals" "a" "/item") }}
 
@@ -39,6 +30,16 @@
     <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
         {{ range first 6 (where .Pages "Section" "post") }}
         {{ partial "li-blog" . }}
+        {{ end }}
+    </ul>
+</div>
+
+{{ template "header" (dict "jp" "当店からのお知らせ" "en" "News" "a" "/news") }}
+
+<div class="mb-3 px-2 md:px-0">
+    <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
+        {{ range first 3 (where .Pages "Section" "news") }}
+        {{ partial "li-news" . }}
         {{ end }}
     </ul>
 </div>
