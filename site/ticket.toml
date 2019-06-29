@@ -1,0 +1,188 @@
+[params]
+[params.ticket]
+date = "2019-06-29"
+[[params.ticket.items]]
+name = "全国百貨店共通商品券"
+comment = "一部買取不可あり"
+rate = 0.96
+category = "商品券"
+[[params.ticket.items]]
+name = "セブン＆アイホールディングス商品券"
+comment = "現行柄以外はマイナス1%"
+rate = 0.94
+category = "商品券"
+[[params.ticket.items]]
+name = "イオン商品券"
+comment = "現行柄以外はマイナス1%"
+rate = 0.96
+category = "商品券"
+[[params.ticket.items]]
+name = "ヨドバシカメラ商品券"
+comment = ""
+rate = 0.92
+category = "商品券"  
+
+[[params.ticket.items]]
+name = "JCBギフト"
+comment = "ホログラムのあるもの"
+rate = 0.95
+category = "ギフト券"
+[[params.ticket.items]]
+name = "VJAギフト"
+comment = "ホログラムのあるもの"
+rate = 0.95
+category = "ギフト券"
+[[params.ticket.items]]
+name = "JTBナイスギフト"
+comment = "ホログラムのあるもの"
+rate = 0.95
+category = "ギフト券"
+[[params.ticket.items]]
+name = "DCUFJニコス"
+comment = "ホログラムのあるもの"
+rate = 0.95
+category = "ギフト券"
+[[params.ticket.items]]
+name = "UC"
+comment = "ホログラムのあるもの"
+rate = 0.95
+category = "ギフト券"
+
+[[params.ticket.items]]
+name = "びゅう商品券"
+comment = ""
+rate = 0.96
+category = "旅行券"
+[[params.ticket.items]]
+name = "JTB"
+comment = "新券"
+rate = 0.90
+category = "旅行券"
+[[params.ticket.items]]
+name = "JTB"
+comment = "「この券は、JTBの窓口でのみ使えます」と印字されているもの"
+rate = 0.85
+category = "旅行券"
+[[params.ticket.items]]
+name = "近ツリ"
+comment = "裏面に署名欄のあるものは買取不可"
+rate = 0.90
+category = "旅行券"
+[[params.ticket.items]]
+name = "HIS旅行券"
+comment = ""
+rate = 0.85
+category = "旅行券"
+
+[[params.ticket.items]]
+name = "ビール券（784）"
+comment = "2018年4月1日発行新券"
+price = 760
+category = "ビール券"
+[[params.ticket.items]]
+name = "ビール券（724）"
+comment = ""
+price = 700
+category = "ビール券"
+[[params.ticket.items]]
+name = "ビール券（494）"
+comment = ""
+price = 470
+category = "ビール券"
+
+[[params.ticket.items]]
+name = "マックカード500円"
+comment = ""
+price = 450
+category = "その他"
+[[params.ticket.items]]
+name = "ジェフグルメカード"
+comment = ""
+price = 450
+category = "その他"
+[[params.ticket.items]]
+name = "お米券540円"
+comment = ""
+price = 480
+category = "その他"
+[[params.ticket.items]]
+name = "お米券440円"
+comment = ""
+price = 380
+category = "その他"
+[[params.ticket.items]]
+name = "クオカード"
+comment = "店頭発行用は買取不可"
+rate = 0.90
+category = "その他"
+[[params.ticket.items]]
+name = "図書券・図書カード"
+comment = ""
+rate = 0.90
+category = "その他"
+[[params.ticket.items]]
+name = "図書カードNEXT"
+comment = "PINを削って残額を確認させていただきます"
+rate = 0.85
+category = "その他"
+[[params.ticket.items]]
+name = "テレカ50度数"
+comment = "広告や絵柄は関係なく買取いたします"
+price = 250
+category = "その他"
+[[params.ticket.items]]
+name = "テレカ105度数"
+comment = "広告や絵柄は関係なく買取いたします"
+price = 500
+category = "その他"
+
+[[params.ticket.items]]
+name = "収入印紙200円(100枚シート)"
+comment = "現行のデザイン・のり落ちは買取不可"
+rate = 0.95
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "収入印紙1000円未満(100枚シート)"
+comment = "現行のデザイン・のり落ちは買取不可"
+rate = 0.92
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "収入印紙1000円未満バラ"
+comment = "のり落ちは買取不可"
+rate = 0.90
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "普通切手100枚シート・50円以上"
+comment = ""
+rate = 0.85
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "切手バラ・50円以上"
+comment = ""
+rate = 0.60
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "切手バラ・50円未満"
+comment = ""
+rate = 0.50
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "62円新はがき・200枚完封"
+comment = ""
+rate = 0.80
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "はがきバラ"
+comment = ""
+rate = 0.50
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "レターパックプラス510円"
+comment = ""
+price = 400
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "レターパックライト360円"
+comment = ""
+price = 280
+category = "切手・印紙"

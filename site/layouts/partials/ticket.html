@@ -1,0 +1,20 @@
+<h3 class="my-2">{{ .category }}</h3>
+{{ range $i, $item := where .context.Site.Params.ticket.items "category" .category }}
+<div class="flex flex-row justify-between p-2 {{ if not (modBool $i 2) }} bg-green-lightest {{ else }} bg-green-lighter {{ end }}" >
+    <div class="">
+        <div>{{ $item.name }}</div>
+        <div class="text-sm text-red-dark h-4 font-bold">
+            {{ $item.comment }}
+        </div>    
+    </div>
+    <div class="w-24 align-right text-right font-bold self-center">
+        {{ if $item.rate }}
+            {{ mul 100 $item.rate }}%
+        {{ else if $item.price }}
+            {{ $item.price }}円
+        {{ else }}
+            取扱中止
+        {{ end }}
+    </div>
+</div>
+{{ end }}
