@@ -4,17 +4,17 @@
     <p class="text-right">更新日：{{ .Lastmod.Format "2006年1月2日"  }}</p>
     <p>質イコーでは１枚から金券の買取をさせていただいております。一覧表に掲載のない場合は{{ partial "link-contact" }}ください。お気軽にご利用ください！</p>
     <p>原則として金券類の質預かりはいたしておりません。</p>
-    {{ partial "ticket.html" (dict "category" "商品券" "context" .) }}
+    {{ partial "ticket.html" (dict "category" "商品券" "context" $) }}
     <p>その他の商品券については{{ partial "link-contact" }}ください。</p>
-    {{ partial "ticket.html" (dict "category" "ギフト券" "context" .) }}
+    {{ partial "ticket.html" (dict "category" "ギフト券" "context" $) }}
     <p>現行の柄が対象となります。その他のギフト券については{{ partial "link-contact" }}ください。</p>
-    {{ partial "ticket.html" (dict "category" "旅行券" "context" .) }}
+    {{ partial "ticket.html" (dict "category" "旅行券" "context" $) }}
     <p>その他の旅行券については{{ partial "link-contact" }}ください。</p>
-    {{ partial "ticket.html" (dict "category" "ビール券" "context" .) }}
+    {{ partial "ticket.html" (dict "category" "ビール券" "context" $) }}
     <p>その他の古いビール券についてはお問い合わせください。</p>
-    {{ partial "ticket.html" (dict "category" "切手・印紙" "context" .) }}
+    {{ partial "ticket.html" (dict "category" "切手・印紙" "context" $) }}
     <p></p>
-    {{ partial "ticket.html" (dict "category" "その他" "context" .) }}
+    {{ partial "ticket.html" (dict "category" "その他" "context" $) }}
     <p>記載のないお品物もお調べして買取させていただきますのでお気軽に{{ partial "link-contact" }}ください。</p>
     <h3>株主優待券等</h3>
     <div>各種株主優待券(JALやANAなど)も買取いたしております。有効期限があるものが多いですので余裕をもってお持ちください。時期によって変動します。</div>
