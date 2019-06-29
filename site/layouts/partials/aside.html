@@ -26,9 +26,9 @@
           <div class="w-20 py-2 px-1 text-right border border-solid border-yellow-dark border-l-0">
             <span class="text-sm">前日比</span>
               {{ if gt $gd_ratio 0 }}
-                <span class="text-red font-bold">+</span>{{$gd_ratio}}円
+                <span class="text-red font-bold">+{{$gd_ratio}}円</span>
               {{ else if lt $gd_ratio 0 }}
-                <span class="text-blue">-</span>{{ $gd_ratio}}円
+                <span class="text-blue-dark font-bold">-{{ mul -1 $gd_ratio}}円</span>
               {{ else }}
                 {{ print " " $gd_ratio "円" }}
               {{ end }}
@@ -45,9 +45,9 @@
         <div class="w-20 py-2 px-1 text-right border border-solid border-gray border-l-0">
           <span class="text-sm">前日比</span>
             {{ if gt $pt_ratio 0 }}
-              <span class="text-red font-bold">+</span>{{ $pt_ratio }}円
+              <span class="text-red font-bold">+{{ $pt_ratio }}円</span>
             {{ else if lt $pt_ratio 0 }}
-              <span class="text-blue">-</span>{{ $pt_ratio }}円
+              <span class="text-blue-dark font-bold">-{{ mul -1 $pt_ratio }}円</span>
             {{ else }}
               {{ print " " $pt_ratio "円" }}
             {{ end }}
