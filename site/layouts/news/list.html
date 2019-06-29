@@ -1,9 +1,9 @@
 {{ define "main" }}
 
-<h1>イコーからのお知らせ</h1>
+<h1 class="text-2xl font-semibold">イコーからのお知らせ</h1>
 
 <div class="mb-3">
-    <ul class="list-reset flex flex-col md:flex-row md:flex-wrap">
+    <ul class="flex flex-col md:flex-row md:flex-wrap">
         {{ range where .Pages "Section" "news" }}
         {{ partial "li-news" . }}
         {{ end }}

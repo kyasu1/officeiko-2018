@@ -358,8 +358,9 @@ subscriptions : Model -> Sub Msg
 subscriptions model =
     case model.modal of
         Just _ ->
+            -- Sub.batch [onEscape ClickedCloseModal NoOp
+            -- , Browser.Events.onMouseDown (outsideTarget "overlay" ClickedCloseModal)]
             onEscape ClickedCloseModal NoOp
-
         _ ->
             resizedImages GotResized
 
@@ -715,28 +716,55 @@ onEscape action noop =
         <|
             Json.field "key" Json.string
 
+-- outsideTarget : String -> msg -> Json.Decoder msg
+-- outsideTarget overlayId action =
+--     Json.field "target" (isOutsideOverlay overlayId)
+--         |> Json.andThen
+--             (\isOutside ->
+--                 if isOutside then
+--                     Json.succeed action
+--                 else
+--                     Json.fail "inside overlay"
+--             )
+
+-- isOutsideOverlay : String -> Json.Decoder Bool
+-- isOutsideOverlay overlayId =
+--     Json.oneOf
+--         [ Json.field "id" Json.string 
+--             |> Json.andThen 
+--                 (\id ->
+--                     if overlayId == id then
+--                         Json.succeed False
+--                     else
+--                         Json.fail "continue"
+--                 )
+--         , Json.lazy (\_ -> isOutsideOverlay overlayId |> Json.field "parentNode")
+--         , Json.succeed True
+--         ]
 
 viewOverlay : Msg -> String -> Element Msg
 viewOverlay msg src =
     Html.div
-        [ Attributes.class "fixed pin z-50 overflow-auto bg-smoke-light flex"
-        , Html.Events.onClick ClickedCloseModal
+        [ Attributes.class "fixed inset-0 z-50 overflow-auto bg-smoke-400 flex"
+        -- , Html.Events.onClick ClickedCloseModal
+        , Html.Events.stopPropagationOn "click"  (Json.map alwaysStopPropagate (Json.succeed ClickedCloseModal))
+
         ]
         [ Html.div
             [ Attributes.class "relative p-8 bg-white w-full max-w-md m-auto flex-col flex"
             , Html.Events.stopPropagationOn "click" (Json.map alwaysStopPropagate (Json.succeed NoOp))
             ]
-            [ Html.img [ Attributes.src src ] []
+            [ Html.img [ Attributes.src src, Attributes.class "inline" ] []
             , Html.span
-                [ Attributes.class "absolute pin-t pin-r p-4 cursor-pointer"
+                [ Attributes.class "absolute top-0 right-0 p-4 cursor-pointer"
                 , Html.Events.onClick ClickedCloseModal
                 ]
                 [ Icon.close ]
             , Html.span
-                [ Attributes.class "absolute pin-b pin-r p-16 cursor-pointer"
+                [ Attributes.class "absolute bottom-0 right-0 p-16 cursor-pointer"
                 , Html.Events.onClick msg
                 ]
-                [ Html.div [ Attributes.class "bg-red-dark text-white hover:bg-red border rounded shadow px-4 py-2" ] [ Html.text "削除" ] ]
+                [ Html.div [ Attributes.class "bg-red-700 text-white hover:bg-red-500 border rounded shadow px-4 py-2" ] [ Html.text "削除" ] ]
             ]
         ]
         |> html
@@ -745,10 +773,10 @@ viewOverlay msg src =
 viewLoading : String -> Element Msg
 viewLoading src =
     Html.div
-        [ Attributes.class "fixed pin z-50 overflow-auto bg-smoke flex flex-col items-center justify-center"
+        [ Attributes.class "fixed inset-0 z-50 overflow-auto bg-smoke-500 flex flex-col items-center justify-center"
         ]
         [ Html.div [ Attributes.class "py-4" ] [ Spinner.view "#F2D024" ]
-        , Html.div [ Attributes.class "py-4 text-yellow-dark text-2xl" ] [ Html.text "送信中..." ]
+        , Html.div [ Attributes.class "py-4 text-yellow-600 text-2xl" ] [ Html.text "送信中..." ]
         ]
         |> html
 

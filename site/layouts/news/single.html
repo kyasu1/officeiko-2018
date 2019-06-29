@@ -1,11 +1,11 @@
 {{ define "main" }}
 
-<h1 class="px-2 md:px-12 py-4 bg-blue text-white">
+<h1 class="px-2 md:px-12 py-4 bg-blue-500 text-white text-2xl font-semibold">
     イコーからのお知らせ
 </h1>
 <div class="px-2 md:px-12">
-    <h1 class="pt-5 pb-2 text-black border-b-8 border-solid border-grey">{{ .Title }}</h1>
-    <p class="text-right text-grey-darker py-3">{{ .Date.Format (.Site.Params.dateFormat) }}</p>
+    <h2 class="pt-5 pb-2 text-black border-b-2  border-gray-500 text-xl font-semibold">{{ .Title }}</h2>
+    <p class="text-right text-gray-600 py-3">{{ .Date.Format (.Site.Params.dateFormat) }}</p>
 
     <hr>
     <div class="text-black leading-loose text-lg">

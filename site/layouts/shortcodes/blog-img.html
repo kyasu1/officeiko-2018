@@ -2,8 +2,8 @@
 {{ $x1 := $img.Resize "600x q85" }}
 <figure class="text-center">
     <img src="{{ $x1.RelPermalink }}"
-    srcset="{{ $x1.RelPermalink }} 1x, {{ $img.RelPermalink }} 2x" alt="{{ $img.Title }}" class="max-w-lg w-full"/>
+    srcset="{{ $x1.RelPermalink }} 1x, {{ $img.RelPermalink }} 2x" alt="{{ $img.Title }}" class="max-w-lg w-full inline"/>
     {{ if $img.Title }}
-    <figcaption class="text-grey text-sm">{{ $img.Title }}</figcaption>
+    <figcaption class="text-gray-500 text-sm">{{ $img.Title }}</figcaption>
     {{ end }}
 </figure>

@@ -1,13 +1,13 @@
 <div class="flex -mt-1 print:text-xl">
-    <p class="w-2/5 py-2 text-center border border-solid border-yellow-dark bg-yellow">
+    <p class="w-2/5 py-2 text-center border border-solid border-yellow-600 bg-yellow-500">
         {{ .gd.name }}
     </p>
-    <p class="w-3/5 py-2 text-center border border-yellow-dark bg-white border-l-0">
+    <p class="w-3/5 py-2 text-center border border-yellow-600 bg-white border-l-0">
         {{ $price := div .market 24.0 | mul .gd.ratio | sub .gd.sell_diff | mul -0.1 | math.Ceil | mul 10}}
         {{ lang.NumFmt 0 $price }}円
     </p>
     {{ if .pawn }}
-    <p class="w-3/5 py-2 text-center border border-yellow-dark bg-white border-l-0">
+    <p class="w-3/5 py-2 text-center border border-yellow-600 bg-white border-l-0">
         {{ $price := div .market 24.0 | mul .gd.ratio | sub .gd.pawn_diff | mul -0.1 | math.Ceil | mul 10}}
         {{ lang.NumFmt 0 $price }}円
     </p>

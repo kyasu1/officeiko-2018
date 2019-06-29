@@ -1,15 +1,18 @@
-<div class="h-full md:mr-2">
+<div class="h-full px-2 md:px-0">
   <div class="bg-white h-full">
-    <div class="m-2 p-px bg-green">
-        <p class="bg-white p-2 text-center font-black">お電話でのお問い合わせ</p>
-        <p class="p-2 text-white text-center font-black">
-          <a href="tel:0120411578" class="no-underline text-white">
-            0120-41-1578
-          </a>
-        </p>
-    </div>
-    <div class="p-2">
-      <h4 class="text-center text-black pb-2">本日の地金買取相場</h4>
+    <!-- <div class="p-px bg-green-500">
+      <p class="bg-white p-2 text-center font-black">お電話でのお問い合わせ</p>
+      <p class="p-2 text-white text-center font-black">
+        <a href="tel:0120411578" class="text-white">
+          0120-41-1578
+        </a>
+      </p>
+    </div> -->
+
+    <div class="p-2 bg-gray-100">
+      <h4 class="text-center pb-1 text-2xl font-semibold">
+        金プラ買取相場
+      </h4>
       <h5 class="text-center text-black pb-2">{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}</h5>
       {{ $gd := .Site.Params.market.gd }}
       {{ $gd_ratio := .Site.Params.market.gd_ratio }}
@@ -17,42 +20,45 @@
       {{ $pt_ratio := .Site.Params.market.pt_ratio }}
 
       <div class="mb-2">
-          <div class="flex justify-between -mt-1">
-          <div class="w-10 py-2 text-center border border-solid border-yellow-dark bg-yellow font-bold">金</div>
-          <div class="py-2 text-center border border-solid border-yellow-dark flex-grow border-l-0">
+        <div class="flex justify-between -mt-1">
+          <div class="w-10 py-2 flex justify-center items-center border border-yellow-600 bg-yellow-500 font-bold">金
+          </div>
+          <div class="py-2 flex justify-center items-center border border-solid border-yellow-600 flex-grow border-l-0">
             <span class="font-bold">{{ lang.NumFmt 0 $gd }}</span>
             <span class="text-sm">円/g</span>
           </div>
-          <div class="w-20 py-2 px-1 text-right border border-solid border-yellow-dark border-l-0">
+          <div class="w-20 py-2 px-1 text-center border border-yellow-600 border-l-0">
             <span class="text-sm">前日比</span>
-              {{ if gt $gd_ratio 0 }}
-                <span class="text-red font-bold">+{{$gd_ratio}}円</span>
-              {{ else if lt $gd_ratio 0 }}
-                <span class="text-blue-dark font-bold">-{{ mul -1 $gd_ratio}}円</span>
-              {{ else }}
-                {{ print " " $gd_ratio "円" }}
-              {{ end }}
-            </div>
-          </div>      
-        </div>
-      <div class="mb-2">
-        <div class="flex justify-between -mt-1">
-        <div class="w-10 py-2 text-center border border-solid border-grey bg-grey-lighter font-bold">Pt</div>
-        <div class="py-2 text-center border border-solid border-gray flex-grow border-l-0">
-          <span class="font-bold">{{ lang.NumFmt 0 $pt }}</span>
-          <span class="text-sm">円/g</span>
-        </div>
-        <div class="w-20 py-2 px-1 text-right border border-solid border-gray border-l-0">
-          <span class="text-sm">前日比</span>
-            {{ if gt $pt_ratio 0 }}
-              <span class="text-red font-bold">+{{ $pt_ratio }}円</span>
-            {{ else if lt $pt_ratio 0 }}
-              <span class="text-blue-dark font-bold">-{{ mul -1 $pt_ratio }}円</span>
+            {{ if gt $gd_ratio 0 }}
+            <span class="text-red-600 font-bold">+{{$gd_ratio}}円</span>
+            {{ else if lt $gd_ratio 0 }}
+            <span class="text-blue-600 font-bold">-{{ mul -1 $gd_ratio}}円</span>
             {{ else }}
-              {{ print " " $pt_ratio "円" }}
+            {{ print " " $gd_ratio "円" }}
             {{ end }}
           </div>
-        </div>      
+        </div>
+      </div>
+      <div class="mb-2">
+        <div class="flex justify-between -mt-1">
+          <div
+            class="w-10 py-2 flex justify-center items-center border border-solid border-gray-500 bg-gray-200 font-bold">
+            Pt</div>
+          <div class="py-2 flex justify-center items-center border border-solid border-gray-500 flex-grow border-l-0">
+            <span class="font-bold">{{ lang.NumFmt 0 $pt }}</span>
+            <span class="text-sm">円/g</span>
+          </div>
+          <div class="w-20 py-2 px-1 text-center border border-solid border-gray-500 border-l-0">
+            <span class="text-sm">前日比</span>
+            {{ if gt $pt_ratio 0 }}
+            <span class="text-red-600 font-bold">+{{ $pt_ratio }}円</span>
+            {{ else if lt $pt_ratio 0 }}
+            <span class="text-blue-600 font-bold">-{{ mul -1 $pt_ratio }}円</span>
+            {{ else }}
+            {{ print " " $pt_ratio "円" }}
+            {{ end }}
+          </div>
+        </div>
       </div>
       <!-- <div class="mb-2">
         {{ range where .Site.Params.gd "name" "K24IG" }}
@@ -81,9 +87,16 @@
       </p>
     </div>
 
-    <div class="border border-grey-dark pt-4">
-      <h4 class="text-center pb-1 text-lg">営業カレンダー</h4>
-      <div id="calendar">Elmで書かれたカレンダーが埋め込まれます</div>
+    <div class="px-1 py-2 bg-red-100">
+      <h4 class="text-center pb-1 text-2xl font-semibold">営業カレンダー</h4>
+      <hr class="border border-gray-400">
+      <div class="p-2"><img src="https://s3-ap-northeast-1.amazonaws.com/officeiko-public/calendars/this.png"
+          alt="今月の営業カレンダー"></div>
+      <hr class="border border-gray-400">
+      <div class="p-2"><img src="https://s3-ap-northeast-1.amazonaws.com/officeiko-public/calendars/next.png"
+          alt="来月の営業カレンダー"></div>
+      <!-- <div id="calendar">Elmで書かれたカレンダーが埋め込まれます</div> -->
+      <hr class="border border-gray-400">
       <p class="text-center py-1 md:text-sm font-semibold">定休日 毎週水曜日・第1と3火曜日</p>
       <p class="text-center py-1 md:text-sm font-semibold">営業時間 10:00am - 7:00pm</p>
     </div>
@@ -91,8 +104,9 @@
 
     <div class="">
       <a href="https://shopping.geocities.jp/pawnshopiko/#/?_k=fpusp3" class="no-underline" target="_blank">
-        <img src="/images/banner-yahoo-shopping.png" srcset="/images/banner-yahoo-shopping.png 1x,/images/banner-yahoo-shopping@2x.png 2x"
-        class="w-full h-auto border border-grey-dark hover:opacity-75">
+        <img src="/images/banner-yahoo-shopping.png"
+          srcset="/images/banner-yahoo-shopping.png 1x,/images/banner-yahoo-shopping@2x.png 2x"
+          class="w-full h-auto border border-gray-500 hover:opacity-75">
       </a>
 
     </div>
@@ -100,45 +114,39 @@
 
     <div class="">
       <a href="https://auctions.yahoo.co.jp/seller/pawnshopiko" class="no-underline" target="_blank">
-        <img src="/images/banner-yahoo-auction.png" srcset="/images/banner-yahoo-auction.png 1x,/images/banner-yahoo-auction@2x.png 2x"
-        class="w-full h-auto border border-grey-dark hover:opacity-75">
+        <img src="/images/banner-yahoo-auction.png"
+          srcset="/images/banner-yahoo-auction.png 1x,/images/banner-yahoo-auction@2x.png 2x"
+          class="w-full h-auto border border-gray-500 hover:opacity-75">
       </a>
     </div>
     <br>
 
-    <div class="border border-grey-dark p-4">
-      <img src="/images/duty_free_logo.svg"
-           alt="免税店のロゴ">
+    <div class="border border-gray-500 p-4">
+      <img src="/images/duty_free_logo.svg" alt="免税店のロゴ">
       <p class="text-center py-2 md:text-sm font-semibold">店頭販売のみ対象となります</p>
     </div>
     <br>
 
     <a href="https://www.merpay.com/" target="_blank" class="no-underline text-black">
-      <div class="border border-grey-dark p-4">
-        <img src="/images/merpay.png"
-             alt="メルペイのロゴ"
-             class="hover:opacity-75">
+      <div class="border border-gray-500 p-4">
+        <img src="/images/merpay.png" alt="メルペイのロゴ" class="hover:opacity-75">
         <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
       </div>
     </a>
     <br>
 
     <a href="https://line.me/ja/pay" target="_blank" class="no-underline text-black">
-      <div class="border border-grey-dark p-4">
-        <img src="/images/linepay.png"
-             alt="LINEペイのロゴ"
-             class="hover:opacity-75">
+      <div class="border border-gray-500 p-4">
+        <img src="/images/linepay.png" alt="LINEペイのロゴ" class="hover:opacity-75">
         <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
       </div>
     </a>
     <br>
 
     <a href="https://airregi.jp/payment/" target="_blank" class="no-underline text-black">
-      <div class="border border-grey-dark p-4">
-        <img src="/images/airpay.png"
-             srcset="/images/airpay.png 1x, /images/airpay@2x.png 2x"
-             alt="AirPayのロゴ"
-             class="hover:opacity-75">
+      <div class="border border-gray-500 p-4">
+        <img src="/images/airpay.png" srcset="/images/airpay.png 1x, /images/airpay@2x.png 2x" alt="AirPayのロゴ"
+          class="hover:opacity-75">
         <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
       </div>
     </a>
@@ -147,15 +155,16 @@
     <div class="">
       <a href="http://www.zenshichi.gr.jp" class="no-underline" target="_blank">
         <img src="/images/banner-zenshichi.png"
-             srcset="/images/banner-zenshichi.png 1x,/images/banner-zenshichi@2x.png 2x"
-             alt="全国質屋組合連合会のロゴ"
-             class="w-full h-auto border border-grey-dark hover:opacity-75">
+          srcset="/images/banner-zenshichi.png 1x,/images/banner-zenshichi@2x.png 2x" alt="全国質屋組合連合会のロゴ"
+          class="w-full h-auto border border-gray-500 hover:opacity-75">
       </a>
     </div>
     <br>
   </div>
 
-  <div>
-    <a class="twitter-timeline" data-width="256" data-height="600" href="https://twitter.com/pawnshopiko?ref_src=twsrc%5Etfw">Tweets by pawnshopiko</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <div class="w-full">
+    <a class="twitter-timeline" data-height="600" href="https://twitter.com/pawnshopiko?ref_src=twsrc%5Etfw">Tweets by
+      pawnshopiko</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>
 </div>

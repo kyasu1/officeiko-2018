@@ -1,21 +1,21 @@
 import '../css/style.scss';
 
 // Calendar
-const holiday = require('./holiday.json');
-const special = require('./special.json');
+// const holiday = require('./holiday.json');
+// const special = require('./special.json');
 
-const calendar = require('../elm-calendar/src/CompanyHoliday.elm');
+// const calendar = require('../elm-calendar/src/CompanyHoliday.elm');
 
-const node = document.getElementById('calendar');
-if (node) {
-    const app = calendar.Elm.Main.init({
-        node: node,
-        flags: {
-            holiday: holiday,
-            special: special
-        }
-    });
-}
+// const node = document.getElementById('calendar');
+// if (node) {
+//     const app = calendar.Elm.Main.init({
+//         node: node,
+//         flags: {
+//             holiday: holiday,
+//             special: special
+//         }
+//     });
+// }
 
 // Contact Form
 const contact = require('../elm-contact-form/src/Main.elm');

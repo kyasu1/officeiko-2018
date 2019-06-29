@@ -1,6 +1,6 @@
 {{ define "main" }}
-<h1 class="p-2 text-xl lg:text-2xl">{{ .Title }}</h1>
-<p class="px-2 md:px-0 text-right py-1 my-3 border-t border-b border-solid border-grey">
+<h1 class="p-2 text-xl lg:text-2xl font-semibold">{{ .Title }}</h1>
+<p class="p-2 text-right my-4 border-t border-b border-gray-400 bg-gray-100">
     {{ .Date.Format (.Site.Params.dateFormat) }}登録
 </p>
 
@@ -10,17 +10,18 @@
         <div id="slider"></div>
     </div>
     <div class="flex-no-shrink w-full px-2 lg:px-0 lg:w-64 ml-0 lg:ml-2">
-        <ul class="list-reset text-lg">
+        <ul class="text-lg">
             <li>
                 <p class="text-right py-1"><b>販売価格</b></p>
                 {{ if eq .Params.stock false }}
-                <p class="text-right py-1 text-red font-bold">SOLD OUT</p>
+                <p class="text-right py-1 text-red-700 font-bold">SOLD OUT</p>
                 {{ else }}
                 <p class="text-right py-1">{{ partial "taxed-price" .Params.price }}円(税込)</p>
                 {{ end }}
             </li>
             <li class="text-center">
-                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}" title="Ask abou this item">
+                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}"
+                    title="Ask abou this item">
                     お問い合わせ
                 </a>
             </li>
@@ -43,7 +44,7 @@
             </li>
         </ul>
         <p class="m-2 text-sm">
-            <div class="border border-red p-2 text-red">一品物になります為、売り切れの際はご容赦ください。</div>
+            <div class="border border-red-500 p-2 text-red-700">一品物になります為、売り切れの際はご容赦ください。</div>
         </p>
     </div>
 </div>

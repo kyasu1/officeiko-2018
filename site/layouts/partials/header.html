@@ -1,15 +1,18 @@
 <head class="print:hidden">
     {{ if .IsHome }}
-    <div class="bg-cover-image-top bg-center bg-no-repeat bg-cover relative w-full h-screen flex justify-center items-center flex-col">
-        <div class="p-4 border-4 border-solid border-white">
-            <h1 class="text-white text-4xl sm:text-5xl text-center py-2">やさしい質屋さん</h1>
-            <h2 class="text-white text-center py-2 ">質・買取・販売</h2>
+    <div
+        class="bg-cover-image-top bg-center bg-no-repeat bg-cover relative w-full h-screen flex justify-center items-center flex-col">
+        <div class="p-4 border-4 border-solid border-white bg-smoke-500">
+            <h1 class="text-white text-4xl font-black sm:text-5xl text-center py-2">やさしい質屋さん</h1>
+            <h2 class="text-white text-2xl font-semibold text-center py-2 ">質・買取・販売</h2>
         </div>
     </div>
     {{ end }}
-    <nav id="main-header" class="print:hidden px-6 flex items-center justify-center md:justify-between flex-wrap text-2xl py-3 bg-black mb-3 relative">
+    <nav id="main-header"
+        class="print:hidden px-6 flex items-center justify-center md:justify-between flex-wrap text-2xl py-3 bg-gray-800 mb-3 relative">
         <div class="block md:hidden absolute" style="left: 1rem; top: 1rem;">
-            <button id="btnOpenNav" class="flex items-center px-3 py-2 border rounded text-teal border-teal-light hover:text-white hover:border-white">
+            <button id="btnOpenNav"
+                class="flex items-center px-3 py-2 border rounded text-teal-500 border-teal-light hover:text-white hover:border-white">
                 <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <title>Menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -18,24 +21,25 @@
         </div>
 
         <div class="flex-no-shrink">
-            <a href="/" class="px-2 block mt-2 md:inline-block md:mt-0 text-white no-underline">質イコー</a>
+            <a href="/" class="px-2 block mt-2 md:inline-block md:mt-0 text-white">質イコー</a>
         </div>
 
         <div class="hidden block flex-grow md:flex md:items-center w-auto">
             {{ $currentPage := .}}
             {{ range .Site.Menus.main }}
-            <a href="{{ .URL }}" class="px-2 inline-block mt-0 text-teal hover:text-white mr-4 no-underline">
+            <a href="{{ .URL }}" class="px-2 inline-block mt-0 text-teal-500 hover:text-white mr-4">
                 <span>{{ .Name }}</span>
             </a>
             {{ end }}
         </div>
 
-        <div id="side-nav" class="h-full z-10 fixed pin-t pin-l bg-black text-center overflow-x-hidden" style="width: 0;">
-            <a id="btnCloseNav" href="javascript:void(0)" class="absolute pin-t text-white no-underline" style="right: 25px; font-size: 36px;"
-                >&times;</a>
+        <div id="side-nav" class="h-full z-10 fixed top-0 left-0 bg-black text-center overflow-x-hidden"
+            style="width: 0;">
+            <a id="btnCloseNav" href="javascript:void(0)" class="absolute top-0 text-white"
+                style="right: 25px; font-size: 36px;">&times;</a>
             {{ $currentPage := .}}
             {{ range .Site.Menus.main }}
-            <a href="{{ .URL }}" class="px-2 block mt-4 md:inline-block md:mt-0 text-teal hover:text-white mr-4 no-underline">
+            <a href="{{ .URL }}" class="px-2 block mt-4 md:inline-block md:mt-0 text-teal-500 hover:text-white mr-4">
                 <span>{{ .Name }}</span>
             </a>
             {{ end }}

@@ -1,7 +1,7 @@
 {{ define "header"}}
-<div class=" flex flex-col md:flex-row text-green-darkest items-center border-b border-green-lighter mb-3">
-    <h2 class="w-full md:w-1/2 bg-green-lighter py-2 px-2">
-        <span class="border-l-8 border-white px-2">
+<div class=" flex flex-col md:flex-row items-center text-green-900 border-b border-green-300 mb-3">
+    <h2 class="w-full md:w-1/2 bg-green-300 py-2 px-2">
+        <span class="border-l-8 border-white px-2 font-semibold text-2xl">
             {{ .jp }} - {{ .en }}
         </span>
     </h2>
@@ -17,13 +17,6 @@
 
 {{ define "main" }}
 
-
-{{ template "header" (dict "jp" "新着商品" "en" "New Arrivals" "a" "/item") }}
-
-<div class="mb-3">
-{{ partial "li-item" . }}
-</div>
-
 {{ template "header" (dict "jp" "ブログ" "en" "Blog" "a" "/post") }}
 
 <div>
@@ -33,6 +26,13 @@
         {{ end }}
     </ul>
 </div>
+
+{{ template "header" (dict "jp" "新着商品" "en" "New Arrivals" "a" "/item") }}
+
+<div class="mb-3">
+    {{ partial "li-item" . }}
+</div>
+
 
 {{ template "header" (dict "jp" "当店からのお知らせ" "en" "News" "a" "/news") }}
 
@@ -48,32 +48,33 @@
 
 <div id="access">
     <div class="leading-loose text-lg px-2 md:px-12">
-        <h4>お車でお越しの場合</h4>
-        <p>国道4号バイパス沿い 駐車場完備</p>
-        <p>東京外環自動車道 草加ICより約2Km北上</p>
-        <h4>電車でお越しの場合</h4>
-        <p>東武スカイツリーライン蒲生駅下車徒歩15分</p>
-        <p>東武スカイツリーライン新越谷駅下車徒歩20分</p>
-        <p>JR武蔵野線南越谷駅下車徒歩25分</p>
-        <p>※新越谷-蒲生駅間を走る グローバル交通 のバスにて、若草ふれあい公園前停留所から徒歩1分です。</p>
+        <h4 class="font-bold">お車でお越しの場合</h4>
+        <p class="pl-8">国道4号バイパス沿い 駐車場完備</p>
+        <p class="pl-8">東京外環自動車道 草加ICより約2Km北上</p>
+        <h4 class="font-bold">電車でお越しの場合</h4>
+        <p class="pl-8">東武スカイツリーライン蒲生駅下車徒歩15分</p>
+        <p class="pl-8">東武スカイツリーライン新越谷駅下車徒歩20分</p>
+        <p class="pl-8">JR武蔵野線南越谷駅下車徒歩25分</p>
+        <p class="pl-8">※新越谷-蒲生駅間を走る<a href="https://www.globalbus.jp/timetable.php?id=10" class="text-blue-700"
+                target="_blank">グローバル交通</a>のバスにて、若草ふれあい公園前停留所から徒歩1分です。</p>
     </div>
-    <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCE_50Di0FMOTtZYL19KuwCFq-SD8OF2bU&q=質イコー"
+    <iframe width="100%" height="450" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCE_50Di0FMOTtZYL19KuwCFq-SD8OF2bU&q=質イコー"
         allowfullscreen>
     </iframe>
 
     <div class="flex justify-center">
-    <div class="flex items-center justify-center leading-loose text-lg mx-2">
-            <a href="/map_01.pdf"
-                class="{{ .Site.Params.btnClass }}" target="_blank">
+        <div class="flex items-center justify-center leading-loose text-lg mx-2">
+            <a href="/map_01.pdf" class="{{ .Site.Params.btnClass }}" target="_blank">
                 <p class="px-2">PDFを開く</p>
             </a>
-        </div>    
-    <div class="flex items-center justify-center leading-loose text-lg mx-2">
-        <a href="https://www.google.co.jp/maps/place/%E8%B3%AA%E3%82%A4%E3%82%B3%E3%83%BC/@35.8664325,139.7775507,17z/data=!4m12!1m6!3m5!1s0x60189684c5a656c5:0xce45f80ac0cce0dc!2z6LOq44Kk44Kz44O8!8m2!3d35.8664325!4d139.7797394!3m4!1s0x60189684c5a656c5:0xce45f80ac0cce0dc!8m2!3d35.8664325!4d139.7797394?hl=en&authuser=0"
-            class="{{ .Site.Params.btnClass }}" target="_blank">
-            <p class="px-2">Google Maps</p>
-        </a>
-    </div>
+        </div>
+        <div class="flex items-center justify-center leading-loose text-lg mx-2">
+            <a href="https://www.google.co.jp/maps/place/%E8%B3%AA%E3%82%A4%E3%82%B3%E3%83%BC/@35.8664325,139.7775507,17z/data=!4m12!1m6!3m5!1s0x60189684c5a656c5:0xce45f80ac0cce0dc!2z6LOq44Kk44Kz44O8!8m2!3d35.8664325!4d139.7797394!3m4!1s0x60189684c5a656c5:0xce45f80ac0cce0dc!8m2!3d35.8664325!4d139.7797394?hl=en&authuser=0"
+                class="{{ .Site.Params.btnClass }}" target="_blank">
+                <p class="px-2">Google Maps</p>
+            </a>
+        </div>
     </div>
 </div>
 

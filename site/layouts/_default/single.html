@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="post">
-  <h1 class="p-1 bg-blue-light text-white text-lg md:text-2xl border-l-4 border-blue">{{ .Title }}</h1>
-  <div class="text-grey-darker py-1 border-t border-b border-solid border-grey flex flex-col lg:flex-row-reverse justify-between">
+  <h1 class="p-1 bg-blue-400 text-white text-lg md:text-2xl border-l-4 border-blue-500">{{ .Title }}</h1>
+  <div class="text-gray-600 py-1 border-t border-b border-solid border-gray-500 flex flex-col lg:flex-row-reverse justify-between">
     <div class="p-2">
       <span><i class="far fa-clock"></i>{{ .Date.Format (.Site.Params.dateFormat) }}</span>
       <i class="far fa-user"></i>{{ $.Param "author" }}
@@ -10,11 +10,14 @@
   </div>
   {{ .Content }}
   <div class="p-2">
-    {{ partial "sns-buttons" . }}
+    <div class="py-2">
+        {{ partial "sns-buttons" . }}
+
+    </div>
     相場のお問い合わせはお電話・メール・LINEにてお気軽にどうぞ！
-    <div><i class="fas fa-mobile-alt"></i>&nbsp;tel：<a href="tel://0120411578">0120-41-1578</a></div>
+    <div><i class="fas fa-mobile-alt"></i>&nbsp;tel：<a href="tel:0120-41-1578">0120-41-1578</a></div>
     <div><i class="far fa-envelope"></i>&nbsp;email：info@officeiko.co.jp</div>
-    <div><i class="fab fa-line"></i>&nbsp;LINE ID：<a href="https://line.me/R/ti/p/%40oue6072d">@oue6072d</a></div>
+    <div><i class="fab fa-line"></i>&nbsp;LINE ID：<a href="https://line.me/R/ti/p/%40oue6072d" target="_blank">@oue6072d</a></div>
     <div><a href="https://www.officeiko.co.jp/contact/" target="_blank">お問い合わせフォーム</a></div>
   </div>
 </div>

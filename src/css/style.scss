@@ -9,7 +9,11 @@
  *
  * @import "tailwindcss/preflight";
  */
-@tailwind preflight;
+@tailwind base;
+
+html {
+    line-height: 1.15;
+  }
 
 /**
  * This injects any component classes registered by plugins.
@@ -106,20 +110,20 @@ a[href^="tel:"] {
     }
 
     h1 {
-        @apply bg-blue font-bold;
+        @apply bg-blue-500 font-bold text-4xl;
     }
     h3 {
-        @apply bg-blue-lighter text-black p-3 border-l-4 border-solid border-blue-dark;
+        @apply bg-blue-300 text-3xl font-semibold p-3 border-l-4 border-solid border-blue-700;
     }
     p {
         @apply my-4;
     }
     ul {
-        @apply list-reset font-extrabold border-2 border-blue border-solid m-4 p-4;
+        @apply font-extrabold border-2 border-blue-500 border-solid m-4 p-4;
     }
 
     ol {
-        @apply font-extrabold border-2 border-blue border-solid m-4 py-4;
+        @apply font-extrabold border-2 border-blue-500 border-solid m-4 py-4;
     }
 
     hr {
@@ -135,6 +139,7 @@ a[href^="tel:"] {
         }
     }
 }
+
 .post {
   @apply text-black leading-normal;
 
@@ -164,11 +169,11 @@ a[href^="tel:"] {
     @apply text-black leading-normal text-lg;
 
     h1 {
-      @apply p-2
+      @apply p-2 text-4xl
     }
 
     h2 {
-        @apply py-1 px-2 my-2 border-l-8 border-green-dark bg-green text-white text-lg;
+        @apply py-1 px-2 my-2 border-l-8 border-green-700 bg-green-500 text-white text-lg;
     }
 
     h3 {
@@ -182,14 +187,14 @@ a[href^="tel:"] {
         @apply p-2;
     }
     ul {
-        @apply p-4 list-reset;
+        @apply p-4;
     }
     hr {
-        @apply h-1 bg-grey;
+        @apply h-1 bg-gray-500;
     }
 
     blockquote {
-      @apply my-4 border rounded-lg bg-grey-light;
+      @apply my-4 border rounded-lg bg-gray-300;
     }
 }
 

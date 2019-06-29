@@ -22,20 +22,22 @@
   },
   "homepage": "https://github.com/kyasu1/officeiko-2018#readme",
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "autoprefixer": "^9.4.4",
-    "concurrently": "^4.1.0",
+    "@babel/core": "^7.4.5",
+    "autoprefixer": "^9.6.0",
+    "concurrently": "^4.1.1",
     "cssnano": "^4.1.10",
     "elm": "^0.19.0",
-    "elm-hot": "^1.0.1",
+    "elm-hot": "^1.1.0",
     "node-elm-compiler": "^5.0.3",
-    "parcel-bundler": "1.11.0",
-    "postcss": "^7.0.10",
+    "parcel-bundler": "^1.12.3",
+    "postcss": "^7.0.17",
     "postcss-modules": "^1.4.1",
-    "sass": "^1.16.0",
-    "tailwindcss": "^0.7.3"
+    "sass": "^1.22.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "tailwindcss": "^1.0.4"
   },
   "dependencies": {
-    "core-js": "^2.6.5"
+    "core-js": "^3.1.4"
   }
 }
