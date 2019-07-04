@@ -2,6 +2,9 @@
 <div class="px-2 md:px-12 page">
     <h2>金券・チケット買取価格一覧</h2>
     <p class="text-right">更新日：{{ .Lastmod.Format "2006年1月2日"  }}</p>
+    <div>
+        <img src="ticket-1.jpg" alt="金券の画像">
+    </div>
     <p>質イコーでは商品券やギフト券、旅行券、ビール券、切手、収入印紙、テレカ、株主優待券などの金券類を１枚から買取をさせていただいております。一覧表に掲載のない場合は{{ partial "link-contact" }}ください。お気軽にご利用ください！</p>
     <p>原則として金券類の<strong>質預かり</strong>はいたしておりません。</p>
     {{ partial "ticket" (dict "category" "商品券" "context" .) }}

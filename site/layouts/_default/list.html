@@ -1,5 +1,5 @@
 {{ define "main" }}
-<ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
+<ul class="flex flex-col md:flex-row flex-wrap md:justify-between">
     {{ range where .Pages "Section" "post" }}
     {{ partial "li-blog" . }}
     {{ end }}

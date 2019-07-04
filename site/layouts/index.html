@@ -17,11 +17,11 @@
 
 {{ define "main" }}
 
-{{ template "header" (dict "jp" "ブログ" "en" "Blog" "a" "/post") }}
+{{ template "header" (dict "jp" "新着情報" "en" "" "a" "/post") }}
 
 <div>
     <ul class="list-reset flex flex-col md:flex-row flex-wrap md:justify-between">
-        {{ range first 6 (where .Pages "Section" "post") }}
+        {{ range first 6 (where .Pages "Section" "in" (slice "post" "news") ) }}
         {{ partial "li-blog" . }}
         {{ end }}
     </ul>
@@ -33,7 +33,7 @@
     {{ partial "li-item" . }}
 </div>
 
-
+<!-- 
 {{ template "header" (dict "jp" "当店からのお知らせ" "en" "News" "a" "/news") }}
 
 <div class="mb-3 px-2 md:px-0">
@@ -42,7 +42,7 @@
         {{ partial "li-news" . }}
         {{ end }}
     </ul>
-</div>
+</div> -->
 
 {{ template "header" (dict "jp" "アクセス" "en" "Access") }}
 

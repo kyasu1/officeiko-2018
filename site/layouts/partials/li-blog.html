@@ -2,7 +2,7 @@
 <li class="w-full lg:w-1/2 p-2">
     <div class="flex mb-2 p-2 border border-solid border-blue-500">
         {{ $class := "w-24 h-24 md:w-32 md:h-32 object-contain" }}
-        {{ $img := .Resources.GetMatch "image-1.jpg" }}
+        {{ $img := .Resources.GetMatch "*" }}
         <a href="{{ .Permalink }}" class="text-black block flex-no-shrink">
         {{ if $img }}
         {{ $x1 := $img.Resize "300x" }}

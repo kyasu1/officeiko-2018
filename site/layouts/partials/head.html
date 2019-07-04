@@ -12,7 +12,7 @@
 <meta property="og:type" content="{{ if eq .Permalink "/" }} website {{ else }} article {{ end }}">
 <meta property="og:description" content="{{ .Summary | truncate 100 }}" />
 
-{{ with $.Page.Resources.GetMatch "*.jpg" }}
+{{ with $.Page.Resources.GetMatch "*" }}
 {{ $image := .Fill "1200x628 Center"}}
 <meta property="og:image" content="{{ $.Site.BaseURL }}{{ $image.RelPermalink }}" />
 {{ else }}
