@@ -1,6 +1,6 @@
 [params]
 [params.ticket]
-date = "2019-06-29"
+date = "2019-09-30"
 [[params.ticket.items]]
 name = "全国百貨店共通商品券"
 comment = "一部買取不可あり"
@@ -123,17 +123,17 @@ category = "その他"
 [[params.ticket.items]]
 name = "図書カードNEXT"
 comment = "PINを削って残額を確認させていただきます"
-rate = 0.85
+rate = 0.80
 category = "その他"
 [[params.ticket.items]]
 name = "テレカ50度数"
 comment = "広告や絵柄は関係なく買取いたします"
-price = 250
+price = 350
 category = "その他"
 [[params.ticket.items]]
 name = "テレカ105度数"
 comment = "広告や絵柄は関係なく買取いたします"
-price = 500
+price = 700
 category = "その他"
 
 [[params.ticket.items]]
@@ -177,12 +177,22 @@ comment = ""
 rate = 0.50
 category = "切手・印紙"
 [[params.ticket.items]]
+name = "レターパックプラス520円"
+comment = ""
+price = 450
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "レターパックライト370円"
+comment = ""
+price = 320 
+category = "切手・印紙"
+[[params.ticket.items]]
 name = "レターパックプラス510円"
 comment = ""
-price = 400
+price = 350
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックライト360円"
 comment = ""
-price = 280
+price = 250
 category = "切手・印紙"
