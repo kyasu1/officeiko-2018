@@ -36,70 +36,84 @@ googleAnalytics = "UA-77785756-3"
     name = "K24IG"
     ratio = 24
     sell_diff = 100
+    sell_rate = 0.98
     pawn_diff = 700
-    comment = "インゴットやコインなど、傷のある物はK24S扱いとなります"
+    comment = "インゴットなど、傷のある物はK24S扱いとなります"
   [[params.gd]]
     name = "K24S"
     ratio = 24
     sell_diff = 250
+    sell_rate = 0.95
     pawn_diff = 700
     comment = "K24刻印のある指輪やネックレスなど"
   [[params.gd]]
     name = "K22"
     ratio = 22
     sell_diff = 250
+    sell_rate = 0.86
     pawn_diff = 700
     comment = "イーグル金貨、クルーガーランド金貨、ブリタニア金貨、中華系のアクセサリーなど（支那金）"
   [[params.gd]]
     name = "K21.6"
     ratio = 21.6
     sell_diff = 250
+    sell_rate = 0.845
     pawn_diff = 700
     comment = "インディアンコインやイーグルコインなど米国や中南米のコインにおおいです"
   [[params.gd]]
     name = "K20"
     ratio = 20
     sell_diff = 250
+    sell_rate = 0.78
     pawn_diff = 700
     comment = "K20刻印のある指輪やネックレスなど"
   [[params.gd]]
     name = "K18"
     ratio = 18
     sell_diff = 100
+    sell_rate = 0.72
     pawn_diff = 450
   [[params.gd]]
     name = "K14"
     ratio = 14
     sell_diff = 350
+    sell_rate = 0.52
     pawn_diff = 600
   [[params.gd]]
     name = "K10"
     ratio = 10
     sell_diff = 500
+    sell_rate = 0.33
     pawn_diff = 700
   [[params.gd]]
     name = "K9"
     ratio = 9
     sell_diff = 500
+    sell_rate = 0.29
     pawn_diff = 700
 
   [[params.pt]]
     name = "Pt1000"
     ratio = 1000
     sell_diff = 250
+    sell_rate = 0.93
     pawn_diff = 650
   [[params.pt]]
     name = "Pt950"
     ratio = 950
     sell_diff = 250
+    sell_rate = 0.87
     pawn_diff = 650
   [[params.pt]]
     name = "Pt900"
     ratio = 900
     sell_diff = 150
+    sell_rate = 0.85
     pawn_diff = 650
   [[params.pt]]
     name = "Pt850"
     ratio = 850
     sell_diff = 150
+    sell_rate = 0.80
     pawn_diff = 650
+
