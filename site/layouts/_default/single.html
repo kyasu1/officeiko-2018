@@ -1,13 +1,18 @@
 {{ define "main" }}
 <div class="post">
   <h1 class="p-1 bg-blue-400 text-white text-lg md:text-2xl border-l-4 border-blue-500">{{ .Title }}</h1>
-  <div class="text-gray-600 py-1 border-t border-b border-solid border-gray-500 flex flex-col lg:flex-row-reverse justify-between">
+  <div class="text-gray-600 py-1 flex flex-col lg:flex-row-reverse justify-between">
     <div class="p-2">
-      <span><i class="far fa-clock"></i>{{ .Date.Format (.Site.Params.dateFormat) }}</span>
-      <i class="far fa-user"></i>{{ $.Param "author" }}
+      <span><i class="far fa-clock px-2"></i>{{ .Date.Format (.Site.Params.dateFormat) }}</span>
+      <i class="far fa-user px-2"></i>{{ $.Param "author" }}
     </div>
+  </div>
+  <div>
     {{ partial "sns-buttons" . }}
   </div>
+  <div align="center" class="py-4">
+    <iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=294&l=ur1&category=jewelry&f=ifr&linkID=e85fb914ba0b027b2619f1da2e3f56a3&t=kyasu1-22&tracking_id=kyasu1-22" width="320" height="100" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+  </div>  
   {{ .Content }}
   <div class="p-2">
     <div class="py-2">

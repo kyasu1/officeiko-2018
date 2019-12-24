@@ -2,15 +2,17 @@
 <html>
 {{- partial "head.html" . -}}
 
-<body>
+<body class="text-gray-900 leading-normal {{ .Params.category }}" >
     {{- partial "header.html" . -}}
-    <div class="container max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row py-4 print:w-full print:max-w-full">
-        <aside class="md:w-64 md:mr-4 h-full print:hidden ">
-            {{- partial "aside" . }}
-        </aside>
-        <main class="flex-1 print:shadow-none">
-            {{- block "main" . }}{{- end }}
-        </main>
+    <div class="w-full mx-auto px-6 print:w-full print:max-w-full" style="max-width: 1280px"> 
+        <div class="flex flex-col-reverse lg:flex-row -mx-6">
+            <aside class="h-full lg:w-1/4 xl:w-1/5 print:hidden ">
+                {{- partial "aside" . }}
+            </aside>
+            <main class="px-6 min-h-screen w-full lg:max-h-full lg:w-3/4 xl:w-4/5 print:shadow-none">
+                {{- block "main" . }}{{- end }}
+            </main>
+        </div>
     </div>
     {{- partial "footer.html" . -}}
 </body>

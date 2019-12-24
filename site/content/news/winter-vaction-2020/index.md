@@ -9,12 +9,10 @@ tags:
 - 営業案内
 resources:
 - src: text_kyugyou_winter.png
-  title: 東急休業
+  title: 
 - src: image-1.png
   title: 冬季休業のおしらせ
 ---
-## 冬季休業のお知らせ
-
 {{< blog-img "text_kyugyou_winter.png" >}}
 
 平素は格別のご高配を賜り厚く御礼申し上げます。

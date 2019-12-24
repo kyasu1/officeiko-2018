@@ -148,7 +148,7 @@ a[href^="tel:"] {
   }
 
   h2 {
-    @apply px-2 border-b-2 border-black text-lg;
+    @apply px-2 border-b-2 py-2 border-black text-lg;
   }
   @screen md {
     h2 {
@@ -164,7 +164,22 @@ a[href^="tel:"] {
       red
     ) 10;
   }
+
+  a {
+    color: blue;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  code {
+      background-color: #eee;
+      padding: .1em .4em;
+      border-radius: 3px;
+  }
 }
+
+
+
 .page {
     @apply text-black leading-normal text-lg;
 
@@ -193,7 +208,8 @@ a[href^="tel:"] {
         @apply h-1 bg-gray-500;
     }
 
-    blockquote {
+    blockquote
+    {
       @apply my-4 border rounded-lg bg-gray-300;
     }
 }

@@ -3,14 +3,16 @@ title: Raspberry Pi 4 でSSDからUbuntuを起動
 date: 2019-12-24T23:18:46+09:00
 draft: false
 author: Yasu
-category: 技術ブログ
+category: tech
 tags:
 - Raspberry Pi
 - Ubuntu
 resources:
 - src: Raspi-PGB001.png
-  title: ラズベリーパイのロゴ
+  title: 
 ---
+{{< blog-img "Raspi-PGB001.png" >}}
+
 現状のRaspberry Pi 4ではSSDをUSB接続してOSを直接起動することができないため、SDカード上のブートパーティションから起動し、SSD上のルートパーティションを使用する方法が [https://jamesachambers.com/](https://jamesachambers.com/) の一連のブログの中で紹介されていて、こちらを参考に手順をまとめておきます。
 
 ## Raspberry Pi用にカスタマイズされたUbuntu 18.04.3のイメージを入手
@@ -44,17 +46,17 @@ Bus 001 Device 002: ID 2109:3431 VIA Labs, Inc. Hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-残念ながらブログ記事の中で問題なく動くとされているアダプターの一覧には該当せず、一方、問題のあるアダプタにもリストアップはされていませんでしたが、実際にうまく起動ができませんでした。とりあえずの回避策が紹介されていますので、そちらに従って`/boot/firmware/cmdline.txt`の先頭に`usb-storage.quirks=????:????:u`を挿入します。`????:????`の部分は先のアダプター名の前に書かれているIDになります。
+残念ながらブログ記事の中で問題なく動くとされているアダプターの一覧には該当せず、一方、問題のあるアダプタにもリストアップはされていませんでしたが、実際にうまく起動ができませんでした。とりあえずの回避策が紹介されていますので、そちらに従って`/boot/firmware/cmdline.txt`の先頭に`usb-storage.quirks=????:????:u`を挿入します。この`????:????`の部分を先のアダプター名の前に書かれたIDに置き換えます。
 
 変更前
 
-```bash
+```
 snd_bcm2835.enable_headphones=1 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_compat_alsa=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 fsck.repair=yes fsck.mode=auto root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
 ```
 
 変更後
 
-```bash
+```bash:a
 usb-storage.quirks=152d:0578:u snd_bcm2835.enable_headphones=1 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_compat_alsa=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 fsck.repair=yes fsck.mode=auto root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
 ```
 
@@ -100,6 +102,7 @@ Device     Boot  Start     End Sectors  Size Id Type
 ここで、同じイメージを展開しているため、どちらも`Disk identifier: 0x65c7036`となっています。この状態ですと、システム起動時に混乱が発生してしまうので、SSD側のPARTUUIDに異なる値を設定します。
 
 <pre>
+<code class="bash">
 $ sudo fdisk /dev/sda
 
 Welcome to fdisk (util-linux 2.31.1).
@@ -132,18 +135,19 @@ Expert command (m for help): <font color="red"><b>r</b></font>
 Command (m for help): <font color="red"><b>w</b></font>
 The partition table has been altered.
 Syncing disks.
+</code>
 </pre>
 
 結果を確認してみます。
 
-<pre>
-$ <b>sudo blkid</b>
+```bash
+$ sudo blkid
 /dev/mmcblk0p1: LABEL="system-boot" UUID="E497-1FDF" TYPE="vfat" PARTUUID="f65c7036-01"
 /dev/mmcblk0p2: LABEL="writable" UUID="bfa0733b-bdb9-4846-914a-45160bac3ed0" TYPE="ext4" PARTUUID="f65c7036-02"
 /dev/sda1: LABEL="system-boot" UUID="E497-1FDF" TYPE="vfat" PARTUUID="d34db33f-01"
 /dev/sda2: LABEL="writable" UUID="bfa0733b-bdb9-4846-914a-45160bac3ed0" TYPE="ext4" PARTUUID="d34db33f-02"
 /dev/mmcblk0: PTUUID="f65c7036" PTTYPE="dos"
-</pre>
+```
 
 `/dev/sda`のPARTUUIDが`d34db33f`で始まる文字列になっているのがわかります。
 
@@ -154,22 +158,26 @@ $ <b>sudo blkid</b>
 変更前
 
 <pre>
-snd_bcm2835.enable_headphones=1 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_compat_alsa=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 fsck.repair=yes fsck.mode=auto root=<b>/dev/mmcblk0p2</b> rootfstype=ext4 elevator=deadline rootwait
+<code class="bash"> 
+...省略 fsck.mode=auto root=<b>/dev/mmcblk0p2</b> rootfstype=ext4 elevator=deadline rootwait
+</code>
 </pre>
 
 変更後
 
 <pre>
-snd_bcm2835.enable_headphones=1 snd_bcm2835.enable_hdmi=1 snd_bcm2835.enable_compat_alsa=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 fsck.repair=yes fsck.mode=auto root=<b>PARTUUID=d34db33f-02</b> rootfstype=ext4 elevator=deadline rootwait
+<code class="bash">
+...省略 fsck.mode=auto root=<b>PARTUUID=d34db33f-02</b> rootfstype=ext4 elevator=deadline rootwait
+</code>
 </pre>
 
-PARTUUIDとして指定することにより、どちらのUSB3.0ポートに接続しても起動してくれます。もし必ず同じポートに接続すると決めたなら、`/dev/sda2`といった書き方でも動作します。
+PARTUUIDとして指定することにより、どちらのUSB3.0ポートに接続しても起動します。もし、必ず同じポートに接続すると決めるなら`/dev/sda2`といった書き方のほうがわかりやすいかもしれません。
 
-以上に間違いがないことを確認して再起動をします。SSD上のルートパーティションから起動しているはずなので、`ubuntu:ubuntu`でログインして新しいパスワードを再度設定します。IPアドレスも変わってしまっているので注意が必要です。
+以上の作業に間違いがないことを確認して再起動をします。SSD上のルートパーティションから起動しているはずなので、`ubuntu:ubuntu`でログインして新しいパスワードを再度設定します。IPアドレスも変わってしまっているので注意が必要です。
 
 以下のように`/dev/sda?`から起動していれば成功です。
 
-```
+```bash
 $ findmnt -n -o SOURCE /
 
 /dev/sda2
@@ -179,9 +187,14 @@ $ findmnt -n -o SOURCE /
 
 ブログ記事の作者がRaspberry Pi向けのFixを含めたアップデータを`/home/Updater.sh`に用意してくれていますのでこちらを実行します。
 
-```
+```bash
 $ sh /home/Updater.sh
 ```
 
 以上でセットアップ完了です。
 
+`/etc/fstab`の修正やSSDの容量を正しく反映する作業がブログ記事にはありましたが、Ubuntuの場合は必要がないようです。
+
+<div align="center" class="py-2">
+<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=pc_parts&banner=0F37127ZXBMSRFD8Q7R2&f=ifr&linkID=db426bfb7cbf5630a7b97696635157d3&t=kyasu1-22&tracking_id=kyasu1-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+</div>
