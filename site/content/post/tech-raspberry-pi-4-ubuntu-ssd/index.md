@@ -198,3 +198,11 @@ $ sh /home/Updater.sh
 <div align="center" class="py-2">
 <iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=pc_parts&banner=0F37127ZXBMSRFD8Q7R2&f=ifr&linkID=db426bfb7cbf5630a7b97696635157d3&t=kyasu1-22&tracking_id=kyasu1-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 </div>
+
+## その他の初期設定
+
+[こちら](https://qiita.com/kotarella1110/items/f638822d64a43824dfa4)の記事にまとまっているので必要に応じて設定します。
+
+## おわりに
+
+Raspberry Pi 4自体のパフォーマンスが上がったのもありますが、やはりSSD上にルートパーティションがあるとパッケージのアップデートなどもサクサク進んで快適です。軽いタスクがメインの省エネサーバーとしてならば十分かつストレスなく活躍しそうです。

@@ -148,7 +148,7 @@ a[href^="tel:"] {
   }
 
   h2 {
-    @apply px-2 border-b-2 py-2 border-black text-lg;
+    @apply px-2 border-b-2 py-1 my-4 border-black text-lg;
   }
   @screen md {
     h2 {
@@ -157,7 +157,7 @@ a[href^="tel:"] {
   }
 
   h3 {
-    @apply px-2 my-2 border-solid border-b-2;
+    @apply px-2 py-1 my-4 border-solid border-b-2;
     border-image: linear-gradient(
       to left,
       rgba(0,0,0,0),
@@ -177,7 +177,6 @@ a[href^="tel:"] {
       border-radius: 3px;
   }
 }
-
 
 
 .page {
