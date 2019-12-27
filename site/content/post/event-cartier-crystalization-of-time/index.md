@@ -12,6 +12,54 @@ resources:
   title: カルティエ、時の結晶
 - src: image-1.jpg
   title:
+- src: image-2.jpg
+  title:
+- src: image-3.jpg
+  title:
+- src: image-4.jpg
+  title:
+- src: image-5.jpg
+  title:
+- src: image-6.jpg
+  title:
+- src: image-7.jpg
+  title:
+- src: image-8.jpg
+  title:
+- src: image-9.jpg
+  title:
+- src: image-10.jpg
+  title:
+- src: image-11.jpg
+  title:
+- src: image-12.jpg
+  title:
+- src: image-13.jpg
+  title:
+- src: image-14.jpg
+  title:
+- src: image-15.jpg
+  title:
+- src: image-16.jpg
+  title:
+- src: image-17.jpg
+  title:
+- src: image-18.jpg
+  title:
+- src: image-19.jpg
+  title:
+- src: image-20.jpg
+  title:
+- src: image-21.jpg
+  title:
+- src: image-22.jpg
+  title:
+- src: image-23.jpg
+  title:
+- src: image-24.jpg
+  title:
+- src: image-26.jpg
+  title:
 ---
 
 {{< blog-img "0_title.png" >}}
@@ -22,7 +70,7 @@ resources:
 
 {{< blog-img "image-1.jpg" >}}
 
-<!-- ### 国立 **新** 美術館ですができてもう10年以上になります
+### 国立 **新** 美術館ですができてもう10年以上になります
 
 {{< blog-img "image-2.jpg" >}}
 
@@ -58,4 +106,4 @@ resources:
 
 {{< blog-img "image-26.jpg" >}}
 
-この子の相棒も展示（撮影不可エリア）されていました！ -->
+この子の相棒も展示（撮影不可エリア）されていました！
