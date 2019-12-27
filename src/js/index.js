@@ -5,6 +5,15 @@ import 'highlight.js/styles/github.css';
 
 hljs.initHighlightingOnLoad();
 
+// GLightbox Support
+import "glightbox/dist/css/glightbox.css";
+import GLightbox from 'glightbox';
+
+const lightbox = GLightbox({
+  touchNavigation: true,
+  loop: true,
+});
+
 // Calendar
 // const holiday = require('./holiday.json');
 // const special = require('./special.json');

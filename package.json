@@ -39,6 +39,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.0",
+    "dist": "^0.1.2",
+    "glightbox": "^2.0.5",
     "highlight.js": "^9.17.1"
   }
 }
