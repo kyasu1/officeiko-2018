@@ -89,12 +89,15 @@
 
     <div class="px-1 py-2 bg-red-100">
       <h4 class="text-center pb-1 text-2xl font-semibold">営業カレンダー</h4>
-      <hr class="border border-gray-400">
-      <div class="p-2"><img src="https://s3-ap-northeast-1.amazonaws.com/officeiko-public/calendars/this.png"
-          alt="今月の営業カレンダー"></div>
-      <hr class="border border-gray-400">
-      <div class="p-2"><img src="https://s3-ap-northeast-1.amazonaws.com/officeiko-public/calendars/next.png"
-          alt="来月の営業カレンダー"></div>
+      <!-- <hr class="border border-gray-400"> -->
+      <!-- <hr class="border border-gray-400"> -->
+      <div class="flex flex-col md:flex-row lg:flex-col">
+        <div class="p-1 md:p-4 lg:p-2"><img
+            src="https://s3-ap-northeast-1.amazonaws.com/officeiko-public/calendars/this.png" alt="今月の営業カレンダー"></div>
+        <div class="p-1 md:p-4 lg:p-2"><img
+            src="https://s3-ap-northeast-1.amazonaws.com/officeiko-public/calendars/next.png" alt="来月の営業カレンダー"></div>
+
+      </div>
       <!-- <div id="calendar">Elmで書かれたカレンダーが埋め込まれます</div> -->
       <hr class="border border-gray-400">
       <p class="text-center py-1 md:text-sm font-semibold">定休日 毎週水曜日・第1と3火曜日</p>
@@ -102,69 +105,72 @@
     </div>
     <br>
 
-    <div class="">
-      <a href="https://shopping.geocities.jp/pawnshopiko/#/?_k=fpusp3" class="no-underline" target="_blank">
-        <img src="/images/banner-yahoo-shopping.png"
-          srcset="/images/banner-yahoo-shopping.png 1x,/images/banner-yahoo-shopping@2x.png 2x"
-          class="w-full h-auto border border-gray-500 hover:opacity-75">
-      </a>
+    <div class="flex flex-col md:flex-row lg: flex-col flex-wrap">
+      <div class="w-full md:w-1/4 lg:w-full p-2">
+        <a href="https://shopping.geocities.jp/pawnshopiko/#/?_k=fpusp3" class="no-underline" target="_blank">
+          <img src="/images/banner-yahoo-shopping.png"
+            srcset="/images/banner-yahoo-shopping.png 1x,/images/banner-yahoo-shopping@2x.png 2x"
+            class="w-full h-auto border border-gray-500 hover:opacity-75">
+        </a>
 
-    </div>
-    <br>
-
-    <div class="">
-      <a href="https://auctions.yahoo.co.jp/seller/pawnshopiko" class="no-underline" target="_blank">
-        <img src="/images/banner-yahoo-auction.png"
-          srcset="/images/banner-yahoo-auction.png 1x,/images/banner-yahoo-auction@2x.png 2x"
-          class="w-full h-auto border border-gray-500 hover:opacity-75">
-      </a>
-    </div>
-    <br>
-
-    <div class="border border-gray-500 p-4">
-      <img src="/images/duty_free_logo.svg" alt="免税店のロゴ">
-      <p class="text-center py-2 md:text-sm font-semibold">店頭販売のみ対象となります</p>
-    </div>
-    <br>
-
-    <a href="https://www.merpay.com/" target="_blank" class="no-underline text-black">
-      <div class="border border-gray-500 p-4">
-        <img src="/images/merpay.png" alt="メルペイのロゴ" class="hover:opacity-75">
-        <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
       </div>
-    </a>
-    <br>
 
-    <a href="https://line.me/ja/pay" target="_blank" class="no-underline text-black">
-      <div class="border border-gray-500 p-4">
-        <img src="/images/linepay.png" alt="LINEペイのロゴ" class="hover:opacity-75">
-        <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
+      <div class="w-full md:w-1/4 lg:w-full p-2">
+        <a href="https://auctions.yahoo.co.jp/seller/pawnshopiko" class="no-underline" target="_blank">
+          <img src="/images/banner-yahoo-auction.png"
+            srcset="/images/banner-yahoo-auction.png 1x,/images/banner-yahoo-auction@2x.png 2x"
+            class="w-full h-auto border border-gray-500 hover:opacity-75">
+        </a>
       </div>
-    </a>
-    <br>
 
-    <a href="https://airregi.jp/payment/" target="_blank" class="no-underline text-black">
-      <div class="border border-gray-500 p-4">
-        <img src="/images/airpay.png" srcset="/images/airpay.png 1x, /images/airpay@2x.png 2x" alt="AirPayのロゴ"
-          class="hover:opacity-75">
-        <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
+      <div class="w-full md:w-1/4 lg:w-full p-2">
+        <div class="border border-gray-500 p-2">
+          <img class="mx-auto w-9/12" src="/images/duty_free_logo.svg" alt="免税店のロゴ">
+          <p class="text-center py-2 md:text-sm font-semibold">店頭販売のみ対象となります</p>
+        </div>
       </div>
-    </a>
-    <br>
 
-    <div class="">
-      <a href="http://www.zenshichi.gr.jp" class="no-underline" target="_blank">
-        <img src="/images/banner-zenshichi.png"
-          srcset="/images/banner-zenshichi.png 1x,/images/banner-zenshichi@2x.png 2x" alt="全国質屋組合連合会のロゴ"
-          class="w-full h-auto border border-gray-500 hover:opacity-75">
-      </a>
+      <div class="w-full md:w-1/4 lg:w-full p-2">
+        <a href="https://www.merpay.com/" target="_blank" class="no-underline text-black">
+          <div class="border border-gray-500">
+            <img class="mx-auto w-9/12" src="/images/merpay.png" alt="メルペイのロゴ" class="hover:opacity-75">
+            <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="w-full md:w-1/4 lg:w-full p-2">
+        <a href="https://line.me/ja/pay" target="_blank" class="no-underline text-black">
+          <div class="border border-gray-500 p-4">
+            <img class="mx-auto" src="/images/linepay.png" alt="LINEペイのロゴ" class="hover:opacity-75">
+            <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="w-full md:w-1/4 lg:w-full p-2">
+        <a href="https://airregi.jp/payment/" target="_blank" class="no-underline text-black">
+          <div class="border border-gray-500 p-4">
+            <img class="mx-auto" src="/images/airpay.png" srcset="/images/airpay.png 1x, /images/airpay@2x.png 2x"
+              alt="AirPayのロゴ" class="hover:opacity-75">
+            <p class="text-center py-2 md:text-sm font-semibold">店頭での商品ご購入のみです</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="w-full md:w-1/4 lg:w-full p-2">
+        <a href="http://www.zenshichi.gr.jp" class="no-underline" target="_blank">
+          <img src="/images/banner-zenshichi.png"
+            srcset="/images/banner-zenshichi.png 1x,/images/banner-zenshichi@2x.png 2x" alt="全国質屋組合連合会のロゴ"
+            class="w-full h-auto border border-gray-500 hover:opacity-75">
+        </a>
+      </div>
     </div>
-    <br>
   </div>
+</div>
 
-  <div class="w-full">
-    <a class="twitter-timeline" data-height="600" href="https://twitter.com/pawnshopiko?ref_src=twsrc%5Etfw">Tweets by
-      pawnshopiko</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
+<div class="w-full">
+  <a class="twitter-timeline" data-height="600" href="https://twitter.com/pawnshopiko?ref_src=twsrc%5Etfw">Tweets by
+    pawnshopiko</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
