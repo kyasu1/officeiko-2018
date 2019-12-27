@@ -15,7 +15,7 @@ resources:
   title: Title goes here
 ---
 
-それぞれが`Docker`または`docker-compose`で構成された、複数のウェブアプリ等を一台のPC上で実行したい。例えばこんなイメージ:
+`Docker`および`docker-compose`で構成されたコンテナ上で実行される、複数のウェブアプリ等を一台のPC上で実行したい。例えばこんなイメージ:
 
 ```bash
 http://www.pi4.local/ => /var/www/html/docker-compose.yml
@@ -23,21 +23,24 @@ http://app1.pi4.local/ => /app/app1/docker-compose.yml
 http://app2.pi4.local/ => /app/app2/docker-compose.yml
 ```
 
-nginxをリバースプロキシとして使うと実現できるのですが設定が難しそう。もっと手軽な方法を探していたところ、[こちら](https://blog.ssdnodes.com/blog/host-multiple-websites-docker-nginx/)の記事を見つけ、実際に試したところ上手く行ったので記録しておきます。
+nginxをリバースプロキシとして使うと実現できるのですが設定が難しそう。もっと手軽な方法を探していたところ、[こちら](https://blog.ssdnodes.com/blog/host-multiple-websites-docker-nginx/)の記事を見つけました。その記事の元になった[`nginx-proxy`](https://github.com/jwilder/nginx-proxy)というリポジトリと、その[解説](http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/)に詳しい仕組みが書いてありますが、`VIRTUAL_HOST=`という環境変数を持つ`Docker`コンテナを見つけると、自動的に`nginx`のリバーシブルプロキシの設定を作成し、指定されたサブドメインへのアクセスを適切なコンテナへ誘導してくれます。さらにこの`nginx-proxy`自体が`Docker`コンテナとなっているため、ローカル環境を汚さずに容易に立ち上げることができます。もうすべて`Docker`でいいんじゃない？て感じです。
+
+実際に試したところ上手く行ったので記録しておきます。
 
 ## 前提
 
-- Ubuntu 18.03.4
+- Raspberry Pi 4で64bit版であるArm64向けのUbuntu 18.03.4を使っています。
 - 最新のDockerおよびdocker-composeがインストール済み。詳細は以前の[記事](/post/tech-raspberry-pi-4-ubuntu-docker/)を参照してください。
+
+### `Docker`ネットワークの作成
 
 ```bash
 $ docker network create nginx-prox
 ```
 
-
 ### arm64に対応したDockefileの準備
 
-arm64用の`Dockerfile`は提供されていないため、既存のx86用の`Dockerfile`を基に、Foregoのarm64版が[公式サイト](https://dl.equinox.io/ddollar/forego/stable)にてダウンロード可能になっているので、そちらを利用するように変更しています。
+`nginx-proxy`のリポジトリではarm64用の`Dockerfile`が提供されていないため、既存のx86用の`Dockerfile`を基に、Foregoのarm64版が[公式サイト](https://dl.equinox.io/ddollar/forego/stable)にてダウンロード可能になっているので、そちらを利用するように変更しています。
 
 ```Dockerfile
 FROM arm64v8/nginx
