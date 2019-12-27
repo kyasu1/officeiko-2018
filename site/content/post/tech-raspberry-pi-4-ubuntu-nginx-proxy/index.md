@@ -11,9 +11,10 @@ tags:
 - nginx
 resources:
 resources:
-- src: image-1.jpg
-  title: Title goes here
+- src: nginx_logo.png
+  title: 
 ---
+{{< blog-img "nginx_logo.png" >}}
 
 `Docker`および`docker-compose`で構成されたコンテナ上で実行される、複数のウェブアプリ等を一台のPC上で実行したい。例えばこんなイメージ:
 
@@ -23,16 +24,19 @@ http://app1.pi4.local/ => /app/app1/docker-compose.yml
 http://app2.pi4.local/ => /app/app2/docker-compose.yml
 ```
 
-nginxをリバースプロキシとして使うと実現できるのですが設定が難しそう。もっと手軽な方法を探していたところ、[こちら](https://blog.ssdnodes.com/blog/host-multiple-websites-docker-nginx/)の記事を見つけました。その記事の元になった[`nginx-proxy`](https://github.com/jwilder/nginx-proxy)というリポジトリと、その[解説](http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/)に詳しい仕組みが書いてありますが、`VIRTUAL_HOST=`という環境変数を持つ`Docker`コンテナを見つけると、自動的に`nginx`のリバーシブルプロキシの設定を作成し、指定されたサブドメインへのアクセスを適切なコンテナへ誘導してくれます。さらにこの`nginx-proxy`自体が`Docker`コンテナとなっているため、ローカル環境を汚さずに容易に立ち上げることができます。もうすべて`Docker`でいいんじゃない？て感じです。
+nginxをリバースプロキシとして使うと実現できるのですが調べてみると設定が難しそう…もっと手軽な方法を探していたところ、[こちら](https://blog.ssdnodes.com/blog/host-multiple-websites-docker-nginx/)の記事を見つけました。この記事の元になった[`nginx-proxy`](https://github.com/jwilder/nginx-proxy)というリポジトリと、その[解説](http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/)に詳しい仕組みが書いてあります。
+
+`VIRTUAL_HOST=`という環境変数を持つDockerコンテナを同じネットワーク上に見つけると、自動的にnginxのリバースプロキシの設定を作成し、要求されたサブドメインへのアクセスを適切なコンテナへ誘導してくれます。さらにこの`nginx-proxy`自体がDockerコンテナとなっているため、ローカル環境を汚さずに容易に立ち上げることができます。もうすべてDockerでいいんじゃない？て感じです。
 
 実際に試したところ上手く行ったので記録しておきます。
 
-## 前提
+## `nginx-proxy`コンテナのセットアップ
 
-- Raspberry Pi 4で64bit版であるArm64向けのUbuntu 18.03.4を使っています。
-- 最新のDockerおよびdocker-composeがインストール済み。詳細は以前の[記事](/post/tech-raspberry-pi-4-ubuntu-docker/)を参照してください。
+今回もRaspberry Pi 4上で64bit版のarm64向けUbuntu 18.03.4を使っています。最新のDockerおよびdocker-composeがインストール済みです。詳細は以前の[記事](/post/tech-raspberry-pi-4-ubuntu-docker/)を参照してください。
 
 ### `Docker`ネットワークの作成
+
+`nginx-proxy`がコンテナの追加を監視するDockerコンテナ・ネットワークを作成します。
 
 ```bash
 $ docker network create nginx-prox
@@ -40,7 +44,7 @@ $ docker network create nginx-prox
 
 ### arm64に対応したDockefileの準備
 
-`nginx-proxy`のリポジトリではarm64用の`Dockerfile`が提供されていないため、既存のx86用の`Dockerfile`を基に、Foregoのarm64版が[公式サイト](https://dl.equinox.io/ddollar/forego/stable)にてダウンロード可能になっているので、そちらを利用するように変更しています。
+`nginx-proxy`のリポジトリではarm64用の`Dockerfile`が提供されていないため、既存のx86用の`Dockerfile`を基にしました。Foregoのarm64版が[公式サイト](https://dl.equinox.io/ddollar/forego/stable)にてダウンロード可能になっているので、そちらを利用するように変更しています。
 
 ```Dockerfile
 FROM arm64v8/nginx
@@ -88,7 +92,9 @@ ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["forego", "start", "-r"]
 ```
 
-## docker-compose.ymlの準備
+### docker-compose.ymlの準備
+
+`docker-compose.yml`ではこのDockerファイルをビルドすることにより`nginx-proxy`を立ち上げる設定に変更します。
 
 ```yaml
 version: "3"
@@ -105,4 +111,46 @@ networks:
   default:
     external:
       name: nginx-proxy
-```      
+```
+
+準備ができたら
+
+```bash
+$ docker-compose up -d
+```
+としてコンテナを起動します。
+
+## ウェブアプリケーション側の設定
+
+試しにDockerの公式ドキュメントで紹介されているWordPressを立ち上げる`docker-compose.yml`を使って`blog.example.com`として立ち上げる例がこちらになります。
+
+```yaml
+version: '2'
+services:
+  db:
+    image: arm64v8/mariadb
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    links:
+      - db
+    ports:
+      - "8000:80"
+    expose: 80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: wordpress
+      VIRTUAL_HOST: blog.example.com
+```
+

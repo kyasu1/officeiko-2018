@@ -14,7 +14,7 @@ resources:
 ---
 {{< blog-img "Moby-logo.png" >}}
 
-社内で使用しているちょっとした軽量サービスやウェブアプリを、できるだけRaspberry Pi 4上で走らせて省エネサーバーとして利用したいというのが事の始まり。なにはともあれ`Docker`と`docker-compose`のインストールが必要なので、その手順をメモしておきます。
+社内で使用しているちょっとした軽量サービスやウェブアプリを、できるだけRaspberry Pi 4上で走らせて省エネサーバーとして利用したいというのが事の始まり。なにはともあれDockerとdocker-composeのインストールが必要なので、その手順をメモしておきます。
 
 ## 現在の環境
 
@@ -24,7 +24,7 @@ OS Ubuntu 18.03.4
 
 ## Docker CEをリポジトリからインストール
 
-`Docker`自体のインストールは至極かんたんというか、公式で`arm64`版が用意されているので、[ドキュメント](https://docs.docker.com/install/linux/docker-ce/ubuntu/)に従ってインストールします。
+Docker自体のインストールは至極かんたんというか、公式でarm64版が用意されているので、[ドキュメント](https://docs.docker.com/install/linux/docker-ce/ubuntu/)に従ってインストールします。
 
 インストール手順を一応書いておきます。
 
@@ -85,7 +85,7 @@ sudo gpasswd -a ubuntu docker
 
 ## docker-composeのインストール
 
-残念ながら公式でものレポジトリでは`docker-compose`の`arm64`版が用意されていないので、[ドキュメント](https://docs.docker.com/compose/install/#install-using-pip)にしたがって、`python3`の`pip`を使ってソースからビルドする必要があります。まずは`python3`一式をインストールします。
+残念ながら公式でものレポジトリではdocker-composeのarm64版が用意されていないので、[ドキュメント](https://docs.docker.com/compose/install/#install-using-pip)にしたがって、`python3`の`pip`を使ってソースからビルドする必要があります。まずは`python3`一式をインストールします。
 
 ```
 sudo apt-get install python3-pip
@@ -97,9 +97,10 @@ sudo apt-get install python3-pip
 sudo apt-get install libffi-dev
 ```
 
-準備が整ったので`docker-compose`をインストールします。
+準備が整ったのでdocker-composeをインストールします。
 
 ```
 sudo pip3 install -U docker-compose
 ```
 
+以上で完了です。
