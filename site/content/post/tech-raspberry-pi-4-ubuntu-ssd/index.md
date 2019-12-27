@@ -8,14 +8,14 @@ tags:
 - Raspberry Pi
 - Ubuntu
 resources:
-- src: Raspi-PGB001.png
+- src: 01_Raspi-PGB001.png
   title: 
 - src: JMicron.jpg
   title:
 - src: Transcend.jpg
   title:  
 ---
-{{< blog-img "Raspi-PGB001.png" >}}
+{{< blog-img "01_Raspi-PGB001.png" >}}
 
 現状のRaspberry Pi 4ではSSDをUSB接続してOSを直接起動することができないため、SDカード上のブートパーティションから起動し、SSD上のルートパーティションを使用する方法が [https://jamesachambers.com/](https://jamesachambers.com/) の一連のブログの中で紹介されていて、こちらを参考に手順をまとめておきます。
 
