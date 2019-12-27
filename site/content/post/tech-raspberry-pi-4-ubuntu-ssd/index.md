@@ -10,6 +10,10 @@ tags:
 resources:
 - src: Raspi-PGB001.png
   title: 
+- src: JMicron.jpg
+  title:
+- src: Transcend.jpg
+  title:  
 ---
 {{< blog-img "Raspi-PGB001.png" >}}
 
@@ -36,7 +40,11 @@ password: ubuntu
 
 ## USBアダプタの確認
 
-今回購入した全部入りセット[https://www.amazon.co.jp/gp/product/B07YM3Z2QR/](https://amzn.to/2skU8cX)に含まれていた、USB/SATA変換アダプタについて調べてみるとJMicron製でした。
+今回購入した[全部入りセット](https://www.amazon.co.jp/gp/product/B07YM3Z2QR/)に含まれていた、USB/SATA変換アダプタ
+
+{{< blog-img "JMicron.jpg" >}}
+
+について調べてみるとJMicron製でした。
 
 ```bash
 $ sudo lsusb
@@ -62,7 +70,11 @@ usb-storage.quirks=152d:0578:u snd_bcm2835.enable_headphones=1 snd_bcm2835.enabl
 
 このファイルは長いですが一行である必要があるので無駄な改行を入れいないように注意が必要です。
 
-また部屋に転がっていた[Transcend StoreJet](https://amzn.to/2QekO77)というケースを試してみると、ASMedia Technology製のアダプタが内蔵されていて、こちらの場合は上記の回避策を施さなくても起動することができました。
+また部屋に転がっていた[Transcend StoreJet](https://amzn.to/2QekO77)というケース
+
+{{< blog-img "Transcend.jpg" >}}
+
+を試してみると、ASMedia Technology製のアダプタが内蔵されていて、こちらの場合は上記の回避策を施さなくても起動することができました。
 
 ## PARTUUIDの変更
 
@@ -195,9 +207,9 @@ $ sh /home/Updater.sh
 
 `/etc/fstab`の修正やSSDの容量を正しく反映する作業がブログ記事にはありましたが、Ubuntuの場合は必要がないようです。
 
-<div align="center" class="py-2">
+<!-- <div align="center" class="py-2">
 <iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=pc_parts&banner=0F37127ZXBMSRFD8Q7R2&f=ifr&linkID=db426bfb7cbf5630a7b97696635157d3&t=kyasu1-22&tracking_id=kyasu1-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-</div>
+</div> -->
 
 ## その他の初期設定
 
