@@ -12,16 +12,18 @@ tags:
 resources:
 resources:
 - src: nginx_logo.png
-  title: 
+  title: nginxのロゴ
+- src: wordpress_init.png
+  title: WordPressのインストール画面
 ---
 {{< blog-img "nginx_logo.png" >}}
 
 `Docker`および`docker-compose`で構成されたコンテナ上で実行される、複数のウェブアプリ等を一台のPC上で実行したい。例えばこんなイメージ:
 
 ```bash
-http://www.pi4.local/ => /var/www/html/docker-compose.yml
-http://app1.pi4.local/ => /app/app1/docker-compose.yml
-http://app2.pi4.local/ => /app/app2/docker-compose.yml
+http://blog.pi4.local/ => /home/ubuntu/blog/docker-compose.yml
+http://app1.pi4.local/ => /home/ubuntu/app1/docker-compose.yml
+http://app2.pi4.local/ => /home/ubuntu/app2/docker-compose.yml
 ```
 
 nginxをリバースプロキシとして使うと実現できるのですが調べてみると設定が難しそう…もっと手軽な方法を探していたところ、[こちら](https://blog.ssdnodes.com/blog/host-multiple-websites-docker-nginx/)の記事を見つけました。この記事の元になった[`nginx-proxy`](https://github.com/jwilder/nginx-proxy)というリポジトリと、その[解説](http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/)に詳しい仕組みが書いてあります。
@@ -102,6 +104,7 @@ services:
   nginx-proxy:
     build: .
     container_name: nginx-proxy
+    restart: always
     ports:
       - "80:80"
     volumes:
@@ -122,13 +125,13 @@ $ docker-compose up -d
 
 ## ウェブアプリケーション側の設定
 
-試しにDockerの公式ドキュメントで紹介されているWordPressを立ち上げる`docker-compose.yml`を使って`blog.example.com`として立ち上げる例がこちらになります。
+試しにDockerの公式の[ドキュメント](http://docs.docker.jp/compose/wordpress.html)で紹介されているWordPressを立ち上げる`docker-compose.yml`に少し変更を加えて`blog.example.com`として立ち上げる例を用意してみました。
 
 ```yaml
 version: '2'
 services:
   db:
-    image: arm64v8/mariadb
+    image: mariadb # mysqlのarm64用のイメージが用意されていないのでmariadbを使用
     volumes:
       - "./.data/db:/var/lib/mysql"
     restart: always
@@ -144,13 +147,95 @@ services:
     image: wordpress:latest
     links:
       - db
-    ports:
-      - "8000:80"
-    expose: 80
+        # 8000番ポートにマッピングする必要がないのでコメントアウト
+        #    ports:
+        #      - "8000:80"
+    expose: # 80番ポートにアクセスしたいので公開しておきます
+      - 80
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_PASSWORD: wordpress
-      VIRTUAL_HOST: blog.example.com
+      VIRTUAL_HOST: blog.pi4.local # 使用するサブドメイン名に変更します
+
+# nginx-proxyが監視しているDockerネットワークに参加
+networks:
+  default:
+    external:
+      name: nginx-proxy
 ```
 
+適当なディレクトリを作成してこの`docker-compose.yml`を配置し、問題なく起動することを確認します。
+
+```bash
+$ mkdir blog
+$ nano docker-compose.yml
+$ docker-compose up
+```
+
+自分でDNSの設定を変更することができるので`blog.pi4.local`を登録するか`*.pi4.local`を、とりあえずテストであればクライアント側のPC上の`/etc/hosts`にこのホスト名とIPアドレスの関連をセットします。
+
+クライアント側のブラウザから`http://blog.pi4.local`にアクセスすると、
+
+{{< blog-img "wordpress_init.png" >}}
+
+いつもの画面が現れたらOKです。
+
+
+## mDNSで任意のサブドメインもアナウンス
+
+mDNSがサブドメインは面倒をみてくれないため、きちんとしたDNSを立てるか`/etc/hosts`に登録が必要だということに気づかず、ちょっとハマりました。できればmDNSの設定でなんとかならないかなと調べたところ、どうも単純ではない様子。[こちら](https://github.com/lathiat/avahi/issues/40)のissueを参考にとりあえず目的が達成できるようになったのでメモ。
+
+### まずは固定IPアドレスに変更
+
+Ubuntu 18.04になって（17.10以降のようです）IPアドレスの変更方法が大分変わったようで、ぐぐると次のファイルをする必要があります。ここで注意が必要なのは、ネットワークインターフェイス名が`enp0s3`とかになっている例が多くありますが、この部分をシステムが実際に認識しているネットワークインターフェイスにする必要があります。
+
+https://www.tecmint.com/configure-network-static-ip-address-in-ubuntu/
+
+```yaml:/etc/netplan/50-cloud-init.yaml
+# This file is generated from information provided by
+# the datasource.  Changes to it will not persist across an instance.
+# To disable cloud-init's network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        eth0: # ip address で設定したいネットワークインターフェイスを確認
+            dhcp4: no
+            dhcp6: no
+            addresses: [192.168.1.33/24]
+            gateway4: 192.168.1.1
+            nameservers:
+                addresses: [192.168.1.1, 8.8.8.8]
+```                
+
+また、コメントにも記載がありますが、`cloud-init`というのが起動時に毎回走って
+
+```yaml:/etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+network: {config: disabled}
+```
+
+
+サブドメイン
+
+https://github.com/lathiat/avahi/issues/40
+
+
+```bash:/etc/systemd/system/avahi-subdomain@.service
+[Unit]
+Description=Publish %I.%H.local via mdns
+
+[Service]
+Type=simple
+# ExecStart=/bin/bash -c "/usr/bin/avahi-publish -a -R %I.$(avahi-resolve -4 -n %H.local)"
+ExecStart=/bin/bash -c "/usr/bin/avahi-publish -a -R %I.%H.local $(ip -f inet address show dev eth0 | grep "inet" | cut -d/ -f1 | awk '{print $2}')"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+$ sudo systemctl enable --now avahi-subdomain@blog.pi4.service
+```
