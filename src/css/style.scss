@@ -176,6 +176,14 @@ a[href^="tel:"] {
       padding: .1em .4em;
       border-radius: 3px;
   }
+
+  ul, ol {
+    @apply bg-yellow-100 p-4 pl-8 border-2 border-gray-800 list-disc;
+
+    li {
+      @apply leading-loose py-2;
+    }
+  }
 }
 
 

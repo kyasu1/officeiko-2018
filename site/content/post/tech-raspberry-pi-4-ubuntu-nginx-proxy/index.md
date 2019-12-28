@@ -1,7 +1,7 @@
 ---
 title: ラズパイ上のUbuntuでnginx-proxyを走らせて複数のウェブアプリをホストする
 date: 2019-12-25T17:14:25+09:00
-draft: true
+draft: false
 author: Yasu
 category: tech
 tags:
@@ -12,13 +12,13 @@ tags:
 resources:
 resources:
 - src: nginx_logo.png
-  title: nginxのロゴ
+  title: 
 - src: wordpress_init.png
   title: WordPressのインストール画面
 ---
 {{< blog-img "nginx_logo.png" >}}
 
-`Docker`および`docker-compose`で構成されたコンテナ上で実行される、複数のウェブアプリ等を一台のPC上で実行したい。例えばこんなイメージ:
+Dockerおよびdocker-composeで構成されたコンテナ上で実行される、複数のウェブアプリ等を一台のPC上で実行したい。例えばこんなイメージ:
 
 ```bash
 http://blog.pi4.local/ => /home/ubuntu/blog/docker-compose.yml
@@ -26,27 +26,27 @@ http://app1.pi4.local/ => /home/ubuntu/app1/docker-compose.yml
 http://app2.pi4.local/ => /home/ubuntu/app2/docker-compose.yml
 ```
 
-nginxをリバースプロキシとして使うと実現できるのですが調べてみると設定が難しそう…もっと手軽な方法を探していたところ、[こちら](https://blog.ssdnodes.com/blog/host-multiple-websites-docker-nginx/)の記事を見つけました。この記事の元になった[`nginx-proxy`](https://github.com/jwilder/nginx-proxy)というリポジトリと、その[解説](http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/)に詳しい仕組みが書いてあります。
+nginxをリバースプロキシとして使うと実現できるのですが調べてみると設定が難しそう…
 
-`VIRTUAL_HOST=`という環境変数を持つDockerコンテナを同じネットワーク上に見つけると、自動的にnginxのリバースプロキシの設定を作成し、要求されたサブドメインへのアクセスを適切なコンテナへ誘導してくれます。さらにこの`nginx-proxy`自体がDockerコンテナとなっているため、ローカル環境を汚さずに容易に立ち上げることができます。もうすべてDockerでいいんじゃない？て感じです。
+手軽な方法を探していたところ、[こちら](https://blog.ssdnodes.com/blog/host-multiple-websites-docker-nginx/)の記事およびその元となった[`nginx-proxy`](https://github.com/jwilder/nginx-proxy)というリポジトリがありました。詳しい仕組みは[解説](http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/)に書いてあります。かんたんに説明すると、`nginx-proxy`自身がDockerコンテナで構成されていて、環境変数に`VIRTUAL_HOST=`を持つDockerコンテナを、同じDockerコンテナネットワーク上に見つけると、自動的にnginxのリバースプロキシの設定を作成し、要求されたサブドメインへのアクセスを適当なコンテナへ誘導してくれます。ローカル環境を汚さずに立ち上げることができるので、もう全てがDockerで支配されて良いんじゃないか〜という感じです。
 
 実際に試したところ上手く行ったので記録しておきます。
 
 ## `nginx-proxy`コンテナのセットアップ
 
-今回もRaspberry Pi 4上で64bit版のarm64向けUbuntu 18.03.4を使っています。最新のDockerおよびdocker-composeがインストール済みです。詳細は以前の[記事](/post/tech-raspberry-pi-4-ubuntu-docker/)を参照してください。
+今回もRaspberry Pi 4上で64bit版のarm64向けUbuntu 18.04.3を使っています。最新のDockerおよびdocker-composeがインストール済みです。詳細は以前の[記事](/post/tech-raspberry-pi-4-ubuntu-docker/)を参照してください。
 
 ### `Docker`ネットワークの作成
 
 `nginx-proxy`がコンテナの追加を監視するDockerコンテナ・ネットワークを作成します。
 
 ```bash
-$ docker network create nginx-prox
+$ docker network create nginx-proxy
 ```
 
-### arm64に対応したDockefileの準備
+### arm64に対応したDockerfileの準備
 
-`nginx-proxy`のリポジトリではarm64用の`Dockerfile`が提供されていないため、既存のx86用の`Dockerfile`を基にしました。Foregoのarm64版が[公式サイト](https://dl.equinox.io/ddollar/forego/stable)にてダウンロード可能になっているので、そちらを利用するように変更しています。
+`nginx-proxy`のリポジトリではarm64用の`Dockerfile`が提供されていないため、既存のx86用の`Dockerfile`を基にしました。適当なディレクトリ、ここでは`/home/ubuntu/nginx-proxy/`に以下の`Dockerfile`を作成します。
 
 ```Dockerfile
 FROM arm64v8/nginx
@@ -68,7 +68,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf \
  && sed -i 's/^http {/&\n    server_names_hash_bucket_size 128;/g' /etc/nginx/nginx.conf
 
 
-# Install Forego
+# Install Forego 変更点
 RUN wget --quiet https://bin.equinox.io/c/ekMN3bCZFUn/forego-stable-linux-arm64.tgz && \
 	tar xvf forego-stable-linux-arm64.tgz -C /usr/local/bin && \
 	chmod u+x /usr/local/bin/forego
@@ -94,9 +94,11 @@ ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["forego", "start", "-r"]
 ```
 
+変更点は、Foregoのarm64版を[公式サイト](https://dl.equinox.io/ddollar/forego/stable)からダウンロードして展開するようになっています。
+
 ### docker-compose.ymlの準備
 
-`docker-compose.yml`ではこのDockerファイルをビルドすることにより`nginx-proxy`を立ち上げる設定に変更します。
+同じディレクトリに`docker-compose.yml`を作成します。ここでは先のDockerファイルをビルドすることにより`nginx-proxy`を立ち上げる設定に変更しています。
 
 ```yaml
 version: "3"
@@ -121,13 +123,20 @@ networks:
 ```bash
 $ docker-compose up -d
 ```
-としてコンテナを起動します。
+
+としてコンテナを起動し、以下のようになっていればOKです。
+
+```bash
+$ docker ps
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                NAMES
+1e102858616b        nginx-proxy_nginx-proxy   "/app/docker-entrypo…"   7 hours ago         Up 10 minutes       0.0.0.0:80->80/tcp   nginx-proxy
+```
 
 ## ウェブアプリケーション側の設定
 
-試しにDockerの公式の[ドキュメント](http://docs.docker.jp/compose/wordpress.html)で紹介されているWordPressを立ち上げる`docker-compose.yml`に少し変更を加えて`blog.example.com`として立ち上げる例を用意してみました。
+Dockerの公式の[クイックスタートガイド](http://docs.docker.jp/compose/wordpress.html)に、WordPressを立ち上げる`docker-compose.yml`があります。これに少し変更を加えて立ち上げる例を用意してみました。ここでは適当なディレクトリ`/home/ubuntu/blog/`に下記のような`docker-compose.yml`を作成します。
 
-```yaml
+```yaml:/home/ubuntu/blog/docker-compose.yml
 version: '2'
 services:
   db:
@@ -165,32 +174,36 @@ networks:
       name: nginx-proxy
 ```
 
-適当なディレクトリを作成してこの`docker-compose.yml`を配置し、問題なく起動することを確認します。
+適当なディレクトリを作成してこの`docker-compose.yml`を配置して起動します。
 
 ```bash
-$ mkdir blog
-$ nano docker-compose.yml
-$ docker-compose up
+$ docker-compose up -d
 ```
 
-自分でDNSの設定を変更することができるので`blog.pi4.local`を登録するか`*.pi4.local`を、とりあえずテストであればクライアント側のPC上の`/etc/hosts`にこのホスト名とIPアドレスの関連をセットします。
+以下のようになっていればOKです。
 
-クライアント側のブラウザから`http://blog.pi4.local`にアクセスすると、
+```bash
+$ docker ps
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                NAMES
+1e102858616b        nginx-proxy_nginx-proxy   "/app/docker-entrypo…"   7 hours ago         Up 10 minutes       0.0.0.0:80->80/tcp   nginx-proxy
+d55553138a83        wordpress:latest          "docker-entrypoint.s…"   8 hours ago         Up 10 minutes       80/tcp               wp-test_wordpress_1
+cf647e31827f        mariadb                   "docker-entrypoint.s…"   8 hours ago         Up 10 minutes       3306/tcp             wp-test_db_1
+```
+
+
+自分でDNSの設定を変更することができるのであれば`blog.pi4.local`をDNSに登録します。とりあえずテストであれば、クライアント側のPC上で`/etc/hosts`にこのホスト名とIPアドレスの関連をセットします。
+
+クライアント側のブラウザから`http://blog.pi4.local`にアクセスしていつもの画面が現れたらOKです。
 
 {{< blog-img "wordpress_init.png" >}}
 
-いつもの画面が現れたらOKです。
-
-
 ## mDNSで任意のサブドメインもアナウンス
 
-mDNSがサブドメインは面倒をみてくれないため、きちんとしたDNSを立てるか`/etc/hosts`に登録が必要だということに気づかず、ちょっとハマりました。できればmDNSの設定でなんとかならないかなと調べたところ、どうも単純ではない様子。[こちら](https://github.com/lathiat/avahi/issues/40)のissueを参考にとりあえず目的が達成できるようになったのでメモ。
+mDNSはサブドメインの面倒をみてくれない仕様のようで、きちんとしたDNSを立てるか`/etc/hosts`に登録が必要だということに気がつかずしばし悩みました。できればmDNSの設定でなんとかならないかなと調べたところ、どうも単純ではない様子ですが、[こちら](https://github.com/lathiat/avahi/issues/40)のissueを参考に、とりあえず目的が達成できるようになったのでメモしておきます。
 
 ### まずは固定IPアドレスに変更
 
-Ubuntu 18.04になって（17.10以降のようです）IPアドレスの変更方法が大分変わったようで、ぐぐると次のファイルをする必要があります。ここで注意が必要なのは、ネットワークインターフェイス名が`enp0s3`とかになっている例が多くありますが、この部分をシステムが実際に認識しているネットワークインターフェイスにする必要があります。
-
-https://www.tecmint.com/configure-network-static-ip-address-in-ubuntu/
+Ubuntu 18.04になって（17.10以降のようです）IPアドレスの変更方法が大分変わったようで、ぐぐると次のファイルをする必要があります。ここで注意が必要なのは、ネットワークインターフェイス名が`enp0s3`とかになっている例が多くありますが、この部分をシステムが実際に認識しているネットワークインターフェイス（ここではeth0）にする必要があります。
 
 ```yaml:/etc/netplan/50-cloud-init.yaml
 # This file is generated from information provided by
@@ -202,7 +215,7 @@ network:
     version: 2
     renderer: networkd
     ethernets:
-        eth0: # ip address で設定したいネットワークインターフェイスを確認
+        eth0: # `ip address`で設定したいネットワークインターフェイスを確認
             dhcp4: no
             dhcp6: no
             addresses: [192.168.1.33/24]
@@ -211,17 +224,11 @@ network:
                 addresses: [192.168.1.1, 8.8.8.8]
 ```                
 
-また、コメントにも記載がありますが、`cloud-init`というのが起動時に毎回走って
+### サブドメインを登録するサービスの定義
 
-```yaml:/etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
-network: {config: disabled}
-```
+`avashi-publish`というコマンドを使うと、サブドメインをアナウンスできるようなります。しかしこれをシステムリブート時に毎回行うのも大変です。この[コメント](https://github.com/lathiat/avahi/issues/40#issuecomment-466351346)に記載されたスクリプトを使うと、システムサービスとしてサブドメインの登録を自動化できます。
 
-
-サブドメイン
-
-https://github.com/lathiat/avahi/issues/40
-
+下記のような`/etc/systemd/system/avahi-subdomain@.service`という新しいファイルを作成します。
 
 ```bash:/etc/systemd/system/avahi-subdomain@.service
 [Unit]
@@ -230,12 +237,29 @@ Description=Publish %I.%H.local via mdns
 [Service]
 Type=simple
 # ExecStart=/bin/bash -c "/usr/bin/avahi-publish -a -R %I.$(avahi-resolve -4 -n %H.local)"
-ExecStart=/bin/bash -c "/usr/bin/avahi-publish -a -R %I.%H.local $(ip -f inet address show dev eth0 | grep "inet" | cut -d/ -f1 | awk '{print $2}')"
+ExecStart=/bin/bash -c "/usr/bin/avahi-publish -a -R %I.%H.local $(ip -f inet address show dev eth0 | grep 'inet' | cut -d/ -f1 | awk '{print $2}')"
 
 [Install]
 WantedBy=multi-user.target
 ```
 
+今回はDockerを使っているため自ホスト名に対するIPアドレスが複数存在し、`avahi-resolve`の結果が必ずしも期待する外向きのIPアドレスとはならないため、eth0に割り当てられたIPアドレスを取得するよう変更してあります。
+
+### サービスの登録
+
+サービスの登録は次のコマンドとなります。
+
 ```bash
-$ sudo systemctl enable --now avahi-subdomain@blog.pi4.service
+ubuntu@pi4:~$ sudo systemctl enable --now avahi-subdomain@blog.service
+Created symlink /etc/systemd/system/multi-user.target.wants/avahi-subdomain@blog.service → /etc/systemd/system/avahi-subdomain@.service.
 ```
+
+ここで@マークに続いて`サブドメイン名.service`、今回の例では`blog.service`を指定しています。クライアント側のブラウザから`http://blog.pi4.local`にアクセスしてWordPressの初期画面が表示されれば成功です！サービスとして登録されていますので、次回再起動したときも自動的にサブドメインの登録が行われます。
+
+## まとめ
+
+ウェブアプリケーション側での`docker-compose.yml`において、以下の設定をすれば自動的に追加されるハズ！
+
+- コンテナ側の待ち受けポートも80番になるので`expose: 80`とする
+- 環境変数`VIRTUAL_HOST: blog.pi4.local`によってサブドメイン名が決定される
+- `networks`で`nginx-proxy`と同じコンテナネットワークに参加する

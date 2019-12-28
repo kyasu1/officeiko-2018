@@ -12316,6 +12316,21 @@ a[href^="tel:"] {
   border-radius: 3px;
 }
 
+.post ul, .post ol {
+  background-color: #fffff0;
+  padding: 1rem;
+  padding-left: 2rem;
+  border-width: 2px;
+  border-color: #2d3748;
+  list-style-type: disc;
+}
+
+.post ul li, .post ol li {
+  line-height: 2;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .page {
   color: #000;
   line-height: 1.5;
