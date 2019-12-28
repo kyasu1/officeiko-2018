@@ -1,9 +1,9 @@
 import '../css/style.scss';
 
-import hljs from 'highlight.js';
-import 'highlight.js/styles/github.css';
+// import hljs from 'highlight.js';
+// import 'highlight.js/styles/github.css';
 
-hljs.initHighlightingOnLoad();
+// hljs.initHighlightingOnLoad();
 
 // GLightbox Support
 import "glightbox/dist/css/glightbox.css";

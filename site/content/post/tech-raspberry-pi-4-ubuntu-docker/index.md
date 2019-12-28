@@ -18,9 +18,8 @@ resources:
 
 ## 現在の環境
 
-```
-OS Ubuntu 18.03.4
-```
+- OS Ubuntu 18.04.3
+
 
 ## Docker CEをリポジトリからインストール
 
@@ -36,7 +35,7 @@ $ sudo apt-get update
 
 ### 2. HTTP経由でパッケージをインストールするための準備
 
-```
+```bash
 $ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -47,7 +46,7 @@ $ sudo apt-get install \
 
 ### 3. DockerのオフィシャルGPGキーを登録
 
-```
+```bash
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
@@ -77,8 +76,8 @@ $ sudo docker run hello-world
 
 毎回`sudo`つけるのも面倒なので、`ubuntu`アカウントでも使えるように`/etc/group`の`docker`に`ubuntu`を追加します。
 
-```
-sudo gpasswd -a ubuntu docker
+```bash
+$ sudo gpasswd -a ubuntu docker
 ```
 
 すぐには反映されないので、ログインし直します。
@@ -87,20 +86,20 @@ sudo gpasswd -a ubuntu docker
 
 残念ながら公式でものレポジトリではdocker-composeのarm64版が用意されていないので、[ドキュメント](https://docs.docker.com/compose/install/#install-using-pip)にしたがって、`python3`の`pip`を使ってソースからビルドする必要があります。まずは`python3`一式をインストールします。
 
-```
-sudo apt-get install python3-pip
+```bash
+$ sudo apt-get install python3-pip
 ```
 
 またコンパイル時に`libffi-dev`というライブラリが必要となるので先にインストールします。
 
-```
-sudo apt-get install libffi-dev
+```bash
+$ sudo apt-get install libffi-dev
 ```
 
 準備が整ったのでdocker-composeをインストールします。
 
-```
-sudo pip3 install -U docker-compose
+```bash
+$ sudo pip3 install -U docker-compose
 ```
 
 以上で完了です。

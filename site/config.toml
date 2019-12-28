@@ -3,8 +3,12 @@ languageCode = "ja-JP"
 title = "質イコー - 埼玉県越谷市の質屋 高価買取 ブランド品 金プラチナ ロレックス"
 googleAnalytics = "UA-77785756-3"
 timeout = 30000 
-[blackfriday]
-  hrefTargetBlank = true
+[markup]
+  [markup.blackFriday]
+    hrefTargetBlank = true
+  [markup.highlight]
+    style = "friendly"
+    tabWidth = 2
 [menu]
   [[menu.main]]
     name = "お知らせ"

@@ -48,7 +48,7 @@ $ docker network create nginx-proxy
 
 `nginx-proxy`のリポジトリではarm64用の`Dockerfile`が提供されていないため、既存のx86用の`Dockerfile`を基にしました。適当なディレクトリ、ここでは`/home/ubuntu/nginx-proxy/`に以下の`Dockerfile`を作成します。
 
-```Dockerfile
+{{< highlight docker "hl_lines=20-23" >}}
 FROM arm64v8/nginx
 
 LABEL maintainer="Jason Wilder mail@jasonwilder.com, Ondřej Záruba <info@zaruba-ondrej.cz> (https://zaruba-ondrej.cz)"
@@ -92,7 +92,7 @@ VOLUME ["/etc/nginx/certs", "/etc/nginx/dhparam"]
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["forego", "start", "-r"]
-```
+{{< / highlight >}}
 
 変更点は、Foregoのarm64版を[公式サイト](https://dl.equinox.io/ddollar/forego/stable)からダウンロードして展開するようになっています。
 
@@ -100,7 +100,7 @@ CMD ["forego", "start", "-r"]
 
 同じディレクトリに`docker-compose.yml`を作成します。ここでは先のDockerファイルをビルドすることにより`nginx-proxy`を立ち上げる設定に変更しています。
 
-```yaml
+{{< highlight yaml "hl_lines=4" >}}
 version: "3"
 services:
   nginx-proxy:
@@ -116,7 +116,7 @@ networks:
   default:
     external:
       name: nginx-proxy
-```
+{{< / highlight >}}
 
 準備ができたら
 
@@ -174,15 +174,10 @@ networks:
       name: nginx-proxy
 ```
 
-適当なディレクトリを作成してこの`docker-compose.yml`を配置して起動します。
+起動してみて以下のようになっていればOKです。
 
 ```bash
 $ docker-compose up -d
-```
-
-以下のようになっていればOKです。
-
-```bash
 $ docker ps
 CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                NAMES
 1e102858616b        nginx-proxy_nginx-proxy   "/app/docker-entrypo…"   7 hours ago         Up 10 minutes       0.0.0.0:80->80/tcp   nginx-proxy
@@ -203,9 +198,9 @@ mDNSはサブドメインの面倒をみてくれない仕様のようで、き�
 
 ### まずは固定IPアドレスに変更
 
-Ubuntu 18.04になって（17.10以降のようです）IPアドレスの変更方法が大分変わったようで、ぐぐると次のファイルをする必要があります。ここで注意が必要なのは、ネットワークインターフェイス名が`enp0s3`とかになっている例が多くありますが、この部分をシステムが実際に認識しているネットワークインターフェイス（ここではeth0）にする必要があります。
+Ubuntu 18.04になって（17.10以降のようです）IPアドレスの変更方法が大分変わったようで、調べてみると`/etc/netplan/50-cloud-init.yaml`を以下のように編集します。ここで注意が必要なのは、ネットワークインターフェイス名が`enp0s3`となっている例が多くありますが、この部分はシステムが実際に認識しているネットワークインターフェイス（ここではeth0）をセット必要があります。
 
-```yaml:/etc/netplan/50-cloud-init.yaml
+```yaml
 # This file is generated from information provided by
 # the datasource.  Changes to it will not persist across an instance.
 # To disable cloud-init's network configuration capabilities, write a file
@@ -230,7 +225,7 @@ network:
 
 下記のような`/etc/systemd/system/avahi-subdomain@.service`という新しいファイルを作成します。
 
-```bash:/etc/systemd/system/avahi-subdomain@.service
+```bash
 [Unit]
 Description=Publish %I.%H.local via mdns
 

@@ -80,7 +80,7 @@ usb-storage.quirks=152d:0578:u snd_bcm2835.enable_headphones=1 snd_bcm2835.enabl
 
 次に起動した状態でSSDを接続しドライブの状態を確認します。
 
-```
+```bash
 $ sudo fdisk -l
 
 ...
@@ -113,8 +113,7 @@ Device     Boot  Start     End Sectors  Size Id Type
 
 ここで、同じイメージを展開しているため、どちらも`Disk identifier: 0x65c7036`となっています。この状態ですと、システム起動時に混乱が発生してしまうので、SSD側のPARTUUIDに異なる値を設定します。
 
-<pre>
-<code class="bash">
+{{< highlight bash "linenos=true, hl_lines=8 20 22 24 28 30">}}
 $ sudo fdisk /dev/sda
 
 Welcome to fdisk (util-linux 2.31.1).
@@ -122,7 +121,7 @@ Changes will remain in memory only, until you decide to write them.
 Be careful before using the write command.
 
 
-Command (m for help): <font color="red"><b>p</b></font>
+Command (m for help): p
 Disk /dev/sda: 74.5 GiB, 80026361856 bytes, 156301488 sectors
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -134,21 +133,20 @@ Device     Boot  Start     End Sectors  Size Id Type
 /dev/sda1  *      2048  526335  524288  256M  c W95 FAT32 (LBA)
 /dev/sda2       526336 5614312 5087977  2.4G 83 Linux
 
-Command (m for help): <font color="red"><b>x</b></font>
+Command (m for help): x
 
-Expert command (m for help): <font color="red"><b>i</b></font>
+Expert command (m for help): i
 
-Enter the new disk identifier: <font color="red"><b>0xd34db33f</b></font>
+Enter the new disk identifier: 0xd34db33f
 
 Disk identifier changed from 0xf65c7036 to 0xd34db33f.
 
-Expert command (m for help): <font color="red"><b>r</b></font>
+Expert command (m for help): r
 
-Command (m for help): <font color="red"><b>w</b></font>
+Command (m for help): w
 The partition table has been altered.
 Syncing disks.
-</code>
-</pre>
+{{< / highlight >}}
 
 結果を確認してみます。
 
@@ -169,25 +167,21 @@ $ sudo blkid
 
 変更前
 
-<pre>
-<code class="bash"> 
-...省略 fsck.mode=auto root=<b>/dev/mmcblk0p2</b> rootfstype=ext4 elevator=deadline rootwait
-</code>
-</pre>
+```bash
+...省略 fsck.mode=auto root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
+```
 
 変更後
 
-<pre>
-<code class="bash">
-...省略 fsck.mode=auto root=<b>PARTUUID=d34db33f-02</b> rootfstype=ext4 elevator=deadline rootwait
-</code>
-</pre>
+```bash
+...省略 fsck.mode=auto root=PARTUUID=d34db33f-02 rootfstype=ext4 elevator=deadline rootwait
+```
 
 PARTUUIDとして指定することにより、どちらのUSB3.0ポートに接続しても起動します。もし、必ず同じポートに接続すると決めるなら`/dev/sda2`といった書き方のほうがわかりやすいかもしれません。
 
 以上の作業に間違いがないことを確認して再起動をします。SSD上のルートパーティションから起動しているはずなので、`ubuntu:ubuntu`でログインして新しいパスワードを再度設定します。IPアドレスも変わってしまっているので注意が必要です。
 
-以下のように`/dev/sda?`から起動していれば成功です。
+以下のように`/dev/sda2`から起動していれば成功です。
 
 ```bash
 $ findmnt -n -o SOURCE /
