@@ -12296,6 +12296,7 @@ a[href^="tel:"] {
   margin-bottom: 1rem;
   border-color: #000;
   font-size: 1.125rem;
+  font-weight: 700;
 }
 
 @media (min-width: 768px) {
@@ -12313,11 +12314,20 @@ a[href^="tel:"] {
   margin-bottom: 1rem;
   border-style: solid;
   border-bottom-width: 2px;
+  font-weight: 600;
   -webkit-border-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0)), to(red)) 10;
   -webkit-border-image: linear-gradient(to left, rgba(0, 0, 0, 0), red) 10;
        -o-border-image: linear-gradient(to left, rgba(0, 0, 0, 0), red) 10;
           border-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0)), to(red)) 10;
           border-image: linear-gradient(to left, rgba(0, 0, 0, 0), red) 10;
+}
+
+.post h4 {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+  background-color: #fc8181;
+  color: #fff;
 }
 
 .post a {
