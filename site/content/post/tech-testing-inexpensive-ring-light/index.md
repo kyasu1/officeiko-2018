@@ -3,35 +3,12 @@ title: アマゾンで購入した中華製の手頃なマクロ向けリング�
 date: 2019-12-27T12:06:01+09:00
 draft: false
 author: Yasu
-category: tech
+category: 趣味
 tags:
-- Sony α7III
 - デジカメ
-resources:
-- src: 01_ring_light.jpg
-  title:
-- src: image-1.jpg
-  title: フラッシュモード・AUTOで撮影
-- src: image-2.jpg
-  title: ライトモード・AUTOで撮影
-- src: image-3.jpg
-  title: ライトモード・マニュアルで撮影
-- src: image-4.jpg
-  title: リングライトをOFF・マニュアルで撮影
-- src: image-5.jpg
-  title: ライトモード・ホワイトのガイドをつけてマニュアル撮影
-- src: image-6.jpg
-  title: α7IIIとSEL90M28Gにリングライトを装着
-- src: image-7.jpg
-  title: 単3電池が4本必要です
-- src: image-8.jpg
-  title: 操作面は液晶表示
-- src: ILCE-7M3K.jpg
-  title:   
-- src: SEL90M28G.jpg
-  title:   
+- アマゾン購入
 ---
-{{< blog-img "01_ring_light.jpg" >}}
+![](_thumbnail.jpg) 
 
 ジュエリーの商品撮影をする際にもっとキラキラに撮りたいと思い、手頃な中華製の[リングライト](https://www.amazon.co.jp/gp/product/B07KPY984F/)をアマゾンで購入してみました。早速届いたのでお試しです。
 
@@ -43,15 +20,15 @@ resources:
 
 普段からジュエリーや時計などの小物を撮影する際に使用している、ソニーのミラーレス一眼レフカメラ[α7 III](https://www.sony.jp/ichigan/products/ILCE-7M3/)と純正の90mmマクロレンズ[SEL90M28G](https://www.sony.jp/ichigan/products/SEL90M28G/)に装着してみるとこんな感じです。かっこいい！！！
 
-{{< blog-img "image-6.jpg" >}}
+![](image-6.jpg "α7IIIとSEL90M28Gにリングライトを装着") 
 
 単3乾電池4本で動作しますが、付属はしていないので別途必要となります。
 
-{{< blog-img "image-7.jpg" >}}
+![](image-7.jpg "単3電池が4本必要です") 
 
 取説は付属していませんでしたがなんとなく勘で操作。電源を少し長押し、起動時はフラッシュモードになります。LIGHTボタンを押すと常時点灯に切り替わります。左右の矢印で明るさを調整。MODEボタンを押すとFLASH/L/Rと切り替り、左右片方のみの点灯が可能です。ただし、先にも指摘したとおり、リングライト自体が正面にこないので微妙な機能です…
 
-{{< blog-img "image-8.jpg" >}}
+![](image-8.jpg "操作面は液晶表示でわかりやすい") 
 
 ## ジュエリーの撮影をしてみる
 
@@ -59,23 +36,23 @@ resources:
 
 ### とりあえずAUTOでフラッシュモードで撮影すると白飛びして使い物になりません。
 
-{{< blog-img "image-1.jpg" >}}
+![](image-1.jpg "フラッシュモード・AUTOで撮影") 
 
 ### ライトモードにすると良い感じになりました。
 
-{{< blog-img "image-2.jpg" >}}
+![](image-2.jpg "ライトモード・AUTOで撮影") 
 
 ### 普段はマニュアルモードで撮影していて、リングライトを点灯しない状況ですとこんな感じです。
 
-{{< blog-img "image-4.jpg" >}}
+![](image-4.jpg "リングライトをOFF・マニュアルで撮影") 
 
 ### マニュアルモードでライトを点灯して撮影するとサファイアの透明感が増した気がします。
 
-{{< blog-img "image-3.jpg" >}}
+![](image-3.jpg "ライトモード・マニュアルで撮影") 
 
 ### リングライトのガイドを標準の透明から白地の物に変えるとダイヤのキラキラ感も増して、サファイアも明るく透明感があります。
 
-{{< blog-img "image-5.jpg" >}}
+![](image-5.jpg "ライトモード・ホワイトのガイドをつけてマニュアル撮影") 
 
 ※いずれもホワイトバランスのみ補正しています
 

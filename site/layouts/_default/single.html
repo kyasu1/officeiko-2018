@@ -18,13 +18,24 @@
   </div>
   <div class="flex justify-between py-4">
     {{ with .PrevInSection }}
-    <a class="text-gray-800" href="{{ .Permalink }}" title="{{ .Title }}">＜古い記事へ</a>
+    <a class="text-gray-800" href="{{ .RelPermalink }}" title="{{ .Title }}">＜古い記事へ</a>
     {{ end }}
 
     {{ with .NextInSection }}
-    <a class="text-gray-800" href="{{ .Permalink }}" title="{{ .Title }}">新しい記事へ＞</a>
+    <a class="text-gray-800" href="{{ .RelPermalink }}" title="{{ .Title }}">新しい記事へ＞</a>
     {{ end }}
   </div>
+
+  <div class="py-4">
+    {{ $taxo := "tags" }}
+    Tags: {{ range .Param $taxo }}
+            {{ $name := . }}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxo ($name | urlize)) }}
+              <a href="{{ .RelPermalink }}">{{ $name }}</a>
+            {{ end }}
+          {{ end }}
+  </div>
+  
   <div class="py-4">
     {{ partial "sns-buttons" . }}
   </div>

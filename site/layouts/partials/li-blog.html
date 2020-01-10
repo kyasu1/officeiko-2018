@@ -1,24 +1,22 @@
 
 <li class="w-full lg:w-1/2 p-2">
-    <div class="flex mb-2 p-2 border border-solid border-blue-500">
-        {{ $class := "w-24 h-24 md:w-32 md:h-32 object-contain" }}
-        {{ $img := .Resources.GetMatch "*" }}
-        <a href="{{ .Permalink }}" class="text-black block flex-no-shrink">
-        {{ if $img }}
-        {{ $x1 := $img.Resize "300x" }}
-        {{ $x2 := $img.Resize "600x" }}
+    <div class="md:flex mb-2 p-2 border border-solid border-blue-500">
+        {{ $class := "rounded-lg object-contain" }}
+        {{ $image := .Resources.GetMatch "*" }}
+        <a href="{{ .RelPermalink }}" class="md:w-32 md:h-32 text-black block md:flex-shrink-0 flex items-center justify-center">
+        {{ if $image }}
+            {{ $x1 := $image.Resize "300x" }}
+            {{ $x2 := $image.Resize "600x" }}
 
-        <img class="{{ $class }}" src="{{ $x1.RelPermalink }}"
-            srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x" alt="Blog image">
-        {{ else if .Params.image }}
-        <img src="{{ .Params.image }}" class="{{ $class }}">
+            <img class="{{ $class }}" src="{{ $x1.RelPermalink }}"
+                srcset="{{ $x1.RelPermalink }} 1x, {{ $x2.RelPermalink }} 2x" alt="Blog image">
         {{ else }}
-        <img src="/images/thumb-news.png" class="{{ $class }}">
+            <img src="/images/thumb-news.png" class="{{ $class }}">
         {{ end }}
         </a>
         <div class="flex flex-col ml-2 leading-normal" title="{{ .Title }}">
-            <span class="text-sm text-gray-600">{{ dateFormat .Site.Params.dateFormat .Date }}</span>
-            <a href="{{ .Permalink }}" class="block h-6 overflow-hidden text-black font-bold">{{ .Title }}</a>
+            <span class="text-sm text-indigo-600 border-b">{{ dateFormat .Site.Params.dateFormat .Date }}</span>
+            <a href="{{ .RelPermalink }}" class="block h-6 overflow-hidden text-black font-bold">{{ .Title }}</a>
             <p>{{ .Summary | truncate 30}}</p>
         </div>
     </div>

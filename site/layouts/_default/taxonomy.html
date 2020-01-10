@@ -3,9 +3,9 @@
     {{ range .Pages }}
         <li>
             {{ range first 1 (.Resources.ByType "image") }}
-            <img src="{{ .Permalink }}">
+            <img src="{{ .RelPermalink }}">
             {{ end }}
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
     {{ end }}
 </ul>

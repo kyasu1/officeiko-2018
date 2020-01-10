@@ -1,16 +1,20 @@
 <li class="w-full lg:w-1/2 p-2">
-    <div class="leading-loose flex mb-2 p-2 border border-solid border-blue-500">
-        <a href="{{ .Permalink }}" class="text-black w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
-          {{ $class := "w-24 h-24 md:w-32 md:h-32" }}
-          {{ if .Params.image }}
-          <img src='{{ .Params.image | relURL }}' class="{{ $class }}">
+    <div class="leading-loose md:flex mb-2 p-2 border border-solid border-blue-500">
+        <a href="{{ .RelPermalink }}" class="text-black md:w-32 md:h-32 md:flex-shrink-0 flex items-center justify-center">
+          {{ $class := "rounded-lg object-contain" }}
+          {{ $image := .Resources.GetMatch "*" }}
+
+          {{ if $image }}
+              {{ $thumb := $image.Resize "240x" }}
+              <img src='{{ $image.RelPermalink }}' class="{{ $class }}">
           {{ else }}
-          <img src='{{ "/images/thumb-news.png" | relURL }}' class="{{ $class }}">
+              <img src='{{ "/images/thumb-news.png" | relURL }}' class="{{ $class }}">
           {{ end }}
         </a>
-        <div class="flex flex-col ml-2">
-            <span>{{ dateFormat .Site.Params.dateFormat .Date }}</span>
-            <a href="{{ .Permalink }}" class="text-black h-16 md:h-24 overflow-hidden">{{ .Title }}</a>
+        <div class="ml-2 w-full">
+            <p class="text-indigo-600 text-sm border-b">{{ dateFormat .Site.Params.dateFormat .Date }}</p>
+            <p><a href="{{ .RelPermalink }}" class="text-black h-16 md:h-24 overflow-hidden">{{ .Title }}</a></p>
+            <p>{{ .Summary | truncate 10}}</p>
         </div>
     </div>
 </li>

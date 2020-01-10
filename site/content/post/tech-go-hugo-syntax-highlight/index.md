@@ -4,14 +4,9 @@ date: 2019-12-30T11:19:14+09:00
 draft: false
 author: Yasu
 category: tech
-tags:
-- Hugo
-- Go言語
-resources:
-- src: hugo.png
-  title: Hugoのロゴ
+tags: ["Hugo", "Go言語"]
 ---
-{{< blog-img "hugo.png" >}}
+![Hugoのロゴ](hugo.png)
 
 ブログ記事内のソースコードをカラフルに表示する際に、一般的に[WordPress](https://ja.wordpress.com/)のような動的なCMSではJavaScriptで書かれたプラグインなどを使用します。これらはレンダリング時に書き換えを行うため、ソースコードの量が多くなるとどうしても重くなりがちです。一方、このサイトでは[Hugo](https://gohugo.io/)という静的サイトジェネレーターを使っています。シンタックスハイライトの機能が含まれているため、サイトの生成時にソースコードの部分を装飾したHTMLに変換して出力してくれます。このためサイトを閲覧する際の高速化に一役買ってくれています。使い方や気づいた点をメモしておきます。
 

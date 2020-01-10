@@ -1,0 +1,24 @@
+{{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
+{{ $small := $image.Resize "480x" }}
+{{ $medium := $image.Resize "768x" }}
+{{ $large := $image.Resize "1024x" }}
+{{ $alt := .PlainText | safeHTML }}
+{{ $caption := "" }}
+{{ with .Title }}
+  {{ $caption = . | safeHTML }}
+{{ end }}
+
+<figure class="text-center py-4">
+    <a href="{{ $image.RelPermalink }}" class="glightbox">
+        <img
+          sizes="100vw"
+          src="{{ $image.RelPermalink }}"
+          srcset="{{ $small.RelPermalink }} 480w, {{ $medium.RelPermalink }} 768w, {{ $large.RelPermalink }} 1024w"
+          alt="{{ $image.Title }}"
+          class="max-w-lg w-full inline"
+        >
+    </a>
+    {{ with $caption }}
+      <figcaption class="text-gray-500 text-sm">{{ . | markdownify }}</figcaption>
+    {{ end }}
+</figure>
