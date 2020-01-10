@@ -21,9 +21,9 @@ Starting from Januarly 16th, 2020 we are the official agent of Western Union. Yo
 - Need to make a payment in Japan ? You can depsoit cash sent from you family here !
 - Friendly staffs warmly welcome all customers.
 
-## Store Location:
+## Store Location
 
-1-299-1 Shichizacho, Koshigaya, Saitama, Japan
+Address : 1-299-1 Shichizacho, Koshigaya, Saitama, Japan
 
 We have 6 parking lots in front of our shop. You can acesss there directly from Route 4.
 
@@ -32,7 +32,7 @@ We have 6 parking lots in front of our shop. You can acesss there directly from 
     allowfullscreen>
 </iframe>
 
-#### Nearest Train Stations:
+#### Nearest Train Stations
 
 - Gamou Station, Tobu Skytree Line (5min by taxi or 15min walk)
 - Shin-Koshigaya Station, Tobu Skytree Line (5min by taxi or 20min walk)
