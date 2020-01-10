@@ -11,7 +11,7 @@
               <img src='{{ "/images/thumb-news.png" | relURL }}' class="{{ $class }}">
           {{ end }}
         </a>
-        <div class="ml-2 w-full">
+        <div class="mt-4 md:mt-0 md:ml-2 w-full">
             <p class="text-indigo-600 text-sm border-b">{{ dateFormat .Site.Params.dateFormat .Date }}</p>
             <p><a href="{{ .RelPermalink }}" class="text-black h-16 md:h-24 overflow-hidden">{{ .Title }}</a></p>
             <p>{{ .Summary | truncate 10}}</p>

@@ -10,9 +10,9 @@ draft: false
 
 営業時間を下記の通り変更させていただきます：
 
-<p class="bg-orange text-white text-center mt-2 py-4 text-2xl font-bold">現在 | 10:00 - 20:00</p>
-<p class="text-green text-center my-2 text-5xl font-black">▼</p>
-<p class="bg-orange-dark text-white text-center mb-2 py-4 text-2xl font-bold">10/11以降 | 10:00 - 19:00</p>
+<p class="bg-orange-500 text-white text-center mt-2 py-4 text-2xl font-bold">現在 | 10:00 - 20:00</p>
+<p class="text-green-800 text-center my-2 text-5xl font-black">▼</p>
+<p class="bg-orange-800 text-white text-center mb-2 py-4 text-2xl font-bold">10/11以降 | 10:00 - 19:00</p>
 
 ご迷惑をおかけしまして申し訳ございませんが何卒ご了承のほどお願いいたします。
 

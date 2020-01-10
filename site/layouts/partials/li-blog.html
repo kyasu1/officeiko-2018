@@ -14,9 +14,9 @@
             <img src="/images/thumb-news.png" class="{{ $class }}">
         {{ end }}
         </a>
-        <div class="flex flex-col ml-2 leading-normal" title="{{ .Title }}">
-            <span class="text-sm text-indigo-600 border-b">{{ dateFormat .Site.Params.dateFormat .Date }}</span>
-            <a href="{{ .RelPermalink }}" class="block h-6 overflow-hidden text-black font-bold">{{ .Title }}</a>
+        <div class="mt-4 md:mt-0 md:ml-2 leading-normal" title="{{ .Title }}">
+            <p class="text-sm text-indigo-600 border-b">{{ dateFormat .Site.Params.dateFormat .Date }}</p>
+            <p><a href="{{ .RelPermalink }}" class="block h-6 overflow-hidden text-black font-bold">{{ .Title }}</a></p>
             <p>{{ .Summary | truncate 30}}</p>
         </div>
     </div>

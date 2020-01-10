@@ -1,29 +1,31 @@
 {{ define "main" }}
 
-<h1 class="px-2 md:px-12 py-4 bg-blue-500 text-white text-2xl font-semibold">
-    イコーからのお知らせ
-</h1>
-<div class="px-2 md:px-12">
-    <h2 class="pt-5 pb-2 text-black border-b-2  border-gray-500 text-xl font-semibold">{{ .Title }}</h2>
-    <p class="text-right text-gray-600 py-3">{{ .Date.Format (.Site.Params.dateFormat) }}</p>
+<h2 class="pt-5 pb-2 text-black border-b-2  border-gray-500 text-xl font-semibold">{{ .Title }}</h2>
 
-    <hr>
-    <div class="text-black leading-loose text-lg">
-        {{ .Content }}
-    </div>
-    <p class="text-right text-black py-4">株式会社オフィスイコー</p>
-</div>
+<p class="text-right text-gray-600 py-3">{{ .Date.Format (.Site.Params.dateFormat) }}</p>
 
 <div class="px-2 md:px-12">
     {{ partial "sns-buttons" . }}
 </div>
 
-<div class="text-center">
+<hr>
+
+<div class="text-black leading-loose text-lg p-12">
+    {{ .Content }}
+</div>
+<p class="text-right text-black py-4">株式会社オフィスイコー</p>
+
+
+<div class="px-2 md:px-12">
+    {{ partial "sns-buttons" . }}
+</div>
+
+<!-- <div class="text-center">
     {{ if .Params.image }}
     <img src="{{ .Params.image | relURL }}" class="md:w-5/6 ">
     {{ else }}
     <img src='{{ "images/thumb-news.png" | relURL }}' class="md:w-5/6">
     {{ end }}
 
-</div>
+</div> -->
 {{ end }}

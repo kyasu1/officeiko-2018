@@ -9,6 +9,8 @@ timeout = 30000
   [markup.highlight]
     style = "friendly"
     tabWidth = 2
+[markup.goldmark.renderer]
+  unsafe= true    
 [menu]
   [[menu.main]]
     name = "お知らせ"
