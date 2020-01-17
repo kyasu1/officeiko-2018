@@ -10,7 +10,7 @@ tags:
 ---
 ![](_title.png)
 
-Starting from Januarly 16th, 2020 we are the official agent of Western Union. You can easily, quickly and securely transfer money over worldwide. More details about Western Union is [here](https://www.westernunion.com/jp/en/home.html).
+Starting from January 16th, 2020 we are the official agent of Western Union. You can easily, quickly and securely transfer money over worldwide. More details about Western Union is [here](https://www.westernunion.com/jp/en/home.html).
 
 2020年1月16日よりウェスタンユニオンによる海外送金サービスのお取り扱いが始まります。手軽に低コストで安全に世界各国との送金および受け取りが可能となります。皆様のご利用をお待ちしております。ウェスタンユニオンについて詳しくは[こちら](https://www.westernunion.com/jp/ja/home.html)。
 
