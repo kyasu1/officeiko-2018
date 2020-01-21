@@ -6,7 +6,7 @@ import '../css/style.scss';
 // hljs.initHighlightingOnLoad();
 
 // GLightbox Support
-import "glightbox/dist/css/glightbox.css";
+// import "glightbox/dist/css/glightbox.css";
 import GLightbox from 'glightbox';
 
 const lightbox = GLightbox({
