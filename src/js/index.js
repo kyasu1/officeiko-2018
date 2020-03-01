@@ -5,14 +5,7 @@ import '../css/style.scss';
 
 // hljs.initHighlightingOnLoad();
 
-// GLightbox Support
-// import "glightbox/dist/css/glightbox.css";
-import GLightbox from 'glightbox';
 
-const lightbox = GLightbox({
-  touchNavigation: true,
-  loop: true,
-});
 
 // Calendar
 // const holiday = require('./holiday.json');
@@ -93,3 +86,13 @@ if (btnCloseNav) {
         document.getElementById("side-nav").style.width = "0";
     });
 }
+
+// GLightbox Support
+// import "glightbox/dist/css/glightbox.css";
+import GLightbox from 'glightbox';
+
+const lightbox = GLightbox({
+  selector: 'glightbox',
+  touchNavigation: true,
+  loop: true,
+});
