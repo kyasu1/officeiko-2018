@@ -75,14 +75,24 @@ rate = 0.85
 category = "旅行券"
 
 [[params.ticket.items]]
+name = "ビール券（798）"
+comment = "2019年10月1日発行新券"
+price = 770
+category = "ビール券"
+[[params.ticket.items]]
 name = "ビール券（784）"
-comment = "2018年4月1日発行新券"
+comment = "2018年4月1日発行"
 price = 760
 category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（724）"
 comment = ""
 price = 700
+category = "ビール券"
+[[params.ticket.items]]
+name = "ビール券（504）"
+comment = "2019年10月1日発行新券"
+price = 480
 category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（494）"
@@ -179,20 +189,20 @@ category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックプラス520円"
 comment = ""
-price = 450
+price = 400
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックライト370円"
 comment = ""
-price = 320 
+price = 300 
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックプラス510円"
 comment = ""
-price = 350
+price = 300
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックライト360円"
 comment = ""
-price = 250
+price = 200
 category = "切手・印紙"
