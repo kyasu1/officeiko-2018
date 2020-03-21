@@ -1,6 +1,6 @@
 [params]
 [params.ticket]
-date = "2019-09-30"
+date = "2020-03-20"
 [[params.ticket.items]]
 name = "全国百貨店共通商品券"
 comment = "一部買取不可あり"
