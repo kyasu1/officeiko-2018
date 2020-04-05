@@ -10,7 +10,6 @@ tags:
 - Docker
 - nginx
 resources:
-resources:
 - src: nginx_logo.png
   title: 
 - src: wordpress_init.png

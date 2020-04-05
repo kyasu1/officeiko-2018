@@ -4,7 +4,7 @@ date = "2020-03-20"
 [[params.ticket.items]]
 name = "全国百貨店共通商品券"
 comment = "一部買取不可あり"
-rate = 0.96
+rate = 0.94
 category = "商品券"
 [[params.ticket.items]]
 name = "セブン＆アイホールディングス商品券"
@@ -14,7 +14,7 @@ category = "商品券"
 [[params.ticket.items]]
 name = "イオン商品券"
 comment = "現行柄以外はマイナス1%"
-rate = 0.96
+rate = 0.94
 category = "商品券"
 [[params.ticket.items]]
 name = "ヨドバシカメラ商品券"
@@ -25,54 +25,54 @@ category = "商品券"
 [[params.ticket.items]]
 name = "JCBギフト"
 comment = "ホログラムのあるもの"
-rate = 0.95
+rate = 0.94
 category = "ギフト券"
 [[params.ticket.items]]
 name = "VJAギフト"
 comment = "ホログラムのあるもの"
-rate = 0.95
+rate = 0.94
 category = "ギフト券"
 [[params.ticket.items]]
 name = "JTBナイスギフト"
 comment = "ホログラムのあるもの"
-rate = 0.95
+rate = 0.94
 category = "ギフト券"
 [[params.ticket.items]]
 name = "DCUFJニコス"
 comment = "ホログラムのあるもの"
-rate = 0.95
+rate = 0.94
 category = "ギフト券"
 [[params.ticket.items]]
 name = "UC"
 comment = "ホログラムのあるもの"
-rate = 0.95
+rate = 0.94
 category = "ギフト券"
 
 [[params.ticket.items]]
 name = "びゅう商品券"
 comment = ""
-rate = 0.96
+rate = 0.94
 category = "旅行券"
 [[params.ticket.items]]
 name = "JTB"
 comment = "新券"
-rate = 0.90
+rate = 0.80
 category = "旅行券"
 [[params.ticket.items]]
 name = "JTB"
 comment = "「この券は、JTBの窓口でのみ使えます」と印字されているもの"
-rate = 0.85
+rate = 0.75
 category = "旅行券"
 [[params.ticket.items]]
 name = "近ツリ"
 comment = "裏面に署名欄のあるものは買取不可"
-rate = 0.90
+rate = 0.80
 category = "旅行券"
-[[params.ticket.items]]
-name = "HIS旅行券"
-comment = ""
-rate = 0.85
-category = "旅行券"
+#[[params.ticket.items]]
+#name = "HIS旅行券"
+#comment = ""
+#rate = 0.30
+#category = "旅行券"
 
 [[params.ticket.items]]
 name = "ビール券（798）"
