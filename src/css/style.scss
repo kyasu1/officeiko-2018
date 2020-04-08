@@ -165,6 +165,10 @@ a[href^="tel:"] {
     @apply my-4 px-2;
   }
 
+  h1 {
+    @apply px-2 text-2xl font-bold;
+  }
+
   h2 {
     @apply px-2 border-b-2 py-1 my-4 border-black text-lg font-bold;
   }
