@@ -1,7 +1,7 @@
 ---
 title: "【重要】緊急事態宣言に基づく対応について"
 date: 2020-04-07T12:33:58+09:00
-draft: true
+draft: false
 author: Yasu
 category: お知らせ
 type: post
