@@ -21841,15 +21841,7 @@ var contact = require('../elm-contact-form/src/Main.elm');
 var nodeContact = document.getElementById('elm-contact-form');
 
 if (nodeContact) {
-  var app = contact.Elm.Main.init({
-    node: nodeContact,
-    flags: {
-      width: window.innerWidth,
-      height: window.innerHeight
-    }
-  });
-
-  function resizeImage(src) {
+  var resizeImage = function resizeImage(src) {
     return new Promise(function (resolve, reject) {
       var width = 800;
       var height = 800;
@@ -21873,8 +21865,15 @@ if (nodeContact) {
 
       image.src = src;
     });
-  }
+  };
 
+  var app = contact.Elm.Main.init({
+    node: nodeContact,
+    flags: {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  });
   app.ports.resize.subscribe(function (data) {
     Promise.all(data.map(resizeImage)).then(function (resized) {
       app.ports.resizedImages.send(resized);
@@ -21934,7 +21933,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53218" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53909" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
