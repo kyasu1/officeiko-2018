@@ -45,7 +45,7 @@ timeout = 30000
     name = "K24IG"
     ratio = 24
     sell_diff = 100
-    sell_rate = 0.98
+    sell_rate = 0.95
     pawn_diff = 700
     comment = "インゴットなど、傷のある物はK24S扱いとなります"
   [[params.gd]]
@@ -59,14 +59,14 @@ timeout = 30000
     name = "K22"
     ratio = 22
     sell_diff = 250
-    sell_rate = 0.86
+    sell_rate = 0.85
     pawn_diff = 700
     comment = "イーグル金貨、クルーガーランド金貨、ブリタニア金貨、中華系のアクセサリーなど（支那金）"
   [[params.gd]]
     name = "K21.6"
     ratio = 21.6
     sell_diff = 250
-    sell_rate = 0.845
+    sell_rate = 0.84
     pawn_diff = 700
     comment = "インディアンコインやイーグルコインなど米国や中南米のコインにおおいです"
   [[params.gd]]
@@ -80,25 +80,25 @@ timeout = 30000
     name = "K18"
     ratio = 18
     sell_diff = 100
-    sell_rate = 0.72
+    sell_rate = 0.70
     pawn_diff = 450
   [[params.gd]]
     name = "K14"
     ratio = 14
     sell_diff = 350
-    sell_rate = 0.52
+    sell_rate = 0.5
     pawn_diff = 600
   [[params.gd]]
     name = "K10"
     ratio = 10
     sell_diff = 500
-    sell_rate = 0.33
+    sell_rate = 0.3
     pawn_diff = 700
   [[params.gd]]
     name = "K9"
     ratio = 9
     sell_diff = 500
-    sell_rate = 0.29
+    sell_rate = 0.28
     pawn_diff = 700
 
   [[params.pt]]
