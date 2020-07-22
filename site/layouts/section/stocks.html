@@ -9,19 +9,38 @@
     <div>
         <p class="text-center text-xl font-bold">公表価格</p>
         <p class="text-center text-sm text-gray-500">営業日の9:30に発表される基準価格です</p>
-        <div class="flex justify-center py-1">
-            <div class="w-48">金インゴット</div>
-            <div class="w-56 font-mono">{{ lang.NumFmt 0 .Site.Params.market.gd }}円/g（前日比 {{ .Site.Params.market.gd_ratio }}円)</div>
+        <div class="md:flex justify-center py-1">
+            <div class="text-center md:w-48">金インゴット</div>
+            <div class="text-center md:w-56 font-mono">
+                {{ lang.NumFmt 0 .Site.Params.market.gd }}円/g（前日比
+                {{ if gt .Site.Params.market.gd_ratio 0 }}
+                +{{ .Site.Params.market.gd_ratio }}
+                {{ else if lt .Site.Params.market.gd_ratio 0 }}
+                -{{ mul -1 .Site.Params.market.gd_ratio }}
+                {{ else }}
+                {{ print "0" }}
+                {{ end }}円）
+            </div>
         </div>
-        <div class="flex justify-center py-1">
-            <div class="w-48">プラチナインゴット</div>
-            <div class="w-56 font-mono">{{ lang.NumFmt 0 .Site.Params.market.pt }}円/g（前日比 {{ .Site.Params.market.pt_ratio }}円)</div>
+        <div class="md:flex justify-center py-1">
+            <div class="text-center md:w-48">プラチナインゴット</div>
+            <div class="text-center md:w-56 font-mono">
+                {{ lang.NumFmt 0 .Site.Params.market.pt }}円/g（前日比
+                {{ if gt .Site.Params.market.pt_ratio 0 }}
+                +{{ .Site.Params.market.pt_ratio }}
+                {{ else if lt .Site.Params.market.pt_ratio 0 }}
+                -{{ mul -1 .Site.Params.market.pt_ratio }}
+                {{ else }}
+                {{ print "0" }}
+                {{ end }}円）
+            </div>
         </div>
     </div>
 
 
     <div class="my-4 md:pl-8 lg:px-12">
-        <div class="text-center border border-yellow-400 bg-yellow-300 border-b-0 py-2 text-xl font-bold  print:border-black">
+        <div
+            class="text-center border border-yellow-400 bg-yellow-300 border-b-0 py-2 text-xl font-bold  print:border-black">
             金製品
         </div>
         <div class="flex">
@@ -44,7 +63,8 @@
     </div>
 
     <div class="my-8 md:pl-8 lg:px-12">
-        <div class="text-center border border-gray-500 bg-gray-300 border-b-0 py-2 text-xl font-bold print:border-black">
+        <div
+            class="text-center border border-gray-500 bg-gray-300 border-b-0 py-2 text-xl font-bold print:border-black">
             プラチナ製品
         </div>
         <div class="flex">
@@ -66,19 +86,18 @@
         {{ end }}
     </div>
 
-    <div class="print:hidden p-2 leading-8">
-      <ul class="list-disc">
-        <li>状態の良いW6面やトリプル喜平のネックレス・ブレスレットはより高く買い取りさせていただきます。</li>
-        <li>ジュエリーに付いたダイヤモンドや宝石なども評価の対象となります。</li>
-        <li>手数料や査定料などはかかりません。</li>
-        <li>買取金額の1円単位は切り捨てとさせていただきますので予めご了承ください。</li>
-        <li>破損や変形したお品物でも金・プラチナであればお買取が可能でございます。ご不明なお品物がございます場合は一度お問い合わせください。</li>
-      </ul>
+    <div class="print:hidden p-2 md:leading-8 ml-2">
+        <ul class="list-disc">
+            <li>ジュエリーに付いたダイヤモンドや宝石なども評価の対象となります。</li>
+            <li>手数料や査定料などはかかりません。</li>
+            <li>破損や変形したお品物でも金・プラチナであればお買取が可能でございます。ご不明なお品物がございます場合は一度お問い合わせください。</li>
+        </ul>
     </div>
 
     <div class="border border-gold p-2 print:hidden">
         <div>
-            <span class="inline-flex items-center px-3 py-0.5 rounded-full font-bold text-gold border border-gold ">買取例</span>
+            <span
+                class="inline-flex items-center px-3 py-0.5 rounded-full font-bold text-gold border border-gold ">買取例</span>
             ご提示させていただく買取金額は<strong>各品位のグラム単価</strong> ✕ <strong>重さ</strong>となります。
         </div>
         <div>100gの18金製ネックレスの場合：5,040 円 x 100.0g = 504,000円</div>

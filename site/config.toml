@@ -93,7 +93,7 @@ timeout = 30000
     pawn_diff = 700
 
   [[params.pt]]
-    name = "Pt1000IG"
+    name = "Pt1000"
     ratio = 1000
     sell_diff = 150
     pawn_diff = 350
