@@ -3,7 +3,8 @@ module.exports = {
     './src/**/*.html',
     './src/**/*.vue',
     './src/**/*.jsx',
-    './site/content/**/*.html',
+    './site/content/**/*.md',
+    './site/layouts/**/*.html',
   ],  
   theme: {
     extend: {
