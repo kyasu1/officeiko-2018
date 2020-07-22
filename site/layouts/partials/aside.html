@@ -9,7 +9,7 @@
       </p>
     </div> -->
 
-    <div class="p-2 bg-gray-100">
+    <div class="p-2 border-b mb-4">
       <h4 class="text-center pb-1 text-2xl font-semibold">
         金プラ公表価格
       </h4>
@@ -19,41 +19,41 @@
       {{ $pt := .Site.Params.market.pt }}
       {{ $pt_ratio := .Site.Params.market.pt_ratio }}
 
-      <div class="mb-2">
+      <div class="mb-2 font-mono">
         <div class="flex justify-between -mt-1">
-          <div class="w-10 py-2 flex justify-center items-center border border-yellow-600 bg-yellow-500 font-bold">金
+          <div class="w-10 py-2 flex justify-center items-center border border-yellow-300 bg-yellow-300 font-bold">金
           </div>
-          <div class="py-2 flex justify-center items-center border border-solid border-yellow-600 flex-grow border-l-0">
-            <span class="font-bold">{{ lang.NumFmt 0 $gd }}</span>
+          <div class="py-2 flex justify-center items-center border border-solid border-yellow-300 flex-grow border-l-0">
+            <span class="">{{ lang.NumFmt 0 $gd }}</span>
             <span class="text-sm">円/g</span>
           </div>
-          <div class="w-20 py-2 px-1 text-center border border-yellow-600 border-l-0">
+          <div class="w-20 py-2 px-1 text-center border border-yellow-300 border-l-0">
             <span class="text-sm">前日比</span>
             {{ if gt $gd_ratio 0 }}
-            <p class="text-red-600 font-bold text-right">+{{$gd_ratio}}円</p>
+            <p class="text-red-600 text-right">+{{$gd_ratio}}円</p>
             {{ else if lt $gd_ratio 0 }}
-            <p class="text-blue-600 font-bold text-right">-{{ mul -1 $gd_ratio}}円</p>
+            <p class="text-blue-600 text-right">-{{ mul -1 $gd_ratio}}円</p>
             {{ else }}
             <p class="text-right">{{ print " " $gd_ratio "円" }}</p>
             {{ end }}
           </div>
         </div>
       </div>
-      <div class="mb-2">
+      <div class="mb-2 font-mono">
         <div class="flex justify-between -mt-1">
           <div
-            class="w-10 py-2 flex justify-center items-center border border-solid border-gray-500 bg-gray-200 font-bold">
+            class="w-10 py-2 flex justify-center items-center border border-solid border-gray-200 bg-gray-200 font-bold">
             Pt</div>
-          <div class="py-2 flex justify-center items-center border border-solid border-gray-500 flex-grow border-l-0">
-            <span class="font-bold">{{ lang.NumFmt 0 $pt }}</span>
+          <div class="py-2 flex justify-center items-center border border-solid border-gray-200 flex-grow border-l-0">
+            <span class="">{{ lang.NumFmt 0 $pt }}</span>
             <span class="text-sm">円/g</span>
           </div>
-          <div class="w-20 py-2 px-1 text-center border border-solid border-gray-500 border-l-0">
+          <div class="w-20 py-2 px-1 text-center border border-solid border-gray-200 border-l-0">
             <span class="text-sm">前日比</span>
             {{ if gt $pt_ratio 0 }}
-            <p class="text-red-600 font-bold text-right">+{{ $pt_ratio }}円</p>
+            <p class="text-red-600 text-right">+{{ $pt_ratio }}円</p>
             {{ else if lt $pt_ratio 0 }}
-            <p class="text-blue-600 font-bold text-right">-{{ mul -1 $pt_ratio }}円</p>
+            <p class="text-blue-600 text-right">-{{ mul -1 $pt_ratio }}円</p>
             {{ else }}
             <p class="text-right">{{ print " " $pt_ratio "円" }}</p>
             {{ end }}
@@ -82,12 +82,12 @@
       </div> -->
       <p class="text-center">
         <a href="/stocks/" class="{{ .Site.Params.btnClass }} ">
-          全ての買取価格を見る
+          詳しく見る
         </a>
       </p>
     </div>
 
-    <div class="px-1 py-2 bg-red-100">
+    <div class="mb-4 border-b">
       <h4 class="text-center pb-1 text-2xl font-semibold">営業カレンダー</h4>
       <!-- <hr class="border border-gray-400"> -->
       <!-- <hr class="border border-gray-400"> -->
@@ -99,7 +99,6 @@
 
       </div>
       <!-- <div id="calendar">Elmで書かれたカレンダーが埋め込まれます</div> -->
-      <hr class="border border-gray-400">
       <p class="text-center py-1 md:text-sm font-semibold">定休日 毎週水曜日・第1と3火曜日</p>
       <p class="text-center py-1 md:text-sm font-semibold">営業時間 10:00am - 7:00pm</p>
     </div>

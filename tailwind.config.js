@@ -1,4 +1,10 @@
 module.exports = {
+  purge: [
+    './src/**/*.html',
+    './src/**/*.vue',
+    './src/**/*.jsx',
+    './site/content/**/*.html',
+  ],  
   theme: {
     extend: {
       screens: {
@@ -21,5 +27,7 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: []
+  plugins: [
+    require('@tailwindcss/ui'),
+  ]
 }

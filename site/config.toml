@@ -46,7 +46,7 @@ timeout = 30000
     ratio = 24
     sell_diff = 100
     pawn_diff = 700
-    comment = "インゴットやコインなど、傷のある物はK24S扱いとなります"
+    comment = "インゴットやコインなど、ただし大きな傷のある物はK24S扱いとなります"
   [[params.gd]]
     name = "K24S"
     ratio = 24

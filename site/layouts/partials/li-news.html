@@ -1,7 +1,7 @@
 <li class="w-full lg:w-1/2 p-2">
-    <div class="leading-loose md:flex mb-2 p-2 border border-solid border-blue-500">
+    <div class="leading-loose sm:flex mb-2 p-2 shadow">
         <a href="{{ .RelPermalink }}" class="text-black md:w-32 md:h-32 md:flex-shrink-0 flex items-center justify-center">
-          {{ $class := "rounded-lg object-contain" }}
+          {{ $class := "object-contain" }}
           {{ $image := .Resources.GetMatch "*" }}
 
           {{ if $image }}
@@ -12,9 +12,9 @@
           {{ end }}
         </a>
         <div class="mt-4 md:mt-0 md:ml-2 w-full">
-            <p class="text-indigo-600 text-sm border-b">{{ dateFormat .Site.Params.dateFormat .Date }}</p>
-            <p><a href="{{ .RelPermalink }}" class="text-black h-16 md:h-24 overflow-hidden">{{ .Title }}</a></p>
-            <p>{{ .Summary | truncate 10}}</p>
+            <p class="text-indigo-600 text-sm">{{ dateFormat .Site.Params.dateFormat .Date }}</p>
+            <p><a href="{{ .RelPermalink }}" class="text-black h-16 md:h-24 overflow-hidden font-bold">{{ .Title }}</a></p>
+            <p>{{ .Summary | truncate 20}}</p>
         </div>
     </div>
 </li>

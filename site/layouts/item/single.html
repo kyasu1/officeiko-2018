@@ -11,21 +11,19 @@
     </div>
     <div class="flex-no-shrink w-full px-2 lg:px-0 lg:w-64 ml-0 lg:ml-2">
         <ul class="text-lg">
+            {{ if eq .Params.stock false }}
+            <li>
+                <p class="text-right py-1 text-red-700 font-bold">SOLD OUT</p>
+            </li>
+            {{ else }}
             <li>
                 <p class="text-right py-1"><b>販売価格</b></p>
-                {{ if eq .Params.stock false }}
-                <p class="text-right py-1 text-red-700 font-bold">SOLD OUT</p>
-                {{ else }}
                 <p class="text-right py-1">{{ partial "taxed-price" .Params.price }}円(税込)</p>
-                {{ end }}
             </li>
-            <li class="text-center">
-                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}"
-                    title="Ask abou this item">
-                    お問い合わせ
-                </a>
-            </li>
-            {{ with .Params.link_auction }}
+            <p class="m-2 text-sm">
+                <div class="border border-red-500 p-2 text-red-700">一品物になります為、売り切れの際はご容赦ください。</div>
+            </p>
+                {{ with .Params.link_auction }}
             <li class="text-center">
                 <a href="{{ . }}" target="_blank" class="{{ $btnClass }}" title="Shop in Yahoo Auction">
                     ヤフオク
@@ -39,13 +37,17 @@
                 </a>
             </li>
             {{ end }}
+            {{ end }}
+            <li class="text-center">
+                <a href="mailto:info@officeiko.co.jp?subject={{ .Title }}" class="{{ $btnClass }}"
+                    title="Ask abou this item">
+                    お問い合わせ
+                </a>
+            </li>
             <li>
                 {{ partial "sns-buttons" . }}
             </li>
         </ul>
-        <p class="m-2 text-sm">
-            <div class="border border-red-500 p-2 text-red-700">一品物になります為、売り切れの際はご容赦ください。</div>
-        </p>
     </div>
 </div>
 <hr>
