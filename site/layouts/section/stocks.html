@@ -9,9 +9,9 @@
     <div>
         <p class="text-center text-xl font-bold">公表価格</p>
         <p class="text-center text-sm text-gray-500">営業日の9:30に発表される基準価格です</p>
-        <div class="md:flex justify-center py-1">
-            <div class="text-center md:w-48">金インゴット</div>
-            <div class="text-center md:w-56 font-mono">
+        <div class="md:flex print:flex justify-center py-1">
+            <div class="text-center md:w-48 print:w-48">金インゴット</div>
+            <div class="text-center md:w-56 print:w-56 font-mono">
                 {{ lang.NumFmt 0 .Site.Params.market.gd }}円/g（前日比
                 {{ if gt .Site.Params.market.gd_ratio 0 }}
                 +{{ .Site.Params.market.gd_ratio }}
@@ -22,9 +22,9 @@
                 {{ end }}円）
             </div>
         </div>
-        <div class="md:flex justify-center py-1">
-            <div class="text-center md:w-48">プラチナインゴット</div>
-            <div class="text-center md:w-56 font-mono">
+        <div class="md:flex print:flex justify-center py-1">
+            <div class="text-center md:w-48 print:w-48">プラチナインゴット</div>
+            <div class="text-center md:w-56 print:w-56 font-mono">
                 {{ lang.NumFmt 0 .Site.Params.market.pt }}円/g（前日比
                 {{ if gt .Site.Params.market.pt_ratio 0 }}
                 +{{ .Site.Params.market.pt_ratio }}
