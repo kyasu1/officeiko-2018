@@ -80,8 +80,17 @@ rate = 0.90
 #category = "旅行券"
 
 [[params.ticket.items]]
+name = "ビール券（770）"
+comment = "2020年10月1日発行新券"
+price = 750
+category = "ビール券"
+[[params.ticket.items]]
+name = "ビール券（488）"
+comment = "2020年10月1日発行新券"
+price = 460
+category = "ビール券"
 name = "ビール券（798）"
-comment = "2019年10月1日発行新券"
+comment = "2019年10月1日発行"
 price = 770
 category = "ビール券"
 [[params.ticket.items]]
