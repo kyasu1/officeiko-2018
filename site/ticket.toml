@@ -20,12 +20,12 @@ category = "商品券"
 name = "ヨドバシカメラ商品券"
 comment = ""
 rate = 0.94
-category = "商品券"  
+category = "商品券"
 [[params.ticket.items]]
 name = "ビックカメラ商品券"
 comment = ""
 rate = 0.94
-category = "商品券"  
+category = "商品券"
 
 [[params.ticket.items]]
 name = "JCBギフト"
@@ -89,6 +89,7 @@ name = "ビール券（488）"
 comment = "2020年10月1日発行新券"
 price = 460
 category = "ビール券"
+[[params.ticket.items]]
 name = "ビール券（798）"
 comment = "2019年10月1日発行"
 price = 770
@@ -208,7 +209,7 @@ category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックライト370円"
 comment = ""
-price = 300 
+price = 300
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックプラス510円"
