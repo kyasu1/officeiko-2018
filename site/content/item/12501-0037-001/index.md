@@ -16,7 +16,7 @@ images:
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/l530324546"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12501-0037-001.html"
 price: 580000
-stock: true
+stock: false
 categories:
 - watch
 tags:

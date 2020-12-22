@@ -14,7 +14,7 @@ resources:
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/v584239667"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0444-001.html"
 price: 430000
-stock: true
+stock: false
 categories:
 - watch
 tags:

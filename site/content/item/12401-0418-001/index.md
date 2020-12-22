@@ -14,7 +14,7 @@ resources:
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/g296465237"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0418-001.html"
 price: 540000
-stock: true
+stock: false
 brand: "ウブロ HUBLOT"
 categories:
 - Watch
