@@ -8,8 +8,8 @@
 <meta name="keywords" content="質イコー,イコー質店,質屋,埼玉,越谷,高価買取,ブランド品,ロレックス,金,プラチナ,金券,テレカ,商品券">
 
 <meta property="og:url" content="{{ .Permalink }}" />
-<meta property="og:title" content="{{ if ne .Permalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
-<meta property="og:type" content="{{ if eq .Permalink "/" }} website {{ else }} article {{ end }}">
+<meta property="og:title" content="{{ if ne .Permalink " /" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
+<meta property="og:type" content="{{ if eq .Permalink " /" }} website {{ else }} article {{ end }}">
 <meta property="og:description" content="{{ .Summary | truncate 100 }}" />
 
 {{ with $.Page.Resources.GetMatch "*" }}
@@ -25,8 +25,9 @@
 <meta property="og:locale" content="ja_JP" />
 <meta property="fb:app_id" content="361836030508004">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-<link rel="stylesheet" href='{{ "/assets/index.css" }}' type="text/css" >
+<link rel="stylesheet" href='{{ "/assets/index.css" }}' type="text/css">
 
 {{ template "_internal/google_analytics.html" . }}
