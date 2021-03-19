@@ -3,6 +3,7 @@ module.exports = {
     './src/**/*.html',
     './src/**/*.vue',
     './src/**/*.jsx',
+    './src/**/*.elm',
     './site/content/**/*.md',
     './site/layouts/**/*.html',
   ],

@@ -25,7 +25,8 @@ import '../css/style.scss';
 // }
 
 // Contact Form
-const contact = require('../elm-contact-form/src/Main.elm');
+import contact from '../elm-contact-form/src/Main.elm';
+
 const nodeContact = document.getElementById('elm-contact-form');
 
 if (nodeContact) {
@@ -88,11 +89,27 @@ if (btnCloseNav) {
 }
 
 // GLightbox Support
-// import "glightbox/dist/css/glightbox.css";
+// ここでGLightboを読み込んでおいて、フッターで実際に実行する
+//
 import GLightbox from 'glightbox';
 
+// const lightbox = GLightbox({
+//   selector: 'glightbox',
+//   touchNavigation: true,
+//   loop: true,
+// });
+
+
 const lightbox = GLightbox({
-  selector: 'glightbox',
+  selector:  'glightbox',
   touchNavigation: true,
   loop: true,
+  autoplayVideos: true,
+  onOpen: () => {
+      console.log('Lightbox opened')
+  },
+  beforeSlideLoad: (slide, data) => {
+      // Need to execute a script in the slide?
+      // You can do that here...
+  }
 });

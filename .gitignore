@@ -70,4 +70,5 @@ dist
 
 # Optional parcel cache directory
 .cache
+.parcel-cache
 
