@@ -5,8 +5,6 @@
   "scripts": {
     "build": "npm run hugo-build",
     "dev": "concurrently --prefix '{time}-{pid}' 'npm run parcel' 'npm run hugo-watch' --kill-others --kill-others-on-fail",
-    "rollup-watch": "rollup -c -w",
-    "rollup-build": "rm -rf site/static/assets && NODE_ENV=production rollup -c",
     "parcel": "parcel src/js/index.js --dist-dir site/static/assets/",
     "parcel-build": "rm -rf site/static/assets/* && parcel build src/js/index.js --dist-dir site/static/assets/",
     "hugo-watch": "hugo server -w -D --verbose -s site --bind 0.0.0.0 --configDir site --config config.toml,market.toml,ticket.toml",

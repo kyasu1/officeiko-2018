@@ -5,28 +5,8 @@ import '../css/style.scss';
 
 // hljs.initHighlightingOnLoad();
 
-
-
-// Calendar
-// const holiday = require('./holiday.json');
-// const special = require('./special.json');
-
-// const calendar = require('../elm-calendar/src/CompanyHoliday.elm');
-
-// const node = document.getElementById('calendar');
-// if (node) {
-//     const app = calendar.Elm.Main.init({
-//         node: node,
-//         flags: {
-//             holiday: holiday,
-//             special: special
-//         }
-//     });
-// }
-
 // Contact Form
 import contact from '../elm-contact-form/src/Main.elm';
-
 const nodeContact = document.getElementById('elm-contact-form');
 
 if (nodeContact) {
@@ -89,9 +69,8 @@ if (btnCloseNav) {
 }
 
 // GLightbox Support
-// ここでGLightboを読み込んでおいて、フッターで実際に実行する
-//
-import GLightbox from 'glightbox';
+// import GLightbox from 'glightbox';
+import * as GLightbox from 'glightbox';
 
 // const lightbox = GLightbox({
 //   selector: 'glightbox',
