@@ -1,5 +1,5 @@
 ---
-title: "夏季休業のお知らせ Summer Holiday Notice"
+title: "夏季休業のお知らせ Summer Holidays Notice"
 date: 2021-07-01T13:35:46+09:00
 draft: false
 author: Yasu
@@ -13,7 +13,7 @@ resources:
 - src: image-1.png
   title: 夏季休業のお知らせ
 ---
-## 夏季休業のお知らせ Summer Holiday Notice
+## 夏季休業のお知らせ Summer Holidays Notice
 
 {{< blog-img "natsuyasumi_title.png" >}}
 
