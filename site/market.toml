@@ -1,8 +1,8 @@
 
 [params]
   [params.market]
-    date = "2021-10-13T01:00:00+00:00"
-    gd = 7004
-    gd_ratio = 34
-    pt = 3959
-    pt_ratio = 16
+    date = "2021-10-14T01:00:00+00:00"
+    gd = 7111
+    gd_ratio = 107
+    pt = 4008
+    pt_ratio = 49
