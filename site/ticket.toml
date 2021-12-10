@@ -4,7 +4,7 @@ date = "2020-06-01"
 [[params.ticket.items]]
 name = "全国百貨店共通商品券"
 comment = "一部買取不可あり"
-rate = 0.95
+rate = 0.96
 category = "商品券"
 [[params.ticket.items]]
 name = "セブン＆アイホールディングス商品券"
@@ -18,13 +18,13 @@ rate = 0.95
 category = "商品券"
 [[params.ticket.items]]
 name = "ヨドバシカメラ商品券"
-comment = ""
-rate = 0.94
+comment = "現行柄以外はマイナス1%"
+rate = 0.95
 category = "商品券"
 [[params.ticket.items]]
 name = "ビックカメラ商品券"
-comment = ""
-rate = 0.94
+comment = "現行柄以外はマイナス1%"
+rate = 0.95
 category = "商品券"
 
 [[params.ticket.items]]
@@ -57,32 +57,22 @@ category = "ギフト券"
 name = "びゅう商品券"
 comment = ""
 rate = 0.90
-#category = "旅行券"
-#[[params.ticket.items]]
-#name = "JTB"
-#comment = "新券"
-#rate = 0.80
-#category = "旅行券"
-#[[params.ticket.items]]
-#name = "JTB"
-#comment = "「この券は、JTBの窓口でのみ使えます」と印字されているもの"
-#rate = 0.75
-#category = "旅行券"
-#[[params.ticket.items]]
-#name = "近ツリ"
-#comment = "裏面に署名欄のあるものは買取不可"
-#rate = 0.80
-#category = "旅行券"
-#[[params.ticket.items]]
-#name = "HIS旅行券"
-#comment = ""
-#rate = 0.30
-#category = "旅行券"
+category = "旅行券"
+[[params.ticket.items]]
+name = "JTB"
+comment = "新券"
+rate = 0.85
+category = "旅行券"
+[[params.ticket.items]]
+name = "近ツリ"
+comment = "裏面に署名欄のあるものは買取不可"
+rate = 0.85
+category = "旅行券"
 
 [[params.ticket.items]]
 name = "ビール券（770）"
 comment = "2020年10月1日発行新券"
-price = 750
+price = 730
 category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（488）"
@@ -92,27 +82,27 @@ category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（798）"
 comment = "2019年10月1日発行"
-price = 770
+price = 750
 category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（784）"
 comment = "2018年4月1日発行"
-price = 750
+price = 740
 category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（724）"
 comment = ""
-price = 690
+price = 680
 category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（504）"
 comment = "2019年10月1日発行新券"
-price = 480
+price = 460
 category = "ビール券"
 [[params.ticket.items]]
 name = "ビール券（494）"
 comment = ""
-price = 460
+price = 440
 category = "ビール券"
 
 [[params.ticket.items]]
@@ -177,14 +167,24 @@ comment = "のり落ちは買取不可"
 rate = 0.90
 category = "切手・印紙"
 [[params.ticket.items]]
-name = "普通切手100枚シート・50円以上"
+name = "普通切手100枚シート・現行柄63円以上"
 comment = ""
-rate = 0.85
+rate = 0.80
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "普通切手100枚シート・現行柄上記以外"
+comment = ""
+rate = 0.70
+category = "切手・印紙"
+[[params.ticket.items]]
+name = "記念切手10枚シート・50円以上"
+comment = ""
+rate = 0.70
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "切手バラ・50円以上"
 comment = ""
-rate = 0.60
+rate = 0.50
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "切手バラ・50円未満"
@@ -192,9 +192,9 @@ comment = ""
 rate = 0.50
 category = "切手・印紙"
 [[params.ticket.items]]
-name = "62円新はがき・200枚完封"
+name = "63円新はがき・200枚完封"
 comment = ""
-rate = 0.80
+rate = 0.75
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "はがきバラ"
