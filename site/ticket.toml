@@ -4,7 +4,7 @@ date = "2020-06-01"
 [[params.ticket.items]]
 name = "全国百貨店共通商品券"
 comment = "一部買取不可あり"
-rate = 0.96
+rate = 0.95
 category = "商品券"
 [[params.ticket.items]]
 name = "セブン＆アイホールディングス商品券"
@@ -194,7 +194,7 @@ category = "切手・印紙"
 [[params.ticket.items]]
 name = "63円新はがき・200枚完封"
 comment = ""
-rate = 0.75
+rate = 0.70
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "はがきバラ"
@@ -209,15 +209,5 @@ category = "切手・印紙"
 [[params.ticket.items]]
 name = "レターパックライト370円"
 comment = ""
-price = 300
-category = "切手・印紙"
-[[params.ticket.items]]
-name = "レターパックプラス510円"
-comment = ""
-price = 200
-category = "切手・印紙"
-[[params.ticket.items]]
-name = "レターパックライト360円"
-comment = ""
-price = 150
+price = 280
 category = "切手・印紙"
