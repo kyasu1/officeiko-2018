@@ -169,7 +169,7 @@ category = "切手・印紙"
 [[params.ticket.items]]
 name = "普通切手100枚シート・現行柄63円以上"
 comment = ""
-rate = 0.80
+rate = 0.75
 category = "切手・印紙"
 [[params.ticket.items]]
 name = "普通切手100枚シート・現行柄上記以外"
