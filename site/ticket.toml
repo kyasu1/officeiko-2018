@@ -4,7 +4,7 @@ date = "2020-06-01"
 [[params.ticket.items]]
 name = "全国百貨店共通商品券"
 comment = "一部買取不可あり"
-rate = 0.95
+rate = 0.96
 category = "商品券"
 [[params.ticket.items]]
 name = "セブン＆アイホールディングス商品券"
@@ -14,7 +14,7 @@ category = "商品券"
 [[params.ticket.items]]
 name = "イオン商品券"
 comment = "現行柄以外はマイナス1%"
-rate = 0.95
+rate = 0.96
 category = "商品券"
 [[params.ticket.items]]
 name = "ヨドバシカメラ商品券"
