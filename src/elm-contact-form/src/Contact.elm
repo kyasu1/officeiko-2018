@@ -341,10 +341,11 @@ sendMail contact =
                     , ( "tel", Encode.string <| Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
                     , ( "content", Encode.string <| Content.toString contact.content )
                     , ( "images", Encode.list Encode.string contact.images )
+                    , ( "form-name", Encode.string "contact")
                     ]
     in
     Http.post
-        { url = awsUrl
+        { url = "/"
         , body = body
         , expect = Http.expectJson (SentMail contact) responseDecoder
         }
@@ -730,8 +731,8 @@ onEscape action noop =
 -- isOutsideOverlay : String -> Json.Decoder Bool
 -- isOutsideOverlay overlayId =
 --     Json.oneOf
---         [ Json.field "id" Json.string 
---             |> Json.andThen 
+--         [ Json.field "id" Json.string
+--             |> Json.andThen
 --                 (\id ->
 --                     if overlayId == id then
 --                         Json.succeed False
