@@ -2,6 +2,7 @@ port module Contact exposing (Model, Msg, initialModel, subscriptions, update, v
 
 import Atom
 import Atom.Font as Font
+import Base64.Decode as Base64
 import Browser.Dom as Dom
 import Browser.Events
 import Color exposing (..)
@@ -48,7 +49,6 @@ port resize : Encode.Value -> Cmd msg
 
 
 port resizedImages : (Encode.Value -> msg) -> Sub msg
-
 
 
 acceptedFileTypes : List String
@@ -334,8 +334,8 @@ type alias Response =
 --         (Json.at [ "Data", "MessageId" ] Json.string)
 
 
-sendMail : Contact -> Cmd Msg
-sendMail contact =
+sendMailOld : Contact -> Cmd Msg
+sendMailOld contact =
     HttpBuilder.post "/"
         |> HttpBuilder.withUrlEncodedBody
             ([ ( "email", Email.toString contact.email )
@@ -350,6 +350,44 @@ sendMail contact =
             )
         |> HttpBuilder.withExpect (Http.expectString (SentMail contact))
         |> HttpBuilder.request
+
+
+sendMail : Contact -> Cmd Msg
+sendMail contact =
+    Http.post
+        { url = "/"
+        , body =
+            Http.multipartBody
+                ([ Http.stringPart "email" (Email.toString contact.email)
+                 , Http.stringPart "name" (Name.toString contact.name)
+                 , Http.stringPart "kana" (Kana.toString contact.kana)
+                 , Http.stringPart "tel" (Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel)
+                 , Http.stringPart "content" (Content.toString contact.content)
+                 , Http.stringPart "body-field" ""
+                 , Http.stringPart "form-name" "contact"
+                 ]
+                    ++ (contact.images
+                            |> List.indexedMap (\index file -> ( "file" ++ String.padLeft 2 '0' (String.fromInt (index + 1)), file ))
+                            |> List.filterMap base64ToFile
+                       )
+                )
+        , expect = Http.expectString (SentMail contact)
+        }
+
+
+base64ToFile : ( String, String ) -> Maybe Http.Part
+base64ToFile ( fileName, dataUrl ) =
+    case String.split "," (String.dropLeft 5 dataUrl |> String.replace ";base64" "") of
+        mime :: data :: _ ->
+            Base64.decode Base64.bytes data
+                |> Result.map
+                    (\decoded ->
+                        Http.bytesPart fileName mime decoded
+                    )
+                |> Result.toMaybe
+
+        _ ->
+            Nothing
 
 
 
@@ -567,7 +605,7 @@ viewForm device ({ form, submitted } as model) =
         , text "のついた項目は必ずご入力してください。"
         ]
     , Atom.horizontalDivider
-    , Html.input [Attributes.type_ "hidden" , Attributes.name "bot-field" ] [] |> Element.html
+    , Html.input [ Attributes.type_ "hidden", Attributes.name "bot-field" ] [] |> Element.html
     , column decoInputField
         [ Input.text
             (List.concat
