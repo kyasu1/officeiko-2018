@@ -340,7 +340,7 @@ sendMail contact =
                     , ( "kana", Encode.string <| Kana.toString contact.kana )
                     , ( "tel", Encode.string <| Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
                     , ( "content", Encode.string <| Content.toString contact.content )
-                    , ( "images", Encode.list Encode.string contact.images )
+--                    , ( "images", Encode.list Encode.string contact.images )
                     , ( "form-name", Encode.string "contact")
                     ]
     in
