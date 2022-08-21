@@ -382,7 +382,7 @@ base64ToFile ( fileName, dataUrl ) =
             Base64.decode Base64.bytes data
                 |> Result.map
                     (\decoded ->
-                        Http.bytesPart fileName mime decoded
+                        Http.bytesPart (fileName ++ ".jpg") mime decoded
                     )
                 |> Result.toMaybe
 
