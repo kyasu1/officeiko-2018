@@ -22,6 +22,7 @@ import Html
 import Html.Attributes as Attributes exposing (style)
 import Html.Events
 import Http
+import HttpBuilder
 import Icon
 import Inquiry.Content as Content exposing (Content)
 import Inquiry.Email as Email exposing (Email)
@@ -317,42 +318,50 @@ update msg ({ form } as model) =
 
 
 type alias Response =
-    { received : String
-    , messageId : String
-    }
+    String
 
 
-responseDecoder : Json.Decoder Response
-responseDecoder =
-    Json.map2 Response
-        (Json.field "Received" Json.string)
-        (Json.at [ "Data", "MessageId" ] Json.string)
+
+--    { received : String
+--    , messageId : String
+--    }
+-- responseDecoder : Json.Decoder Response
+-- responseDecoder =
+--     Json.map2 Response
+--         (Json.field "Received" Json.string)
+--         (Json.at [ "Data", "MessageId" ] Json.string)
 
 
 sendMail : Contact -> Cmd Msg
 sendMail contact =
-    let
-        body =
-            Http.jsonBody <|
-                Encode.object
-                    [ ( "email", Encode.string <| Email.toString contact.email )
-                    , ( "name", Encode.string <| Name.toString contact.name )
-                    , ( "kana", Encode.string <| Kana.toString contact.kana )
-                    , ( "tel", Encode.string <| Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
-                    , ( "content", Encode.string <| Content.toString contact.content )
-                    , ( "bot-field", Encode.string "")
---                    , ( "images", Encode.list Encode.string contact.images )
-                    , ( "form-name", Encode.string "contact")
-                    ]
-    in
-    Http.post
-        { url = "/"
-        , body = body
-        , expect = Http.expectJson (SentMail contact) responseDecoder
-        }
+    HttpBuilder.post "/"
+        |> HttpBuilder.withUrlEncodedBody []
+        |> HttpBuilder.withExpect (Http.expectString (SentMail contact))
+        |> HttpBuilder.request
 
 
 
+-- sendMail2 : Contact -> Cmd Msg
+-- sendMail2 contact =
+--     let
+--         body =
+--             Http.jsonBody <|
+--                 Encode.object
+--                     [ ( "email", Encode.string <| Email.toString contact.email )
+--                     , ( "name", Encode.string <| Name.toString contact.name )
+--                     , ( "kana", Encode.string <| Kana.toString contact.kana )
+--                     , ( "tel", Encode.string <| Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
+--                     , ( "content", Encode.string <| Content.toString contact.content )
+--                     , ( "bot-field", Encode.string "")
+-- --                    , ( "images", Encode.list Encode.string contact.images )
+--                     , ( "form-name", Encode.string "contact")
+--                     ]
+--     in
+--     Http.post
+--         { url = "/"
+--         , body = body
+--         , expect = Http.expectJson (SentMail contact) responseDecoder
+--         }
 -- SUBSCRIPTIONS --
 
 
@@ -363,6 +372,7 @@ subscriptions model =
             -- Sub.batch [onEscape ClickedCloseModal NoOp
             -- , Browser.Events.onMouseDown (outsideTarget "overlay" ClickedCloseModal)]
             onEscape ClickedCloseModal NoOp
+
         _ ->
             resizedImages GotResized
 
@@ -718,6 +728,8 @@ onEscape action noop =
         <|
             Json.field "key" Json.string
 
+
+
 -- outsideTarget : String -> msg -> Json.Decoder msg
 -- outsideTarget overlayId action =
 --     Json.field "target" (isOutsideOverlay overlayId)
@@ -728,7 +740,6 @@ onEscape action noop =
 --                 else
 --                     Json.fail "inside overlay"
 --             )
-
 -- isOutsideOverlay : String -> Json.Decoder Bool
 -- isOutsideOverlay overlayId =
 --     Json.oneOf
@@ -744,13 +755,14 @@ onEscape action noop =
 --         , Json.succeed True
 --         ]
 
+
 viewOverlay : Msg -> String -> Element Msg
 viewOverlay msg src =
     Html.div
         [ Attributes.class "fixed inset-0 z-50 overflow-auto bg-smoke-400 flex"
-        -- , Html.Events.onClick ClickedCloseModal
-        , Html.Events.stopPropagationOn "click"  (Json.map alwaysStopPropagate (Json.succeed ClickedCloseModal))
 
+        -- , Html.Events.onClick ClickedCloseModal
+        , Html.Events.stopPropagationOn "click" (Json.map alwaysStopPropagate (Json.succeed ClickedCloseModal))
         ]
         [ Html.div
             [ Attributes.class "relative p-8 bg-white w-full max-w-md m-auto flex-col flex"
@@ -894,7 +906,7 @@ viewConfirm device contact maybeString =
 viewSent : Response -> List (Element Msg)
 viewSent response =
     [ el [] <| text "お問い合わせありがとうございました"
-    , el [] <| text <| "受信日時：" ++ response.received
+    , el [] <| text <| "受信日時：" -- ++ response.received
     , paragraph [] [ text "お問い合わせ内容によっては、回答にお時間がかかる場合や、回答を差し控えさせていただく場合がございます。また、定休日、夏期休業および冬期休業期間は、翌営業日以降のご対応とさせていただきます。" ]
     , el [ centerX, padding 20 ] <|
         Input.button
