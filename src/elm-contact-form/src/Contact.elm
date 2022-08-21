@@ -335,7 +335,15 @@ type alias Response =
 sendMail : Contact -> Cmd Msg
 sendMail contact =
     HttpBuilder.post "/"
-        |> HttpBuilder.withUrlEncodedBody []
+        |> HttpBuilder.withUrlEncodedBody
+            [ ( "email", Email.toString contact.email )
+            , ( "name", Name.toString contact.name )
+            , ( "kana", Kana.toString contact.kana )
+            , ( "tel", Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
+            , ( "content", Content.toString contact.content )
+            , ( "body-field", "" )
+            , ( "form-name", "contact" )
+            ]
         |> HttpBuilder.withExpect (Http.expectString (SentMail contact))
         |> HttpBuilder.request
 
