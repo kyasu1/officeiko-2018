@@ -336,14 +336,16 @@ sendMail : Contact -> Cmd Msg
 sendMail contact =
     HttpBuilder.post "/"
         |> HttpBuilder.withUrlEncodedBody
-            [ ( "email", Email.toString contact.email )
-            , ( "name", Name.toString contact.name )
-            , ( "kana", Kana.toString contact.kana )
-            , ( "tel", Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
-            , ( "content", Content.toString contact.content )
-            , ( "body-field", "" )
-            , ( "form-name", "contact" )
-            ]
+            ([ ( "email", Email.toString contact.email )
+             , ( "name", Name.toString contact.name )
+             , ( "kana", Kana.toString contact.kana )
+             , ( "tel", Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
+             , ( "content", Content.toString contact.content )
+             , ( "body-field", "" )
+             , ( "form-name", "contact" )
+             ]
+                ++ List.indexedMap (\index file -> ( "file" ++ String.padLeft 2 '0' (String.fromInt (index + 1)), file )) contact.images
+            )
         |> HttpBuilder.withExpect (Http.expectString (SentMail contact))
         |> HttpBuilder.request
 
