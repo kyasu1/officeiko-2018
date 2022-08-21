@@ -50,10 +50,8 @@ port resize : Encode.Value -> Cmd msg
 port resizedImages : (Encode.Value -> msg) -> Sub msg
 
 
-awsUrl =
-    "https://x3j6ztpdkg.execute-api.us-west-2.amazonaws.com/prod/email/send"
 
-
+acceptedFileTypes : List String
 acceptedFileTypes =
     [ "image/jpeg", "image/gif", "image/png" ]
 
@@ -65,6 +63,7 @@ type alias Contact =
     , tel : Maybe Tel
     , content : Content
     , images : List String
+    , botField : String
     }
 
 
@@ -76,6 +75,7 @@ type alias ContactForm =
     , content : String
     , agreement : Bool
     , images : List String
+    , botField : String
     }
 
 
@@ -88,6 +88,7 @@ init =
     , content = ""
     , agreement = False
     , images = []
+    , botField = ""
     }
 
 
@@ -134,6 +135,7 @@ decoder =
                     |> Decoder.field decoderTel
                     |> Decoder.field decoderContent
                     |> Decoder.field decoderImages
+                    |> Decoder.field (Decoder.lift .botField Decoder.identity)
 
             else
                 Decoder.fail (Error.invalid "同意が必要です")
@@ -224,7 +226,7 @@ update msg ({ form } as model) =
                     , Task.perform (\_ -> NoOp) (Dom.setViewport 0 0)
                     )
 
-                Err err ->
+                Err _ ->
                     ( { model | submitted = True }, Cmd.none )
 
         ClickedBack ->
@@ -236,10 +238,10 @@ update msg ({ form } as model) =
         ClickedResend ->
             ( initialModel, Cmd.none )
 
-        SentMail contact (Ok response) ->
+        SentMail _ (Ok response) ->
             ( { model | pageState = Sent response, sending = False }, Task.perform (\_ -> NoOp) (Dom.setViewport 0 0) )
 
-        SentMail contact (Err err) ->
+        SentMail contact (Err _) ->
             ( { model | pageState = Confirming contact (Just "通信エラーが発生しました"), sending = False }, Cmd.none )
 
         Pick ->
@@ -280,7 +282,7 @@ update msg ({ form } as model) =
                     , Cmd.none
                     )
 
-                Err e ->
+                Err _ ->
                     ( model, Cmd.none )
 
         Remove index ->
@@ -351,27 +353,6 @@ sendMail contact =
 
 
 
--- sendMail2 : Contact -> Cmd Msg
--- sendMail2 contact =
---     let
---         body =
---             Http.jsonBody <|
---                 Encode.object
---                     [ ( "email", Encode.string <| Email.toString contact.email )
---                     , ( "name", Encode.string <| Name.toString contact.name )
---                     , ( "kana", Encode.string <| Kana.toString contact.kana )
---                     , ( "tel", Encode.string <| Maybe.withDefault "" <| Maybe.map Tel.toString contact.tel )
---                     , ( "content", Encode.string <| Content.toString contact.content )
---                     , ( "bot-field", Encode.string "")
--- --                    , ( "images", Encode.list Encode.string contact.images )
---                     , ( "form-name", Encode.string "contact")
---                     ]
---     in
---     Http.post
---         { url = "/"
---         , body = body
---         , expect = Http.expectJson (SentMail contact) responseDecoder
---         }
 -- SUBSCRIPTIONS --
 
 
@@ -586,6 +567,7 @@ viewForm device ({ form, submitted } as model) =
         , text "のついた項目は必ずご入力してください。"
         ]
     , Atom.horizontalDivider
+    , Html.input [Attributes.type_ "hidden" , Attributes.name "bot-field" ] [] |> Element.html
     , column decoInputField
         [ Input.text
             (List.concat
