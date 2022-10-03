@@ -16,7 +16,7 @@ images:
 link_auction: "https://page.auctions.yahoo.co.jp/jp/auction/u256842603"
 link_shopping: "https://store.shopping.yahoo.co.jp/pawnshopiko/12401-0719-001.html"
 price: 370000
-stock: true
+stock: false
 brand: オメガ
 categories:
 - Watch
