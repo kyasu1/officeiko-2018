@@ -10,7 +10,7 @@
         @apply text-lg font-bold px-2 pt-1 border-b-2;
     }
     .ul {
-        @apply p-2 list-disc ml-4 leading-loose;
+        @apply p-2 list-disc ml-4 leading-6;
     }
     .article {
         @apply p-2;
