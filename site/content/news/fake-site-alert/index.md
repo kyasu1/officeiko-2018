@@ -1,6 +1,6 @@
 ---
 title: "偽ショッピングサイトに関する注意喚起"
-date: 2022-08-23T13:35:46+09:00
+date: 2023-02-07T13:35:46+09:00
 draft: false
 author: Yasu
 category: お知らせ
