@@ -1,6 +1,6 @@
 [params.market]
-date = "2023-02-16T00:30:00Z"
-gd = 8634
-gd_ratio = -23
-pt = 4293
-pt_ratio = -34
+date = "2023-02-17T00:30:00Z"
+gd = 8638
+gd_ratio = 4
+pt = 4290
+pt_ratio = -3
