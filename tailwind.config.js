@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [
+  content: [
     './src/**/*.html',
     './src/**/*.vue',
     './src/**/*.jsx',
@@ -152,7 +152,6 @@ module.exports = {
       },
     }
   },
-  variants: {},
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
