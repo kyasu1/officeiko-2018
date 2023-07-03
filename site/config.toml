@@ -75,12 +75,12 @@ timeout = 30000
     name = "K18"
     ratio = 18
     sell_diff = 100
-    pawn_diff = 600
+    pawn_diff = 700
   [[params.gd]]
     name = "K14"
     ratio = 14
-    sell_diff = 300
-    pawn_diff = 600
+    sell_diff = 400
+    pawn_diff = 700
   [[params.gd]]
     name = "K10"
     ratio = 10
