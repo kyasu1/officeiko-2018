@@ -142,12 +142,12 @@ rate = 0.80
 category = "その他"
 [[params.ticket.items]]
 name = "テレカ50度数"
-comment = "広告や絵柄は関係なく買取いたします"
+comment = "コピーライト付きアニメ柄など、その他は100円〜、個人制作は買取り不可"
 price = 350
 category = "その他"
 [[params.ticket.items]]
 name = "テレカ105度数"
-comment = "広告や絵柄は関係なく買取いたします"
+comment = "絵柄不問、両面印刷不可、表面ホワイト不可"
 price = 700
 category = "その他"
 
