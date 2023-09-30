@@ -56,17 +56,17 @@ category = "ギフト券"
 [[params.ticket.items]]
 name = "びゅう商品券"
 comment = ""
-rate = 0.90
+rate = 0.95
 category = "旅行券"
 [[params.ticket.items]]
 name = "JTB"
 comment = "新券"
-rate = 0.85
+rate = 0.88
 category = "旅行券"
 [[params.ticket.items]]
 name = "近ツリ"
 comment = "裏面に署名欄のあるものは買取不可"
-rate = 0.85
+rate = 0.88
 category = "旅行券"
 
 [[params.ticket.items]]
