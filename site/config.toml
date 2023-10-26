@@ -51,7 +51,7 @@ timeout = 30000
     name = "K24S"
     ratio = 24
     sell_diff = 300
-    pawn_diff = 800
+    pawn_diff = 900
     comment = "K24刻印のある指輪やネックレスなど"
   [[params.gd]]
     name = "K22"
