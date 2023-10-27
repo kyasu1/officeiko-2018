@@ -1,0 +1,10 @@
+<div class="flex -mt-1 print:text-lg font-mono">
+  <div class="w-2/5 p-2 border border-gray-400 bg-gray-100 print:border-black">
+    {{ .sv.name }}
+  </div>
+  <div
+    class="w-3/5 p-2 border border-gray-400 bg-white border-l-0 print:border-black"
+  >
+    <div class="text-right mr-4">{{ lang.NumFmt 0 .sv.sell_value }}円</div>
+  </div>
+</div>

@@ -9,11 +9,13 @@ export default defineConfig({
             // overwrite default .html entry
             input: 'src/js/index.js',
             output: {
+                entryFileNames: "[name].js",
+                chunkFileNames: "[name].js",
                 assetFileNames: "[name].[ext]"
             }
         },
         outDir: "site/static/assets",
-        minify: true,
+        minify: false,
     },
     plugins: [elmPlugin()],
 })

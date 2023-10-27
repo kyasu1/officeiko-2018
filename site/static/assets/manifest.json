@@ -7,7 +7,7 @@
     "css": [
       "index.css"
     ],
-    "file": "assets/index-8a66d013.js",
+    "file": "index.js",
     "isEntry": true,
     "src": "src/js/index.js"
   }
