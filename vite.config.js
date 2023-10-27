@@ -7,9 +7,13 @@ export default defineConfig({
         manifest: true,
         rollupOptions: {
             // overwrite default .html entry
-            input: 'src/js/index.js'
+            input: 'src/js/index.js',
+            output: {
+                assetFileNames: "[name].[ext]"
+            }
         },
-        outDir: "site/static/assets"
+        outDir: "site/static/assets",
+        minify: true,
     },
     plugins: [elmPlugin()],
 })
