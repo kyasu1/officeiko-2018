@@ -52,6 +52,11 @@ timeout = 30000
     sell_diff = 300
     comment = "K24刻印のある指輪やネックレスなど"
   [[params.gd]]
+    name = "K23"
+    ratio = 23
+    sell_diff = 400
+    comment = "古いコインや、中華・中東圏の国々のアクセサリーに多いです"
+  [[params.gd]]
     name = "K22"
     ratio = 22
     sell_diff = 400
@@ -60,7 +65,7 @@ timeout = 30000
     name = "K21.6"
     ratio = 21.6
     sell_diff = 400
-    comment = "インディアンコインやイーグルコインなど米国や中南米のコインにおおいです"
+    comment = "インディアンコインやイーグルコインなど米国や中南米のコインに多いです"
   [[params.gd]]
     name = "K20"
     ratio = 20
@@ -70,18 +75,22 @@ timeout = 30000
     name = "K18"
     ratio = 18
     sell_diff = 100
+    comment = "国内では最も一般的です。検定刻印の有無に関わらず同じ金額でお買取りします"
   [[params.gd]]
     name = "K14"
     ratio = 14
     sell_diff = 450
+    comment = "ハワイアンや米国のアクセサリーに多いです。日本でも最近ではよく見かけます"
   [[params.gd]]
     name = "K10"
     ratio = 10
     sell_diff = 500
+    comment = "最近は金の高騰にともない、ファッションジュエリーなどで販売価格を抑えるために使われます"
   [[params.gd]]
     name = "K9"
     ratio = 9
     sell_diff = 500
+    comment = "最近は金の高騰にともない、ファッションジュエリーなどで販売価格を抑えるために使われます"
 
   [[params.pt]]
     name = "Pt1000"
@@ -97,17 +106,18 @@ timeout = 30000
     name = "Pt950"
     ratio = 950
     sell_diff = 100
-    comment = ""
+    comment = "ブランド品や結婚指輪などに多いです"
   [[params.pt]]
     name = "Pt900"
     ratio = 900
     sell_diff = 0
-    comment = ""
+    comment = "指輪に使用される場合が多いです"
   [[params.pt]]
     name = "Pt850"
     ratio = 850
     sell_diff = 0
-
+    comment = "ネックレスに使用される場合が多いです"
+    
   [[params.sv]]
     name = "SV1000"
     sell_value = 80

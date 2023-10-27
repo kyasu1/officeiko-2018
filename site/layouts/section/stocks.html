@@ -1,11 +1,11 @@
 {{ define "main" }}
 <div class="px-2 md:px-12">
   <h4
-    class="text-center font-black border-t border-b border-black text-2xl px-2 py-2"
+    class="text-center font-black border-t border-b border-black text-2xl px-2 py-2 print:hidden"
   >
     金・プラチナの買取と質預かりの価格
   </h4>
-  <div class="text-right py-2">
+  <div class="text-right py-2 print:text-center print:font-bold print:text-xl">
     更新日：{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}
   </div>
   <div class="print:hidden">
