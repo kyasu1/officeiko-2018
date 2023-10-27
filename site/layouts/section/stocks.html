@@ -48,12 +48,12 @@
       <p
         class="w-3/5 p-2 text-center border border-yellow-400 bg-white border-l-0 print:border-black"
       >
-        買取金額
+        買取金額(1gあたり)
       </p>
       <p
         class="w-3/5 p-2 text-center border border-yellow-400 bg-white border-l-0 print:border-black"
       >
-        質預かり
+        質預かり(1gあたり)
       </p>
     </div>
     {{ $gd := .Site.Params.market.gd }} {{ range .Site.Params.gd }}
@@ -78,12 +78,12 @@
       <p
         class="w-3/5 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black"
       >
-        買取金額
+        買取金額(1gあたり)
       </p>
       <p
         class="w-3/5 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black"
       >
-        質預かり
+        質預かり(1gあたり)
       </p>
     </div>
     {{ $pt := .Site.Params.market.pt }} {{ range .Site.Params.pt }}
@@ -95,13 +95,13 @@
 
   <div class="my-8 md:pl-8 lg:px-12 print:hidden">
     <div
-      class="text-center border border-gray-500 bg-gray-300 border-b-0 py-2 text-xl font-bold print:border-black"
+      class="text-center border border-gray-500 bg-gray-100 border-b-0 py-2 text-xl font-bold print:border-black"
     >
       金貨
     </div>
     <div class="flex">
       <p
-        class="flex-1 p-2 text-center border border-gray-500 bg-gray-300 print:border-black"
+        class="flex-1 p-2 text-center border border-gray-500 bg-gray-100 print:border-black"
       >
         品目
       </p>

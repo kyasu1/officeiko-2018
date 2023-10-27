@@ -4,9 +4,9 @@
   "description": "",
   "scripts": {
     "build": "npm run hugo-build",
-    "dev": "concurrently --prefix '{time}-{pid}' 'npm run parcel' 'npm run hugo-watch' --kill-others --kill-others-on-fail",
-    "rollup-watch": "rollup -c -w",
-    "rollup-build": "rm -rf site/static/assets && NODE_ENV=production rollup -c",
+    "dev": "concurrently --prefix '{time}-{pid}' 'npm run vite' 'npm run hugo-watch' --kill-others --kill-others-on-fail",
+    "vite": "vite build --watch",
+    "vite-build": "rm -rf site/static/assets/* && vite build",
     "parcel": "parcel src/js/index.js --dist-dir site/static/assets/",
     "parcel-build": "rm -rf site/static/assets/* && parcel build src/js/index.js --dist-dir site/static/assets/",
     "hugo-watch": "hugo server -w -D --verbose -s site --bind 0.0.0.0 --configDir site --config config.toml,market.toml,ticket.toml",
@@ -23,15 +23,14 @@
   },
   "homepage": "https://github.com/kyasu1/officeiko-2018#readme",
   "devDependencies": {
-    "@parcel/transformer-elm": "^2.10.1",
-    "@parcel/transformer-sass": "^2.10.1",
     "autoprefixer": "^10.4.16",
     "concurrently": "^8.2.2",
     "elm": "^0.19.1-5",
     "elm-tooling": "^1.15.0",
-    "parcel": "^2.10.1",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.5",
+    "vite": "^4.5.0",
+    "vite-plugin-elm": "^2.8.0"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

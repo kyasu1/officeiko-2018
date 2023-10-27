@@ -4,18 +4,22 @@
   >
     {{ .gd.name }}
   </p>
-  <p
+  <div
     class="w-3/5 p-2 border border-yellow-400 bg-white border-l-0 print:border-black text-center"
   >
-    {{- $price := div .market 24.0 | mul .gd.ratio | sub .gd.sell_diff | mul
-    -0.1 | math.Ceil | mul 10 -}} {{ lang.NumFmt 0 $price }}円/g
-  </p>
+    <div class="text-right mr-4">
+      {{- $price := div .market 24.0 | mul .gd.ratio | sub .gd.sell_diff | mul
+      -0.1 | math.Ceil | mul 10 -}} {{ lang.NumFmt 0 $price }}円
+    </div>
+  </div>
   {{ if .pawn }}
-  <p
+  <div
     class="w-3/5 p-2 border border-yellow-400 bg-white border-l-0 print:border-black text-center"
   >
-    {{- $price := div .market 24.0 | mul .gd.ratio | sub .gd.pawn_diff | mul
-    -0.1 | math.Ceil | mul 10 -}} {{ lang.NumFmt 0 $price }}円/g
-  </p>
+    <div class="text-right mr-4">
+      {{- $price := div .market 24.0 | mul .gd.ratio | sub .gd.pawn_diff | mul
+      -0.1 | math.Ceil | mul 10 -}} {{ lang.NumFmt 0 $price }}円
+    </div>
+  </div>
   {{ end }}
 </div>

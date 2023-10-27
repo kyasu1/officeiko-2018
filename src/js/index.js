@@ -25,12 +25,12 @@ import '../css/style.scss';
 // }
 
 // Contact Form
-import contact from '../elm-contact-form/src/Main.elm';
+import { Elm } from '../elm-contact-form/src/Main.elm';
 
 const nodeContact = document.getElementById('elm-contact-form');
 
 if (nodeContact) {
-  const app = contact.Elm.Main.init({
+  const app = Elm.Main.init({
     node: nodeContact,
     flags: {
       width: window.innerWidth,
@@ -66,9 +66,9 @@ if (nodeContact) {
 
   app.ports.resize.subscribe(data => {
     Promise.all(data.map(resizeImage))
-    .then(resized => {
-      app.ports.resizedImages.send(resized)
-    })
+      .then(resized => {
+        app.ports.resizedImages.send(resized)
+      })
   })
 }
 
@@ -76,16 +76,16 @@ if (nodeContact) {
 
 const btnOpenNav = document.getElementById('btnOpenNav');
 if (btnOpenNav) {
-    btnOpenNav.addEventListener('click', () => {
-        document.getElementById("side-nav").style.width = "100%";
-    })
+  btnOpenNav.addEventListener('click', () => {
+    document.getElementById("side-nav").style.width = "100%";
+  })
 }
 
 const btnCloseNav = document.getElementById('btnCloseNav');
 if (btnCloseNav) {
-    btnCloseNav.addEventListener('click', () => {
-        document.getElementById("side-nav").style.width = "0";
-    });
+  btnCloseNav.addEventListener('click', () => {
+    document.getElementById("side-nav").style.width = "0";
+  });
 }
 
 // GLightbox Support
@@ -101,15 +101,15 @@ import GLightbox from 'glightbox';
 
 
 const lightbox = GLightbox({
-  selector:  'glightbox',
+  selector: 'glightbox',
   touchNavigation: true,
   loop: true,
   autoplayVideos: true,
   onOpen: () => {
-      console.log('Lightbox opened')
+    console.log('Lightbox opened')
   },
   beforeSlideLoad: (slide, data) => {
-      // Need to execute a script in the slide?
-      // You can do that here...
+    // Need to execute a script in the slide?
+    // You can do that here...
   }
 });
