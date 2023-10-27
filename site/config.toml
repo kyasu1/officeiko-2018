@@ -45,12 +45,12 @@ timeout = 30000
     name = "K24IG"
     ratio = 24
     sell_diff = 100
-    comment = "田中貴金属や徳力などのインゴット、ただし大きな傷のある物はK24S扱いとなります"
+    comment = "田中貴金属や徳力などのインゴット、ただし傷のある物はK24S扱いとなります"
   [[params.gd]]
     name = "K24S"
     ratio = 24
     sell_diff = 300
-    comment = "K24刻印のある指輪やネックレスやコインなど"
+    comment = "K24刻印のある指輪やネックレスなど"
   [[params.gd]]
     name = "K23"
     ratio = 23
@@ -70,7 +70,7 @@ timeout = 30000
     name = "K20"
     ratio = 20
     sell_diff = 400
-    comment = "K20刻印のある指輪やネックレスなど"
+    comment = "古い指輪やックレスなどに多くK18に比べて黄色みを帯びています"
   [[params.gd]]
     name = "K18"
     ratio = 18
