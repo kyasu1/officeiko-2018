@@ -7,15 +7,15 @@
   <p
     class="w-48 p-2 border border-yellow-500 bg-white border-l-0 print:border-black text-center"
   >
-    {{- $price := div .market 100000.0 | mul .coin.weight | mul .coin.sell_ratio
-    | math.Ceil | mul 100 -}} {{ lang.NumFmt 0 $price }}円
+    {{- $price := div .market 10000.0 | mul .coin.weight | mul .coin.sell_ratio
+    | math.Ceil | mul 10 -}} {{ lang.NumFmt 0 $price }}円
   </p>
   {{ if .pawn }}
   <p
     class="w-48 p-2 border border-yellow-500 bg-white border-l-0 print:border-black text-center"
   >
-    {{- $price := div .market 100000.0 | mul .coin.weight | mul .coin.pawn_ratio
-    | math.Ceil | mul 100 -}} {{ lang.NumFmt 0 $price }}円
+    {{- $price := div .market 1000000.0 | mul .coin.weight | mul
+    .coin.pawn_ratio | math.Ceil | mul 1000 -}} {{ lang.NumFmt 0 $price }}円
   </p>
   {{ end }}
 </div>

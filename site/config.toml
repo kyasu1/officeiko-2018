@@ -45,12 +45,12 @@ timeout = 30000
     name = "K24IG"
     ratio = 24
     sell_diff = 100
-    comment = "インゴットやコインなど、ただし大きな傷のある物はK24S扱いとなります"
+    comment = "田中貴金属や徳力などのインゴット、ただし大きな傷のある物はK24S扱いとなります"
   [[params.gd]]
     name = "K24S"
     ratio = 24
     sell_diff = 300
-    comment = "K24刻印のある指輪やネックレスなど"
+    comment = "K24刻印のある指輪やネックレスやコインなど"
   [[params.gd]]
     name = "K23"
     ratio = 23
@@ -117,7 +117,7 @@ timeout = 30000
     ratio = 850
     sell_diff = 0
     comment = "ネックレスに使用される場合が多いです"
-    
+
   [[params.sv]]
     name = "SV1000"
     sell_value = 80
@@ -163,3 +163,9 @@ timeout = 30000
     weight = 20
     sell_ratio = 900
     pawn_ratio = 800        
+
+  [[params.coin]]
+    name = "オリンピック等各種 1万円金貨"
+    weight = 15.6
+    sell_ratio = 900
+    pawn_ratio = 800  
