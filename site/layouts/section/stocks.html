@@ -1,107 +1,151 @@
 {{ define "main" }}
 <div class="px-2 md:px-12">
-    <h4 class="text-center font-black border-t border-b border-black text-2xl px-2 py-2">
-        金・プラチナの買取と質預かりの価格
-    </h4>
-    <div class="text-right py-2">
-        更新日：{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}
+  <h4
+    class="text-center font-black border-t border-b border-black text-2xl px-2 py-2"
+  >
+    金・プラチナの買取と質預かりの価格
+  </h4>
+  <div class="text-right py-2">
+    更新日：{{ dateFormat .Site.Params.dateFormat .Site.Params.market.date }}
+  </div>
+  <div>
+    <p class="text-center text-xl font-bold">公表価格</p>
+    <p class="text-center text-sm text-gray-500">
+      営業日の9:30に発表される基準価格です
+    </p>
+    <div class="md:flex print:flex justify-center py-1">
+      <div class="text-center md:w-48 print:w-48">金</div>
+      <div class="text-center md:w-60 print:w-60 font-mono">
+        {{ lang.NumFmt 0 .Site.Params.market.gd }}円/g（前日比 {{ if gt
+        .Site.Params.market.gd_ratio 0 }} +{{ .Site.Params.market.gd_ratio }} {{
+        else if lt .Site.Params.market.gd_ratio 0 }} -{{ mul -1
+        .Site.Params.market.gd_ratio }} {{ else }} {{ print "0" }} {{ end }}円）
+      </div>
     </div>
+    <div class="md:flex print:flex justify-center py-1">
+      <div class="text-center md:w-48 print:w-48">プラチナ</div>
+      <div class="text-center md:w-60 print:w-60 font-mono">
+        {{ lang.NumFmt 0 .Site.Params.market.pt }}円/g（前日比 {{ if gt
+        .Site.Params.market.pt_ratio 0 }} +{{ .Site.Params.market.pt_ratio }} {{
+        else if lt .Site.Params.market.pt_ratio 0 }} -{{ mul -1
+        .Site.Params.market.pt_ratio }} {{ else }} {{ print "0" }} {{ end }}円）
+      </div>
+    </div>
+  </div>
+
+  <div class="my-4 md:pl-8 lg:px-12">
+    <div
+      class="text-center border border-yellow-400 bg-yellow-300 border-b-0 py-2 text-xl font-bold print:border-black"
+    >
+      金製品
+    </div>
+    <div class="flex">
+      <p
+        class="w-2/5 p-2 text-center border border-yellow-400 bg-yellow-300 print:border-black"
+      >
+        品位
+      </p>
+      <p
+        class="w-3/5 p-2 text-center border border-yellow-400 bg-white border-l-0 print:border-black"
+      >
+        買取金額
+      </p>
+      <p
+        class="w-3/5 p-2 text-center border border-yellow-400 bg-white border-l-0 print:border-black"
+      >
+        質預かり
+      </p>
+    </div>
+    {{ $gd := .Site.Params.market.gd }} {{ range .Site.Params.gd }}
+    <div class="">
+      {{ partial "price_gd" (dict "market" $gd "gd" . "pawn" true ) }}
+    </div>
+    {{ end }}
+  </div>
+
+  <div class="my-8 md:pl-8 lg:px-12">
+    <div
+      class="text-center border border-gray-500 bg-gray-300 border-b-0 py-2 text-xl font-bold print:border-black"
+    >
+      プラチナ製品
+    </div>
+    <div class="flex">
+      <p
+        class="w-2/5 p-2 text-center border border-gray-500 bg-gray-300 print:border-black"
+      >
+        品位
+      </p>
+      <p
+        class="w-3/5 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black"
+      >
+        買取金額
+      </p>
+      <p
+        class="w-3/5 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black"
+      >
+        質預かり
+      </p>
+    </div>
+    {{ $pt := .Site.Params.market.pt }} {{ range .Site.Params.pt }}
+    <div class="">
+      {{ partial "price_pt" (dict "market" $pt "pt" . "pawn" true ) }}
+    </div>
+    {{ end }}
+  </div>
+
+  <div class="my-8 md:pl-8 lg:px-12 print:hidden">
+    <div
+      class="text-center border border-gray-500 bg-gray-300 border-b-0 py-2 text-xl font-bold print:border-black"
+    >
+      金貨
+    </div>
+    <div class="flex">
+      <p
+        class="flex-1 p-2 text-center border border-gray-500 bg-gray-300 print:border-black"
+      >
+        品目
+      </p>
+      <p
+        class="w-48 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black"
+      >
+        買取金額
+      </p>
+      <p
+        class="w-48 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black"
+      >
+        質預かり
+      </p>
+    </div>
+    {{ $coin := .Site.Params.market.gd }} {{ range .Site.Params.coin }}
+    <div class="">
+      {{ partial "price_coin" (dict "market" $coin "coin" . "pawn" true ) }}
+    </div>
+    {{ end }}
+
+    <div>その他の金貨も高価買取いたします。お気軽にお問い合わせください。</div>
+  </div>
+
+  <div class="print:hidden p-2 md:leading-8 ml-2">
+    <ul class="list-disc">
+      <li>ジュエリーに付いたダイヤモンドや宝石なども評価の対象となります。</li>
+      <li>手数料や査定料などはかかりません。</li>
+      <li>
+        破損や変形したお品物でも金・プラチナであればお買取が可能でございます。ご不明なお品物がございます場合は一度お問い合わせください。
+      </li>
+    </ul>
+  </div>
+
+  <div class="border border-gold p-2 print:hidden">
     <div>
-        <p class="text-center text-xl font-bold">公表価格</p>
-        <p class="text-center text-sm text-gray-500">営業日の9:30に発表される基準価格です</p>
-        <div class="md:flex print:flex justify-center py-1">
-            <div class="text-center md:w-48 print:w-48">金</div>
-            <div class="text-center md:w-60 print:w-60 font-mono">
-                {{ lang.NumFmt 0 .Site.Params.market.gd }}円/g（前日比
-                {{ if gt .Site.Params.market.gd_ratio 0 }}
-                +{{ .Site.Params.market.gd_ratio }}
-                {{ else if lt .Site.Params.market.gd_ratio 0 }}
-                -{{ mul -1 .Site.Params.market.gd_ratio }}
-                {{ else }}
-                {{ print "0" }}
-                {{ end }}円）
-            </div>
-        </div>
-        <div class="md:flex print:flex justify-center py-1">
-            <div class="text-center md:w-48 print:w-48">プラチナ</div>
-            <div class="text-center md:w-60 print:w-60 font-mono">
-                {{ lang.NumFmt 0 .Site.Params.market.pt }}円/g（前日比
-                {{ if gt .Site.Params.market.pt_ratio 0 }}
-                +{{ .Site.Params.market.pt_ratio }}
-                {{ else if lt .Site.Params.market.pt_ratio 0 }}
-                -{{ mul -1 .Site.Params.market.pt_ratio }}
-                {{ else }}
-                {{ print "0" }}
-                {{ end }}円）
-            </div>
-        </div>
+      <span
+        class="inline-flex items-center px-3 py-0.5 rounded-full font-bold text-gold border border-gold"
+        >買取例</span
+      >
+      ご提示させていただく買取金額は<strong>各品位のグラム単価</strong> ✕
+      <strong>重さ</strong>となります。
     </div>
-
-
-    <div class="my-4 md:pl-8 lg:px-12">
-        <div
-            class="text-center border border-yellow-400 bg-yellow-300 border-b-0 py-2 text-xl font-bold  print:border-black">
-            金製品
-        </div>
-        <div class="flex">
-            <p class="w-2/5 p-2 text-center border border-yellow-400 bg-yellow-300 print:border-black">
-                品位
-            </p>
-            <p class="w-3/5 p-2 text-center border border-yellow-400 bg-white border-l-0 print:border-black">
-                買い取り
-            </p>
-            <p class="w-3/5 p-2 text-center border border-yellow-400 bg-white border-l-0 print:border-black">
-                質預かり
-            </p>
-        </div>
-        {{ $gd := .Site.Params.market.gd }}
-        {{ range .Site.Params.gd }}
-        <div class="">
-            {{ partial "price_gd" (dict "market" $gd "gd" . "pawn" true ) }}
-        </div>
-        {{ end }}
-    </div>
-
-    <div class="my-8 md:pl-8 lg:px-12">
-        <div
-            class="text-center border border-gray-500 bg-gray-300 border-b-0 py-2 text-xl font-bold print:border-black">
-            プラチナ製品
-        </div>
-        <div class="flex">
-            <p class="w-2/5 p-2 text-center border border-gray-500 bg-gray-300 print:border-black">
-                品位
-            </p>
-            <p class="w-3/5 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black">
-                買い取り
-            </p>
-            <p class="w-3/5 p-2 text-center border border-gray-500 bg-white border-l-0 print:border-black">
-                質預かり
-            </p>
-        </div>
-        {{ $pt := .Site.Params.market.pt }}
-        {{ range .Site.Params.pt }}
-        <div class="">
-            {{ partial "price_pt" (dict "market" $pt "pt" . "pawn" true ) }}
-        </div>
-        {{ end }}
-    </div>
-
-    <div class="print:hidden p-2 md:leading-8 ml-2">
-        <ul class="list-disc">
-            <li>ジュエリーに付いたダイヤモンドや宝石なども評価の対象となります。</li>
-            <li>手数料や査定料などはかかりません。</li>
-            <li>破損や変形したお品物でも金・プラチナであればお買取が可能でございます。ご不明なお品物がございます場合は一度お問い合わせください。</li>
-        </ul>
-    </div>
-
-    <div class="border border-gold p-2 print:hidden">
-        <div>
-            <span
-                class="inline-flex items-center px-3 py-0.5 rounded-full font-bold text-gold border border-gold ">買取例</span>
-            ご提示させていただく買取金額は<strong>各品位のグラム単価</strong> ✕ <strong>重さ</strong>となります。
-        </div>
-        <div>100gの18金製ネックレスの場合：7,300 円 x 100.0g = 730,000円</div>
-    </div>
+    <div>100gの18金製ネックレスの場合：7,300 円 x 100.0g = 730,000円</div>
+  </div>
 </div>
 
 {{ end }}

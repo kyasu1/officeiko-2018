@@ -122,3 +122,38 @@ timeout = 30000
     sell_diff = 100
     pawn_diff = 350
 
+  [[params.coin]]
+    name = "天皇陛下御即位記念 10万円金貨"
+    weight = 30
+    sell_ratio = 900
+    pawn_ratio = 800
+
+  [[params.coin]]
+    name = "天皇陛下御在位60年記念 10万円金貨"
+    weight = 20
+    sell_ratio = 900
+    pawn_ratio = 800
+
+  [[params.coin]]
+    name = "皇太子殿下ご成婚記念 5万円金貨"
+    weight = 18
+    sell_ratio = 900
+    pawn_ratio = 800    
+
+  [[params.coin]]
+    name = "天皇陛下御在位10年記念 1万円金貨"
+    weight = 20
+    sell_ratio = 900
+    pawn_ratio = 800        
+
+  [[params.coin]]
+    name = "天皇陛下御在位30年記念 1万円金貨"
+    weight = 20
+    sell_ratio = 900
+    pawn_ratio = 800            
+
+  [[params.coin]]
+    name = "天皇陛下御在位20年記念 1万円金貨"
+    weight = 20
+    sell_ratio = 900
+    pawn_ratio = 800        

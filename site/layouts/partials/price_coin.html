@@ -1,0 +1,21 @@
+<div class="flex -mt-1 print:text-lg font-mono">
+  <p
+    class="flex-1 py-2 px-2 border border-gray-500 bg-gray-300 print:border-black"
+  >
+    {{ .coin.name }}
+  </p>
+  <p
+    class="w-48 py-2 px-2 border border-gray-500 bg-white border-l-0 print:border-black text-center"
+  >
+    {{- $price := div .market 100000.0 | mul .coin.weight | mul .coin.sell_ratio
+    | math.Ceil | mul 100 -}} {{ lang.NumFmt 0 $price }}円
+  </p>
+  {{ if .pawn }}
+  <p
+    class="w-48 py-2 px-2 border border-gray-500 bg-white border-l-0 print:border-black text-center"
+  >
+    {{- $price := div .market 100000.0 | mul .coin.weight | mul .coin.pawn_ratio
+    | math.Ceil | mul 100 -}} {{ lang.NumFmt 0 $price }}円
+  </p>
+  {{ end }}
+</div>
