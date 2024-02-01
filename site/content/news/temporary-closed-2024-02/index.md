@@ -18,17 +18,17 @@ resources:
 
 <div class="px-">
     <div class="p-2 text-2xl font-black text-center">
-        2024/02/18(日) - 2024/02/22(水)
+        2024/02/18(日) - 2024/02/21(水)
     </div>
 </div>
 
-期間中に質の期限が到来する場合には、その期限を 2024/01/25（土）とさせていただきます。
+期間中に質の期限が到来する場合には、その期限を 2024/01/23（金）とさせていただきます。
 
 ご不明な点がございましたらスタッフまでお問い合わせください。
 
 ** Closure Notice **
 
-Our office will be temporary closed from 18th February 2024 until 20th.
+Our office will be temporary closed from 18th February 2024 until 21st.
 
 The services of Western Union will be unavailable for this period.
 
