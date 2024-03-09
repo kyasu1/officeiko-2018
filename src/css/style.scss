@@ -267,3 +267,10 @@ a[href^="tel:"] {
   top: -26px;
   right: 0;
 }
+
+@page {
+  .calendar {
+    margin: 10mm 10mm;
+    size: A4 landscape;
+  }
+}
